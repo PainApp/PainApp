@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/anim/abc_slide_in_bottom.xml"
+    }
+]

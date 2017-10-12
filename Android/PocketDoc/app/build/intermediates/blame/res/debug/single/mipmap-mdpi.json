@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher_round.png",
+        "source": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    }
+]
