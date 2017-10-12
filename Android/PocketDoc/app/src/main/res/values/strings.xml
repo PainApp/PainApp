@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Pocket Doc</string>
+    <string-array name="drawer_list">
+        <item>Help</item>
+    </string-array>
 </resources>
