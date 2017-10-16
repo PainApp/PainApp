@@ -2,5 +2,6 @@
     <string name="app_name">Pocket Doc</string>
     <string-array name="drawer_list">
         <item>Help</item>
+        <item>Memes</item>
     </string-array>
 </resources>

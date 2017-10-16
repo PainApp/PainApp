@@ -56,6 +56,10 @@
         "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/layout/notification_template_icon_group.xml"
     },
     {
+        "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/layout/drawer_list_item.xml",
+        "source": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/src/main/res/layout/drawer_list_item.xml"
+    },
+    {
         "merged": "/home/keyur/Documents/School/Fall17/cs423/PainApp/Android/PocketDoc/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
         "source": "/home/keyur/.android/build-cache/bd3ceb8d492685ec709efed1d4fb0b47cd00a039/output/res/layout/notification_template_part_chronometer.xml"
     },
