@@ -1,6 +1,7 @@
 package xyz.painapp.pocketdoc;
 
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class BodyActivity extends AppCompatActivity {
-    private String[] drawerValueList;
+    private DrawerItem[] drawerValueList;
     private DrawerLayout sidebarDrawerLayout;
     private ListView drawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -38,6 +40,7 @@ public class BodyActivity extends AppCompatActivity {
             if (savedInstanceState == null) {
                 BodyFragment firstFragment = new BodyFragment();
 
+
                 firstFragment.setArguments(getIntent().getExtras());
                 fragmentManager.beginTransaction().add(R.id.fragment_parent, firstFragment).commit();
             }
@@ -49,7 +52,17 @@ public class BodyActivity extends AppCompatActivity {
         mDrawerTitle = mTitle = getTitle();
 
         // Initialize sidebar drawer
-        drawerValueList = getResources().getStringArray(R.array.drawer_list);
+        TypedArray drawerImages = getResources().obtainTypedArray(R.array.drawer_images);
+        Integer[] resIds = new Integer[drawerImages.length()];
+
+        for (int i = 0; i < drawerImages.length(); ++i) {
+            resIds[i] = drawerImages.getResourceId(i, 0);
+        }
+        drawerImages.recycle();
+
+        drawerValueList = DrawerItem.Companion.createFromArray(getResources().getStringArray(R.array.drawer_text_list), resIds);
+
+
         sidebarDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         sidebarDrawerLayout.setStatusBarBackground(R.color.colorPrimary);
         mDrawerToggle = new ActionBarDrawerToggle(this, sidebarDrawerLayout,
@@ -73,8 +86,9 @@ public class BodyActivity extends AppCompatActivity {
         drawerList = (ListView) findViewById(R.id.left_drawer);
 
         // Set adapter for sidebar drawer and add actions
-        drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.drawer_list_item, drawerValueList));
+        drawerList.setAdapter(new DrawerListAdapter(this, R.layout.drawer_list_item, drawerValueList));
         drawerList.setOnItemClickListener(new DrawerOnItemClickListener());
+        drawerList.setItemChecked(0, true);
     }
 
     @Override
@@ -112,28 +126,33 @@ public class BodyActivity extends AppCompatActivity {
     }
 
     private void clickItem(int position) {
+        //Toast.makeText(getApplicationContext(), drawerValueList[position], Toast.LENGTH_LONG).show();
 
-        //getSupportActionBar().setTitle(drawerValueList[position]);
-        if (drawerValueList[position].equals("Help") && !drawerList.isItemChecked(position)) {
-            switchFragments(new HelpFragment());
-        } else if (drawerValueList[position] == "Home"){
-            switchFragments(new BodyFragment());
+        if (drawerValueList[position].getText().equals("Help")) {
+            switchFragments(new HelpFragment(), "HELP_FRAGMENT");
+        } else if (drawerValueList[position].getText().equals("Home")){
+            switchFragments(new BodyFragment(), "BODY_FRAGMENT");
+        } else if (drawerValueList[position].getText().equals("Settings")) {
+            switchFragments(new SettingsFragment(), "SETTINGS_FRAGMENT");
+        } else if (drawerValueList[position].getText().equals("About")) {
+            switchFragments(new AboutFragment(), "ABOUT_FRAGMENT");
         }
         drawerList.setItemChecked(position, true);
         sidebarDrawerLayout.closeDrawer(Gravity.LEFT, true);
     }
 
-    private void switchFragments(Fragment fragment) {
+    private void switchFragments(Fragment fragment, String tag) {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        transaction.replace(R.id.fragment_parent, fragment);
+        transaction.replace(R.id.fragment_parent, fragment, tag);
 
-        if (fragment instanceof HelpFragment) {
-            transaction.addToBackStack(null);
-        } else if (fragment instanceof BodyFragment) {
+        if (fragment instanceof BodyFragment) {
             fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        } else  {
+            transaction.addToBackStack(null);
         }
+
         transaction.commit();
     }
 

@@ -13,7 +13,7 @@
         android:label="Tests for xyz.painapp.pocketdoc"
         android:targetPackage="xyz.painapp.pocketdoc" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 
