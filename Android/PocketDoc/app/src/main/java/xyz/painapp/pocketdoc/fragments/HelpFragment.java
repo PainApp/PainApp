@@ -1,4 +1,4 @@
-package xyz.painapp.pocketdoc;
+package xyz.painapp.pocketdoc.fragments;
 
 
 import android.os.Bundle;
@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import xyz.painapp.pocketdoc.R;
+
 /**
  * Created by keyur on 10/16/17.
+ * Package: ${PACKAGE_NAME} as part of PocketDoc
  */
 
 public class HelpFragment extends Fragment {

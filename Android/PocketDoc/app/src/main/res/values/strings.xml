@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Pocket Doc</string>
-
-    <string name="drawer_open"></string>
-    <string name="drawer_close"></string>
+    <string name='app_name_caps'>POCKETDOC</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="body_image_desc">Body Image</string>
+    <string name="body_view_str">Touch the area where pain is felt</string>
+    <string name="region_image_desc">Region Image</string>
+    <string name="symptom_title_str">Symptoms</string>
+    <string name="muscle_str">Muscle Name</string>
+    <string name="primary_symptoms_str">Primary Symptoms</string>
+    <string name="secondary_symptoms_str">Secondary Symptoms</string>
+    <string name="detail_image">Symptom details</string>
+    <string name="drawer_open" />
+    <string name="drawer_close" />
+    <string name="details_example_title">Tibialis Anterior</string>
 </resources>
+

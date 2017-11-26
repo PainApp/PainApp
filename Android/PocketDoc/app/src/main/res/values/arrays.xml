@@ -12,4 +12,20 @@
         <item>@drawable/ic_help</item>
         <item>@drawable/ic_about</item>
     </array>
+    <string-array name="main_action_list">
+        <item name="start">start</item>
+        <item name="search">search</item>
+        <item name="settings">settings</item>
+        <item name="about">about</item>
+    </string-array>
+    <string-array name="sample_symptoms_list">
+        <item>Symptom 1</item>
+        <item>Symptom 2</item>
+        <item>Symptom 3</item>
+        <item>Symptom 4</item>
+        <item>Symptom 5</item>
+        <item>Symptom 6</item>
+        <item>Symptom 7</item>
+        <item>Symptom 8</item>
+    </string-array>
 </resources>

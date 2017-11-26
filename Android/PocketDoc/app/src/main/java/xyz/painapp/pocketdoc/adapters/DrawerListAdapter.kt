@@ -1,4 +1,4 @@
-package xyz.painapp.pocketdoc
+package xyz.painapp.pocketdoc.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import xyz.painapp.pocketdoc.entities.DrawerItem
+import xyz.painapp.pocketdoc.R
 
 /**
- * Created by keyur on 11/8/17.
- */
+* Created by keyur on 11/8/17.
+* Package: ${PACKAGE_NAME} as part of PocketDoc
+*/
 
 class DrawerListAdapter(context: Context, resource: Int, objects: Array<DrawerItem>) : ArrayAdapter<DrawerItem>(context, resource, objects) {
     var resource: Int
