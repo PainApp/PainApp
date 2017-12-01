@@ -54,9 +54,9 @@ class RegionFragment: Fragment(), AdapterView.OnItemClickListener, View.OnTouchL
     private fun imgButtonTouch(v: View?, event: MotionEvent?): Boolean {
         val x : Int = event!!.x.toInt()
         val y : Int = event.y.toInt()
-        var data = Bundle()
+        val data = Bundle()
 
-        var symptom = getSymptom(x, y)
+        val symptom = getSymptom(x, y)
 
 
         data.putString("Symptom", symptom)
