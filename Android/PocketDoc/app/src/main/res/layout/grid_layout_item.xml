@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO add rounded corners-->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_item_label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="100dp"
+
+    android:text="@+id/label"
+    android:textSize="48sp"
+    android:textAlignment="center" />
