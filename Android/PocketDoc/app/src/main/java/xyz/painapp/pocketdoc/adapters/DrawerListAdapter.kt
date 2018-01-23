@@ -26,15 +26,7 @@ class DrawerListAdapter(context: Context, resource: Int, objects: Array<DrawerIt
         this.inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
-    private class ViewHolder(textView: TextView, imageView: ImageView) {
-        var imageView: ImageView
-        var textView: TextView
-
-        init {
-            this.imageView = imageView
-            this.textView = textView
-        }
-    }
+    private class ViewHolder(var textView: TextView, var imageView: ImageView)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         val holder: ViewHolder
