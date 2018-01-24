@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.pain.app.bean.Syndrome;
+import org.pain.app.bean.*;
 
 /*
  * It is just a helper class which should be replaced by database implementation.
@@ -20,11 +20,21 @@ public class SyndromeService {
 		if (syndromeIdMap == null) {
 			syndromeIdMap = new HashMap<Integer, Syndrome>();
 			// Creating some objects of Syndrome while initializing
-			Syndrome ovarianCyst = new Syndrome(1, "Hip", "Medial", "Ovarian Cyst");
-			Syndrome endometriosis = new Syndrome(2, "Hip","Medial","Endometriosis");
-			Syndrome sacralStressFX = new Syndrome(3, "Hip", "Posterior", "Sacral Stress FX");
-			Syndrome ulnarBursitis = new Syndrome(4, "Forearm", "Medial", "Ulnar Bursitis");
-			Syndrome highAnkleSprain = new Syndrome(5, "Foot", "Lateral", "High Ankle Sprain");
+			BodyRegion hip = new BodyRegion(1, "Hip");
+			BodyRegion forearm = new BodyRegion(2, "Forearm");
+			BodyRegion foot = new BodyRegion(3, "Foot");
+			
+			SpecificBodyRegion medial = new SpecificBodyRegion(1, "Medial", hip);
+			SpecificBodyRegion posterior = new SpecificBodyRegion(2, "Posterior", hip);
+			SpecificBodyRegion medial2 = new SpecificBodyRegion(3, "Medial", forearm);
+			SpecificBodyRegion lateral = new SpecificBodyRegion(4, "Lateral", foot);
+			
+					
+			Syndrome ovarianCyst = new Syndrome(1, "Ovarian Cyst", hip, medial);
+			Syndrome endometriosis = new Syndrome(2, "Endometriosis", hip, medial);
+			Syndrome sacralStressFX = new Syndrome(3, "Sacral Stress FX", hip, posterior);
+			Syndrome ulnarBursitis = new Syndrome(4, "Ulnar Bursitis", forearm, medial2);
+			Syndrome highAnkleSprain = new Syndrome(5, "High Ankle Sprain", foot, lateral);
 
 			syndromeIdMap.put(1, ovarianCyst);
 			syndromeIdMap.put(2, endometriosis);

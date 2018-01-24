@@ -3,20 +3,27 @@ package org.pain.app.bean;
 public class Syndrome {
 
 	int id;
-	String bodyRegion;
-	String sBodyRegion;
+	BodyRegion bodyRegion;
+	SpecificBodyRegion sBodyRegion;
 	String name;
 	String description;
 	double likelihood;
 	
-	public Syndrome(int id, String bodyRegion, String sBodyRegion, String name) {
+	public Syndrome(int id, String name, SpecificBodyRegion sBodyRegion) {
+		this.id = id;
+		this.bodyRegion = sBodyRegion.getBodyRegion();
+		this.sBodyRegion = sBodyRegion;
+		this.name = name;
+	}
+	
+	public Syndrome(int id, String name, BodyRegion bodyRegion, SpecificBodyRegion sBodyRegion) {
 		this.id = id;
 		this.bodyRegion = bodyRegion;
 		this.sBodyRegion = sBodyRegion;
 		this.name = name;
 	}
 	
-	public Syndrome(int id, String bodyRegion, String sBodyRegion, String name, String description, double likelihood) {
+	public Syndrome(int id, BodyRegion bodyRegion, SpecificBodyRegion sBodyRegion, String name, String description, double likelihood) {
 		this.id = id;
 		this.bodyRegion = bodyRegion;
 		this.sBodyRegion = sBodyRegion;
@@ -27,11 +34,11 @@ public class Syndrome {
 
 
 
-	public String getBodyRegion() {
+	public BodyRegion getBodyRegion() {
 		return bodyRegion;
 	}
 
-	public void setBodyRegion(String bodyRegion) {
+	public void setBodyRegion(BodyRegion bodyRegion) {
 		this.bodyRegion = bodyRegion;
 	}
 
@@ -43,11 +50,11 @@ public class Syndrome {
 		this.id = id;
 	}
 
-	public String getsBodyRegion() {
+	public SpecificBodyRegion getsBodyRegion() {
 		return sBodyRegion;
 	}
 
-	public void setsBodyRegion(String sBodyRegion) {
+	public void setsBodyRegion(SpecificBodyRegion sBodyRegion) {
 		this.sBodyRegion = sBodyRegion;
 	}
 
