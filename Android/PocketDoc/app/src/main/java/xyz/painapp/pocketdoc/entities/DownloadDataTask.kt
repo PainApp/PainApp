@@ -3,8 +3,9 @@ package xyz.painapp.pocketdoc.entities
 import android.os.AsyncTask
 import android.util.Log
 import org.json.JSONObject
-import org.json.JSONTokener
-import java.io.*
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
 import java.net.HttpURLConnection
 /**
  * Created by keyur on 1/23/18.

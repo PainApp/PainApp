@@ -7,6 +7,10 @@
         <item name="about">About</item>
 
     </string-array>
+    <string-array name="method_spinner_list">
+        <item>GET</item>
+        <item>POST</item>
+    </string-array>
     <array name="drawer_images">
         <item>@drawable/ic_home</item>
         <item>@drawable/ic_settings</item>

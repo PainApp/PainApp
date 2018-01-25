@@ -30,10 +30,11 @@ class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: List<S
 
     init {
         if (this.methodString != HTTPUrlMethod.POST && this.methodString != HTTPUrlMethod.GET)
-            throw IllegalArgumentException("Method string must be of HTTPMethod Type")
+            throw IllegalArgumentException("Method string must be either GET or POST Type")
 
         if (this.methodString == HTTPUrlMethod.GET && dataList != null) {
             throw IllegalArgumentException("Cannot provide parameters for GET method, perhaps you meant to use POST")
         }
+
     }
 }

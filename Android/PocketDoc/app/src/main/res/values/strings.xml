@@ -15,5 +15,9 @@
     <string name="drawer_close" />
     <string name="details_example_title">Tibialis Anterior</string>
     <string name="debug_str">Debug</string>
+    <string name="ip_address_str">IP Address or hostname</string>
+    <string name="port_str">Port Number</string>
+    <string name="method_str">HTTP Method</string>
+    <string name="debug_errStr">Both fields are required!</string>
 </resources>
 
