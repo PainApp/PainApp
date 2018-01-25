@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".activities.BodyActivity"
             android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.DebugActivity"
+            android:parentActivityName=".activities.MainActivity"/>
     </application>
 
 </manifest>

@@ -14,5 +14,6 @@
     <string name="drawer_open" />
     <string name="drawer_close" />
     <string name="details_example_title">Tibialis Anterior</string>
+    <string name="debug_str">Debug</string>
 </resources>
 

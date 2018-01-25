@@ -12,7 +12,7 @@ class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: List<S
         val GET = "GET"
     }
 
-    fun getDataAsString() : String {
+    fun getDataAsBytes() : ByteArray {
         var result = ""
 
         if (dataList != null) {
@@ -24,12 +24,12 @@ class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: List<S
             }
         }
 
-        return result
+        return result.toByteArray()
     }
 
 
     init {
-        if (this.methodString != HTTPUrlMethod.POST || this.methodString != HTTPUrlMethod.GET)
+        if (this.methodString != HTTPUrlMethod.POST && this.methodString != HTTPUrlMethod.GET)
             throw IllegalArgumentException("Method string must be of HTTPMethod Type")
 
         if (this.methodString == HTTPUrlMethod.GET && dataList != null) {

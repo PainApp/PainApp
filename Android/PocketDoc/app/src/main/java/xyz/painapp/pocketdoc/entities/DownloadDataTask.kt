@@ -2,55 +2,74 @@ package xyz.painapp.pocketdoc.entities
 
 import android.os.AsyncTask
 import android.util.Log
-import org.json.JSONArray
-import java.io.BufferedInputStream
-import java.io.BufferedWriter
-import java.io.OutputStreamWriter
+import org.json.JSONObject
+import org.json.JSONTokener
+import java.io.*
 import java.net.HttpURLConnection
 /**
  * Created by keyur on 1/23/18.
  * Package: xyz.painapp.pocketdoc.entities as part of PocketDoc
  */
 
-class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONArray>() {
-    override fun doInBackground(vararg urlList: HTTPUrlMethod?): JSONArray {
-        var results = JSONArray()
+abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
+    abstract override fun onPreExecute()
+    abstract override fun onPostExecute(result: JSONObject?)
+    override fun doInBackground(vararg urlList: HTTPUrlMethod?): JSONObject {
+        var results = JSONObject("{}")
         val urlMethod = urlList[0]
         var myConnection: HttpURLConnection? = null
 
+
         try {
-            val url = urlMethod!!.url
+            Log.i("Url", urlMethod!!.url.toString())
+            val url = urlMethod.url
             myConnection = url.openConnection() as HttpURLConnection
             myConnection.requestMethod = urlMethod.methodString
             myConnection.doInput = true
 
             if (urlMethod.methodString == HTTPUrlMethod.POST) {
                 myConnection.doOutput = true
-                val bufferedWriter = BufferedWriter(OutputStreamWriter(myConnection.outputStream))
-                bufferedWriter.write(urlMethod.getDataAsString())
+                myConnection.setRequestProperty("Content-Type", "application/json")
+                val outputStream = myConnection.outputStream
+                outputStream.write(urlMethod.getDataAsBytes())
+                myConnection.outputStream.close()
+
 
                 if (myConnection.responseCode != 200) {
                     // TODO add some way of letting the user know the data is not available
-                    Log.e("Response Code", Integer.toString(myConnection.responseCode))
+                    Log.e("Response Code", myConnection.responseMessage)
+                    return JSONObject()
                 }
-                myConnection.outputStream.close()
             }
 
             if (myConnection.responseCode == 200) {
-                val inputStream = BufferedInputStream(myConnection.inputStream)
-
-                // TODO figure out how to read input as JSON
+                val inputStream = BufferedReader(InputStreamReader(myConnection.inputStream))
+                results = readStream(inputStream)
             }
             myConnection.disconnect()
 
         } catch (e: Exception) {
             e.printStackTrace()
+
         } finally {
             myConnection?.disconnect()
         }
 
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return results
+    }
+
+    private fun readStream(inputStream: BufferedReader): JSONObject {
+
+        return try {
+            val strBuilder = StringBuilder()
+            inputStream.forEachLine { s: String -> strBuilder.append(s) }
+
+            JSONObject(strBuilder.toString())
+        } catch (e: IOException) {
+            e.printStackTrace()
+            JSONObject()
+        }
     }
 
 }

@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         // TODO add in handlers for other activities
         val intent : Intent? =
-                if (item == "start") {
-                    Intent(this, BodyActivity::class.java)
-                } else {
-                    null
+                when (item) {
+                    "start" -> Intent(this, BodyActivity::class.java)
+                    "debug" -> Intent(this, DebugActivity::class.java)
+                    else -> null
                 }
 
         if (intent != null) {

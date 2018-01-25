@@ -5,6 +5,7 @@
         <item name="settings">Settings</item>
         <item name="help">Help</item>
         <item name="about">About</item>
+
     </string-array>
     <array name="drawer_images">
         <item>@drawable/ic_home</item>
@@ -17,6 +18,7 @@
         <item name="search">search</item>
         <item name="settings">settings</item>
         <item name="about">about</item>
+        <item name="debug">debug</item>
     </string-array>
     <string-array name="sample_symptoms_list">
         <item>Symptom 1</item>
