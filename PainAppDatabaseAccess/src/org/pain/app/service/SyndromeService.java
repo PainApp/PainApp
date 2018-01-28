@@ -44,6 +44,7 @@ public class SyndromeService {
 		}
 	}
 
+	
 	public List getAllSyndromes() {
 		List syndromes = new ArrayList(syndromeIdMap.values());
 		return syndromes;

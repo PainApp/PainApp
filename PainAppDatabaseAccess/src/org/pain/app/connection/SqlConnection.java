@@ -5,7 +5,8 @@ import java.sql.*;
 public class SqlConnection {
    // JDBC driver name and database URL
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-   static final String DB_URL = "jdbc:mysql://155.246.89.120/pocket_doc";
+   //static final String DB_URL = "jdbc:mysql://155.246.89.120:3306/pocket_doc";
+   static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/pocket_doc";
 
    //  Database credentials
    static final String USER = "root";
@@ -18,12 +19,13 @@ public class SqlConnection {
    Statement stmt = null;
    try{
       //STEP 1: Register JDBC driver
-      Class.forName("com.mysql.jdbc.Driver");
+      Class.forName(JDBC_DRIVER);
 
       //STEP 2: Open a connection to database
       System.out.println("Connecting to database...");
       conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
+      System.out.println("Success");
+      
         
    
         

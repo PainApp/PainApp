@@ -6,8 +6,8 @@ public class Syndrome {
 	BodyRegion bodyRegion;
 	SpecificBodyRegion sBodyRegion;
 	String name;
-	String description;
-	double likelihood;
+	//String description;
+	//double likelihood;
 	
 	public Syndrome(int id, String name, SpecificBodyRegion sBodyRegion) {
 		this.id = id;
@@ -23,14 +23,14 @@ public class Syndrome {
 		this.name = name;
 	}
 	
-	public Syndrome(int id, BodyRegion bodyRegion, SpecificBodyRegion sBodyRegion, String name, String description, double likelihood) {
+/*	public Syndrome(int id, BodyRegion bodyRegion, SpecificBodyRegion sBodyRegion, String name, String description, double likelihood) {
 		this.id = id;
 		this.bodyRegion = bodyRegion;
 		this.sBodyRegion = sBodyRegion;
 		this.name = name;
 		this.description = description;
 		this.likelihood = likelihood;
-	}
+	}*/
 
 
 
@@ -66,7 +66,7 @@ public class Syndrome {
 		this.name = name;
 	}
 
-	public String getDescription() {
+/*	public String getDescription() {
 		return description;
 	}
 
@@ -80,7 +80,7 @@ public class Syndrome {
 
 	public void setLikelihood(double likelihood) {
 		this.likelihood = likelihood;
-	}
+	}*/
 
 	
 
