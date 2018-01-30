@@ -43,7 +43,15 @@ public class SyndromeService {
 			syndromeIdMap.put(5, highAnkleSprain);
 		}
 	}
-
+	public List getAllSyndromesInSpecificBodyRegion(int sBodyRegionId) {
+		List syndromes = new ArrayList();
+		for(int i = 1; i <= syndromeIdMap.size(); i++) {
+			if(syndromeIdMap.get(i).getsBodyRegion().getId() == sBodyRegionId) {
+				syndromes.add(syndromeIdMap.get(i));
+			}
+		}
+		return syndromes;
+	}
 	
 	public List getAllSyndromes() {
 		List syndromes = new ArrayList(syndromeIdMap.values());

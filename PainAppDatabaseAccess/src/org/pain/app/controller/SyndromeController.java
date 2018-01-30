@@ -1,4 +1,8 @@
 package org.pain.app.controller;
+/*
+http://ip:port/PainAppDatabaseAccess/rest/syndromes/sBodyRegion
+*/
+import java.sql.SQLException;
 
 //Run on a tomcat server
 //Go to http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/
@@ -16,15 +20,32 @@ import javax.ws.rs.core.MediaType;
 
 import org.pain.app.bean.Syndrome;
 import org.pain.app.service.SyndromeService;
+import org.pain.app.service.SyndromeServiceSql;
 
 @Path("/syndromes")
 public class SyndromeController {
 
+	//SyndromeServiceSql syndromeService = new SyndromeServiceSql();
 	SyndromeService syndromeService = new SyndromeService();
 
+	
+	//Change this to post
+	@GET
+	@Path("/sBodyRegion/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List getSyndromesBySpecificBodyRegionId(@PathParam("id") int id) throws SQLException {
+		List listOfSyndromes = syndromeService.getAllSyndromesInSpecificBodyRegion(id);
+		return listOfSyndromes;
+	}
+	
+	/*
+	 * 
+	 */
+	
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List getSyndromes() {
+	public List getSyndromes() throws SQLException {
 
 		List listOfSyndromes = syndromeService.getAllSyndromes();
 		return listOfSyndromes;

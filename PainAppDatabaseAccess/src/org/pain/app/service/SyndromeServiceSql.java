@@ -18,12 +18,13 @@ public class SyndromeServiceSql {
 	String sql;
 	ResultSet rs;
 
-	public SyndromeServiceSql() throws SQLException {
-		super();
-		stmt = conn.createStatement();
+	public SyndromeServiceSql()  {
+		
+		
 	}
 
 	public List getAllSyndromesInSpecificBodyRegion(int sBodyRegionId) throws SQLException {
+		stmt = conn.createStatement();
 		stmt.executeQuery("SELECT * FROM syndromes S WHERE S.sbody_region_id=" + sBodyRegionId);
 		rs = stmt.getResultSet();
 		List syndromes = new ArrayList<String>();
