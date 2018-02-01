@@ -37,6 +37,14 @@ public class SyndromeController {
 	//given a syndrome, get all the information back for it
 	
 	
+	//This method returns all the syndromes in json format for specificed sbodyregion
+	//Access with URL: http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/sBodyRegion
+	//You give it the sbodyregion in json format 
+	//For Example:
+	//You give:
+	//{"id": 0,"name": "Medial","bodyRegion": {"id": 0, "name": "Hip"}}
+	//It returns all syndromes in the medial hip like this: 
+	//[{"id":0,"bodyRegion":{"id":0,"name":"Hip"},"sBodyRegion":{"id":0,"name":"Medial","bodyRegion":{"id":0,"name":"Hip"}},"name":"Ovarian Cyst"},{"id":1,"bodyRegion":{"id":0,"name":"Hip"},"sBodyRegion":{"id":0,"name":"Medial","bodyRegion":{"id":0,"name":"Hip"}},"name":"Endometriosis"}]
 	@POST
 	@Path("/sBodyRegion")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -47,7 +55,16 @@ public class SyndromeController {
 		return Response.ok(listOfSyndromes).build();
 	}
 
-
+	/*
+	 * This method returns all specific body regions in a give body region
+	 * Access with this URL:  http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/bodyRegion
+	 * You give it the bodyregion in json format
+	 * For example:
+	 * You give: 
+	 * {"id":0,"name":"Hip"}
+	 * It returns all specific body regions in the hip like this:
+	 * [{"id":0,"name":"Medial","bodyRegion":{"id":0,"name":"Hip"}},{"id":1,"name":"Posterior","bodyRegion":{"id":0,"name":"Hip"}}]
+	 */
 	@POST
 	@Path("/bodyRegion")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -59,6 +76,14 @@ public class SyndromeController {
 	}
 	
 
+	/*
+	 * This method returns all syndrome information as json give a syndrome id
+	 * Access with this URL: http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/{id}
+	 * You give nothing except the id in the URL
+	 * For example if you give this URL: http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/3
+	 * You get back this: 
+	 * {"id":3,"bodyRegion":{"id":1,"name":"Forearm"},"sBodyRegion":{"id":2,"name":"Medial","bodyRegion":{"id":1,"name":"Forearm"}},"name":"Ulnar Bursitis"}
+	 */
 	@POST
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
