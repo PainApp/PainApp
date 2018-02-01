@@ -33,7 +33,7 @@ class CausesViewAdapter(private var context: Context, private var causes: ArrayL
             // set value into textview
             val textView = gridView
                     .findViewById<TextView>(R.id.grid_item_label) as TextView
-            textView.setText(causes[position].cause)
+            textView.text = causes[position].cause
             textView.setBackgroundColor(causes[position].getBackgroundColor())
         } else {
             gridView = convertView

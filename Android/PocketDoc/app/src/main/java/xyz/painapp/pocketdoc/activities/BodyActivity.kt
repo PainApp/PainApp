@@ -1,37 +1,47 @@
 package xyz.painapp.pocketdoc.activities
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
-import xyz.painapp.pocketdoc.fragments.BodyFragment
 import xyz.painapp.pocketdoc.R
 
-class BodyActivity : AppCompatActivity() {
-    private var fragmentManager: FragmentManager? = null
+class BodyActivity : AppCompatActivity(), View.OnClickListener {
+
+    private var flipped: Boolean = false
+    private var bodyConstraintLayout : ConstraintLayout? = null
+    private var flipButton : Button? = null
+    private val regionMap: HashMap<Int, Int> = HashMap()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_body)
 
-        fragmentManager = supportFragmentManager
-
-        if (findViewById<View>(R.id.fragment_parent) != null && savedInstanceState == null) {
-            val firstFragment = BodyFragment()
-
-
-            firstFragment.arguments = intent.extras
-            fragmentManager!!.beginTransaction().add(R.id.fragment_parent, firstFragment).commit()
-        }
-
         // Set toolbar
-        val toolbar = findViewById<Toolbar>(R.id.main_toolbar) as Toolbar
+        val toolbar = findViewById<Toolbar>(R.id.main_toolbar)
         setSupportActionBar(toolbar)
+
+        regionMap[R.id.front_hips_image_view] = 0
+        regionMap[R.id.front_left_forearm_imageView] = 1
+        regionMap[R.id.front_right_forearm_imageView] = 1
+        regionMap[R.id.front_feet_imageView] = 2
+
+        bodyConstraintLayout = findViewById(R.id.body_constraintLayout)
+
+
+
+        flipButton!!.setOnClickListener(this)
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -53,30 +63,23 @@ class BodyActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun switchFragments(fragment: Fragment, tag: String, args: Bundle) {
+    override fun onClick(v: View?) {
 
-        val transaction = fragmentManager!!.beginTransaction()
+        when (v!!.id) {
+            R.id.flip_body_button -> return
+            else -> {
+                if (regionMap.keys.contains(v.id)) {
 
-        fragment.arguments = args
-        transaction.replace(R.id.fragment_parent, fragment, tag)
+                }
+            }
 
-
-        if (fragment is BodyFragment) {
-            fragmentManager!!.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        } else {
-            transaction.addToBackStack(null)
         }
 
-        transaction.commit()
     }
 
-    override fun onBackPressed() {
-        if (fragmentManager!!.backStackEntryCount > 0) {
-            fragmentManager!!.popBackStack()
-        } else {
-            super.onBackPressed()
-        }
-
+    // TODO figure out which region of the body was clicked
+    private fun getBodyRegion(x: Int, y: Int): String {
+        return "calf"
     }
 
 
