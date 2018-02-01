@@ -53,10 +53,17 @@ public class SyndromeController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getSyndromesByBodyRegionId(BodyRegion bodyRegion) throws SQLException {
-		System.out.println(bodyRegion.getId() + " " + bodyRegion.getName());
 		List listOfSpecificBodyRegions = syndromeService.getAllSpecificBodyRegionsInBodyRegion(bodyRegion.getId());
 		//return listOfSyndromes;
 		return Response.ok(listOfSpecificBodyRegions).build();
+	}
+	
+
+	@POST
+	@Path("/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getSyndromesByBodyRegionId(@PathParam("id") int id) throws SQLException {
+		return Response.ok(syndromeService.getSyndrome(id)).build();
 	}
 	
 	
