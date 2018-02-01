@@ -5,6 +5,10 @@ public class BodyRegion {
 	int id;
 	String name;
 	
+	public BodyRegion() {
+		
+	}
+	
 	public BodyRegion(int id, String name){
 		this.id = id;
 		this.name = name;

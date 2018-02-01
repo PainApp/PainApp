@@ -6,6 +6,10 @@ public class SpecificBodyRegion {
 	String name;
 	BodyRegion bodyRegion;
 	
+	public SpecificBodyRegion() {
+		
+	}
+	
 	public SpecificBodyRegion(int id, String name, BodyRegion bodyRegion) {
 		this.id = id;
 		this.name = name;

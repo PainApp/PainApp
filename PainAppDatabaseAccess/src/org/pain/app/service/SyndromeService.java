@@ -13,12 +13,16 @@ import org.pain.app.bean.*;
 public class SyndromeService {
 
 	static HashMap<Integer, Syndrome> syndromeIdMap = getSyndromeIdMap();
+	static HashMap<Integer, BodyRegion> bodyRegionIdMap = getBodyRegionIdMap();
+	static HashMap<Integer, SpecificBodyRegion> sBodyRegionIdMap = getSBodyRegionIdMap();
 
 	public SyndromeService() {
 		super();
 
-		if (syndromeIdMap == null) {
+		if (syndromeIdMap == null && bodyRegionIdMap == null && sBodyRegionIdMap == null) {
 			syndromeIdMap = new HashMap<Integer, Syndrome>();
+			bodyRegionIdMap = new HashMap<Integer, BodyRegion>();
+			sBodyRegionIdMap = new HashMap<Integer, SpecificBodyRegion>();
 			// Creating some objects of Syndrome while initializing
 			BodyRegion hip = new BodyRegion(0, "Hip");
 			BodyRegion forearm = new BodyRegion(1, "Forearm");
@@ -41,24 +45,39 @@ public class SyndromeService {
 			syndromeIdMap.put(2, sacralStressFX);
 			syndromeIdMap.put(3, ulnarBursitis);
 			syndromeIdMap.put(4, highAnkleSprain);
+			
+			bodyRegionIdMap.put(0, hip);
+			bodyRegionIdMap.put(1, forearm);
+			bodyRegionIdMap.put(2, foot);
+			
+
+			sBodyRegionIdMap.put(0, medial);
+			sBodyRegionIdMap.put(1, posterior);
+			sBodyRegionIdMap.put(2, medial2);
+			sBodyRegionIdMap.put(3, lateral);
+			
+			
 		}
 	}
-	public List getAllSyndromesInBodyRegion(int bodyRegionId) {
+	
+	//Get all syndromes in specific body region
+	public List getAllSyndromesInSpecificBodyRegion(int sBodyRegionId) {
 		List syndromes = new ArrayList();
 		for(int i = 0; i < syndromeIdMap.size(); i++) {
-			if(syndromeIdMap.get(i).getBodyRegion().getId() == bodyRegionId) {
+			if(syndromeIdMap.get(i).getsBodyRegion().getId() == sBodyRegionId) {
 				syndromes.add(syndromeIdMap.get(i));
 			}
 		}
 		return syndromes;
 	}
 	
-	
-	public List getAllSyndromesInSpecificBodyRegion(int sBodyRegionId) {
+	//get all specific body regions in body region id
+	public List getAllSpecificBodyRegionsInBodyRegion(int bodyRegionId) {
 		List sBodyRegions = new ArrayList();
-		for(int i = 0; i < syndromeIdMap.size(); i++) {
-			if(syndromeIdMap.get(i).getsBodyRegion().getId() == sBodyRegionId) {
-				sBodyRegions.add(syndromeIdMap.get(i));
+		System.out.println(bodyRegionId);
+		for(int i = 0; i < sBodyRegionIdMap.size(); i++) {
+			if(sBodyRegionIdMap.get(i).getBodyRegion().getId() == bodyRegionId) {
+				sBodyRegions.add(sBodyRegionIdMap.get(i));
 			}
 		}
 		return sBodyRegions;
@@ -94,5 +113,13 @@ public class SyndromeService {
 
 	public static HashMap<Integer, Syndrome> getSyndromeIdMap() {
 		return syndromeIdMap;
+	}
+	
+	public static HashMap<Integer, BodyRegion> getBodyRegionIdMap() {
+		return bodyRegionIdMap;
+	}
+	
+	public static HashMap<Integer, SpecificBodyRegion> getSBodyRegionIdMap() {
+		return sBodyRegionIdMap;
 	}
 }

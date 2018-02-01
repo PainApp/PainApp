@@ -1,4 +1,5 @@
 package org.pain.app.controller;
+import java.io.InputStream;
 /*
 http://ip:port/PainAppDatabaseAccess/rest/syndromes/sBodyRegion
 */
@@ -19,9 +20,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.bind.JAXBElement;
 
-import org.pain.app.bean.Syndrome;
+import org.pain.app.bean.*;
 import org.pain.app.service.SyndromeService;
 import org.pain.app.service.SyndromeServiceSql;
 
@@ -32,41 +32,31 @@ public class SyndromeController {
 	SyndromeService syndromeService = new SyndromeService();
 
 	
-	//Change this to post
-	//Id will come in json
-/*	@GET
-	@Path("/sBodyRegion/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List getSyndromesBySpecificBodyRegionId(@PathParam("id") int id) throws SQLException {
-		List listOfSyndromes = syndromeService.getAllSyndromesInSpecificBodyRegion(id);
-		return listOfSyndromes;
-	}*/
-	
-	
 	//He gives a body region id, and he needs back specific body region ids and name for one 
 	//Another he gives a specific body region id, and he needs back syndromes
 	//given a syndrome, get all the information back for it
 	
 	
 	@POST
-	@Path("/sBodyRegion/")
+	@Path("/sBodyRegion")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getSyndromesBySpecificBodyRegionId(@PathParam("sBodyRegionId") int sBodyRegionId) throws SQLException {
-		List listOfSyndromes = syndromeService.getAllSyndromesInSpecificBodyRegion(sBodyRegionId);
+	public Response getSyndromesBySpecificBodyRegionId(SpecificBodyRegion sBodyRegion) throws SQLException {
+		List listOfSyndromes = syndromeService.getAllSyndromesInSpecificBodyRegion(sBodyRegion.getId());
 		//return listOfSyndromes;
 		return Response.ok(listOfSyndromes).build();
 	}
 
 
 	@POST
-	@Path("/bodyRegion/")
+	@Path("/bodyRegion")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getSyndromesByBodyRegionId(@PathParam("bodyRegionId") int bodyRegionId) throws SQLException {
-		List listOfSyndromes = syndromeService.getAllSyndromesInBodyRegion(bodyRegionId);
+	public Response getSyndromesByBodyRegionId(BodyRegion bodyRegion) throws SQLException {
+		System.out.println(bodyRegion.getId() + " " + bodyRegion.getName());
+		List listOfSpecificBodyRegions = syndromeService.getAllSpecificBodyRegionsInBodyRegion(bodyRegion.getId());
 		//return listOfSyndromes;
-		return Response.ok(listOfSyndromes).build();
+		return Response.ok(listOfSpecificBodyRegions).build();
 	}
 	
 	

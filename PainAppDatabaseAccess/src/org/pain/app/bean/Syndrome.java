@@ -9,6 +9,10 @@ public class Syndrome {
 	//String description;
 	//double likelihood;
 	
+	public Syndrome() {
+		
+	}
+	
 	public Syndrome(int id, String name, SpecificBodyRegion sBodyRegion) {
 		this.id = id;
 		this.bodyRegion = sBodyRegion.getBodyRegion();
