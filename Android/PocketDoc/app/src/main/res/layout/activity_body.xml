@@ -7,6 +7,7 @@
 
     <include layout="@layout/app_bar" />
 
+    <!--TODO extract into a different layout file then just programmatically swap layouts whenever the flip button is pressed -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/body_constraintLayout"
         android:layout_width="match_parent"
@@ -103,14 +104,6 @@
             app:srcCompat="@drawable/front_left_shoulder" />
 
         <ImageView
-            android:id="@+id/front_left_upperarm_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/front_left_shoulder_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_left_shoulder_imageView"
-            app:srcCompat="@drawable/front_left_upperarm" />
-
-        <ImageView
             android:id="@+id/front_left_elbow_imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,6 +120,14 @@
             app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
             app:layout_constraintTop_toBottomOf="@+id/front_left_elbow_imageView"
             app:srcCompat="@drawable/front_left_forearm" />
+
+        <ImageView
+            android:id="@+id/front_left_upperarm_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/front_left_shoulder_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/front_left_shoulder_imageView"
+            app:srcCompat="@drawable/front_left_upperarm" />
 
         <ImageView
             android:id="@+id/front_left_hand_imageView"

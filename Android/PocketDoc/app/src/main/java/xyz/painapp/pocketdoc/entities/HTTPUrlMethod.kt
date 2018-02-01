@@ -10,6 +10,8 @@ class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: List<S
     companion object {
         val POST = "POST"
         val GET = "GET"
+
+        val BODY_REGION_URL: URL = URL("http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/")
     }
 
     fun getDataAsBytes() : ByteArray {

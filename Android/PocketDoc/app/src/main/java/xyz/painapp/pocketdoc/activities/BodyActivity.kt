@@ -5,13 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import xyz.painapp.pocketdoc.R
 
@@ -39,7 +36,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         bodyConstraintLayout = findViewById(R.id.body_constraintLayout)
 
 
-
         flipButton!!.setOnClickListener(this)
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -65,16 +61,17 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
+        var intent = Intent(this, RegionActivity::class.java)
+
         when (v!!.id) {
             R.id.flip_body_button -> return
             else -> {
                 if (regionMap.keys.contains(v.id)) {
-
+                    intent.putExtra("Region", regionMap[v.id])
+                    startActivity(intent)
                 }
             }
-
         }
-
     }
 
     // TODO figure out which region of the body was clicked
