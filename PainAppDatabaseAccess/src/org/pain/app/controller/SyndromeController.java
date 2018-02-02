@@ -42,9 +42,9 @@ public class SyndromeController {
 	//You give it the sbodyregion in json format 
 	//For Example:
 	//You give:
-	//{"id": 0,"name": "Medial","bodyRegion": {"id": 0, "name": "Hip"}}
+	//{"id":0,"name":"Medial","listOfSyndromes":[{"id":0,"name":"Ovarian Cyst"},{"id":1,"name":"Endometriosis"}]}
 	//It returns all syndromes in the medial hip like this: 
-	//[{"id":0,"bodyRegion":{"id":0,"name":"Hip"},"sBodyRegion":{"id":0,"name":"Medial","bodyRegion":{"id":0,"name":"Hip"}},"name":"Ovarian Cyst"},{"id":1,"bodyRegion":{"id":0,"name":"Hip"},"sBodyRegion":{"id":0,"name":"Medial","bodyRegion":{"id":0,"name":"Hip"}},"name":"Endometriosis"}]
+	//[{"id":0,"name":"Ovarian Cyst"},{"id":1,"name":"Endometriosis"}]
 	@POST
 	@Path("/sBodyRegion")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -64,7 +64,7 @@ public class SyndromeController {
 	 * You give: 
 	 * {"id":0,"name":"Hip"}
 	 * It returns all specific body regions in the hip like this:
-	 * [{"id":0,"name":"Medial","bodyRegion":{"id":0,"name":"Hip"}},{"id":1,"name":"Posterior","bodyRegion":{"id":0,"name":"Hip"}}]
+	 * [{"id":0,"name":"Medial","listOfSyndromes":[{"id":0,"name":"Ovarian Cyst"},{"id":1,"name":"Endometriosis"}]},{"id":1,"name":"Posterior","listOfSyndromes":[{"id":2,"name":"Sacral Stress FX"}]}]
 	 */
 	@POST
 	@Path("/bodyRegion")
