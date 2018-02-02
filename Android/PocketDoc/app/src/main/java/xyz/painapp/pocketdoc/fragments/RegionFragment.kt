@@ -1,84 +1,93 @@
 package xyz.painapp.pocketdoc.fragments
 
-import android.support.v4.app.Fragment
+import android.content.Context
+import android.net.Uri
 import android.os.Bundle
+import android.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import xyz.painapp.pocketdoc.activities.BodyActivity
+
 import xyz.painapp.pocketdoc.R
+import xyz.painapp.pocketdoc.entities.BodyRegion
 
 /**
-* Created by keyur on 11/25/17.
-* Package: ${PACKAGE_NAME} as part of PocketDoc
-*/
-class RegionFragment: Fragment(), AdapterView.OnItemClickListener, View.OnTouchListener {
+ * A simple [Fragment] subclass.
+ * Activities that contain this fragment must implement the
+ * [RegionFragment.OnFragmentInteractionListener] interface
+ * to handle interaction events.
+ * Use the [RegionFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class RegionFragment : Fragment() {
 
+    private lateinit var bodyRegion: BodyRegion
 
-    private var region = ""
-    private var symptomsListView: ListView? = null
-    private var regionImageView: ImageView? = null
+    private var mListener: OnFragmentInteractionListener? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val args : Bundle?  = arguments
-        region = args!!.getString("Region")
-
-        return inflater!!.inflate(R.layout.region_view, container, false)
-    }
-
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        symptomsListView = getView()!!.findViewById<ListView>(R.id.region_symptoms_list_view) as ListView
-        regionImageView = getView()!!.findViewById<ImageView>(R.id.region_image_view) as ImageView
-
-        // TODO implement dynamic data based on region argument
-        symptomsListView!!.adapter = ArrayAdapter.createFromResource(context, R.array.sample_symptoms_list, R.layout.symptom_list_item)
-        regionImageView!!.setImageResource(R.drawable.calf_region)
-
-        symptomsListView!!.onItemClickListener = this
-        regionImageView!!.setOnTouchListener(this)
-
-    }
-
-
-    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        when (v) {
-            regionImageView -> return imgButtonTouch(v, event)
-            else -> v!!.performClick()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (arguments != null) {
+            bodyRegion = arguments.getParcelable(ARG_BODY_REGION)
         }
-        return true
     }
 
-    //TODO get actual data passed around
-    private fun imgButtonTouch(v: View?, event: MotionEvent?): Boolean {
-        val x : Int = event!!.x.toInt()
-        val y : Int = event.y.toInt()
-        val data = Bundle()
-
-        val symptom = getSymptom(x, y)
-
-
-        data.putString("Symptom", symptom)
-
-        (activity as BodyActivity).switchFragments(CausesFragment(), region, data)
-
-        v!!.performClick()
-
-        return true
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        return inflater!!.inflate(R.layout.fragment_region, container, false)
     }
 
-
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val symptom = symptomsListView!!.getItemAtPosition(position) as String
-        val data = Bundle()
-
-        data.putString("Symptom", symptom)
-
-        (activity as BodyActivity).switchFragments(CausesFragment(), symptom, data)
+    fun onButtonPressed(uri: Uri) {
+        if (mListener != null) {
+            mListener!!.onFragmentInteraction(uri)
+        }
     }
 
-    private fun getSymptom(x: Int, y: Int): String {
-        return "test"
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            mListener = context
+        } else {
+            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
+        }
     }
-}
+
+    override fun onDetach() {
+        super.onDetach()
+        mListener = null
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     *
+     *
+     * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
+     */
+    interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        fun onFragmentInteraction(uri: Uri)
+    }
+
+    companion object {
+        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+        private val ARG_BODY_REGION = "Body Region"
+
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+
+         * @return A new instance of fragment RegionFragment.
+         */
+        fun newInstance(region: BodyRegion): RegionFragment {
+            val fragment = RegionFragment()
+            val args = Bundle()
+            args.putParcelable("Region", region)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+}// Required empty public constructor
