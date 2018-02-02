@@ -6,11 +6,11 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import org.json.JSONObject
@@ -104,20 +104,23 @@ class RegionActivity : AppCompatActivity(), View.OnTouchListener, AdapterView.On
     inner class DownloadRegionInfoTask: DownloadDataTask() {
         override fun onPreExecute() {
             val transaction = fManager!!.beginTransaction()
-            val newFragment: Fragment = LoadingFragment() as Fragment
+            val newFragment = LoadingFragment()
             transaction.replace(R.id.fragment_container, newFragment)
             transaction.commit()
         }
 
         override fun onPostExecute(result: JSONObject?) {
-            val bundle = Bundle()
-            bundle.putParcelable("BodyRegion", BodyRegion(result!!))
-
             val transaction = fManager!!.beginTransaction()
-            val newFragment: Fragment = RegionFragment() as Fragment
-            newFragment.arguments = bundle
+            var newFragment: Fragment? = null
+            Log.i("result: ", result.toString())
+            newFragment = if (!result!!.has("responseCode")) {
+                RegionFragment.newInstance(BodyRegion(result!!))
+            } else {
+                LoadingFragment.newInstance(result!!.getString("responseCode"))
+            }
 
-            transaction.replace(R.id.fragment_container, newFragment)
+
+            transaction.replace(R.id.fragment_container, newFragment!!)
             transaction.commit()
         }
 

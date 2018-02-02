@@ -6,6 +6,7 @@ import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
+import java.net.ConnectException
 import java.net.HttpURLConnection
 /**
  * Created by keyur on 1/23/18.
@@ -19,6 +20,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
         var results = JSONObject("{}")
         val urlMethod = urlList[0]
         var myConnection: HttpURLConnection? = null
+        Thread.sleep(8000)
 
 
         try {
@@ -39,7 +41,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
                 if (myConnection.responseCode != 200) {
                     // TODO add some way of letting the user know the data is not available
                     Log.e("Response Code", myConnection.responseMessage)
-                    return JSONObject()
+                    return JSONObject("{ responseCode: " + myConnection.responseCode + "}")
                 }
             }
 
@@ -51,6 +53,12 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
         } catch (e: Exception) {
             e.printStackTrace()
+
+            results = if (e is ConnectException) {
+                JSONObject("{responseCode: 404}")
+            } else {
+                JSONObject( "{responseCode: 500} ")
+            }
 
         } finally {
             myConnection?.disconnect()

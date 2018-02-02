@@ -74,7 +74,8 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
             R.id.flip_body_button -> return
             else -> {
                 if (regionMap.keys.contains(v.id)) {
-                    intent.putExtra("Region", regionMap.get(v.id))
+                    Log.i("Region", regionMap[v.id])
+                    intent.putExtra("Region", regionMap[v.id])
                     startActivity(intent)
                 }
             }

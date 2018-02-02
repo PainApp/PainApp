@@ -11,7 +11,7 @@ class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: List<S
         val POST = "POST"
         val GET = "GET"
 
-        val BODY_REGION_URL: URL = URL("http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/")
+        val BODY_REGION_URL: URL = URL("http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/bodyRegion/")
     }
 
     fun getDataAsBytes() : ByteArray {
