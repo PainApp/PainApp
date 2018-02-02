@@ -21,22 +21,19 @@ import xyz.painapp.pocketdoc.R
  */
 class LoadingFragment : Fragment() {
 
-    // TODO: Rename and change types of parameters
-
-
     private var mListener: OnFragmentInteractionListener? = null
-    private var responseCode: String? = null
+    private var errorMessage: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            responseCode = arguments.getString(ARG_RESPONSE_CODE)
+            errorMessage = arguments.getString(ARG_ERROR_MESSAGE)
         }
 
-        if (responseCode != null && responseCode != "200") {
+        if (errorMessage != null) {
             val builder = AlertDialog.Builder(activity)
 
-            builder.setMessage(R.string.error_server_message)
+            builder.setMessage(errorMessage)
                     .setTitle(R.string.error_dialog_title)
 
             builder.setPositiveButton(R.string.ok) { _, _ ->
@@ -91,14 +88,14 @@ class LoadingFragment : Fragment() {
 
     companion object {
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private val ARG_RESPONSE_CODE = "reponseCode"
+        private val ARG_ERROR_MESSAGE = "errorMessage"
 
-        fun newInstance(vararg responseCode: String): LoadingFragment {
+        fun newInstance(vararg errorMessage: String): LoadingFragment {
             val fragment = LoadingFragment()
 
-            if (responseCode.isNotEmpty()) {
+            if (errorMessage.isNotEmpty()) {
                 val args = Bundle()
-                args.putString(ARG_RESPONSE_CODE, responseCode[0])
+                args.putString(ARG_ERROR_MESSAGE, errorMessage[0])
                 fragment.arguments = args
             }
 

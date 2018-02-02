@@ -116,7 +116,7 @@ class RegionActivity : AppCompatActivity(), View.OnTouchListener, AdapterView.On
             newFragment = if (!result!!.has("responseCode")) {
                 RegionFragment.newInstance(BodyRegion(result!!))
             } else {
-                LoadingFragment.newInstance(result!!.getString("responseCode"))
+                LoadingFragment.newInstance(getString(R.string.error_server_message))
             }
 
 
