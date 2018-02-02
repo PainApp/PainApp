@@ -50,6 +50,7 @@ public class SyndromeController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getSyndromesBySpecificBodyRegionId(SpecificBodyRegion sBodyRegion) throws SQLException {
+		System.out.println(sBodyRegion.getId());
 		List listOfSyndromes = syndromeService.getAllSyndromesInSpecificBodyRegion(sBodyRegion.getId());
 		//return listOfSyndromes;
 		return Response.ok(listOfSyndromes).build();
@@ -69,7 +70,7 @@ public class SyndromeController {
 	@Path("/bodyRegion")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getSyndromesByBodyRegionId(BodyRegion bodyRegion) throws SQLException {
+	public Response getSpecificBodyRegionByBodyRegionId(BodyRegion bodyRegion) throws SQLException {
 		List listOfSpecificBodyRegions = syndromeService.getAllSpecificBodyRegionsInBodyRegion(bodyRegion.getId());
 		//return listOfSyndromes;
 		return Response.ok(listOfSpecificBodyRegions).build();
