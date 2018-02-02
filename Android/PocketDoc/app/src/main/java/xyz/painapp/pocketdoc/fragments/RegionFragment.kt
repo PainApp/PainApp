@@ -13,26 +13,31 @@ import xyz.painapp.pocketdoc.R
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [LoadingFragment.OnFragmentInteractionListener] interface
+ * [RegionFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [LoadingFragment.newInstance] factory method to
+ * Use the [RegionFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoadingFragment : Fragment() {
+class RegionFragment : Fragment() {
 
     // TODO: Rename and change types of parameters
-
+    private var mParam1: String? = null
+    private var mParam2: String? = null
 
     private var mListener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (arguments != null) {
+            mParam1 = arguments.getString(ARG_PARAM1)
+            mParam2 = arguments.getString(ARG_PARAM2)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_loading, container, false)
+        return inflater!!.inflate(R.layout.fragment_region, container, false)
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -82,11 +87,11 @@ class LoadingFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment LoadingFragment.
+         * @return A new instance of fragment RegionFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): LoadingFragment {
-            val fragment = LoadingFragment()
+        fun newInstance(param1: String, param2: String): RegionFragment {
+            val fragment = RegionFragment()
             val args = Bundle()
             args.putString(ARG_PARAM1, param1)
             args.putString(ARG_PARAM2, param2)

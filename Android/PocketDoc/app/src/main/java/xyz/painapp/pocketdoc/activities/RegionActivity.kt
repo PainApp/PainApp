@@ -15,9 +15,11 @@ import android.widget.ImageView
 import android.widget.ListView
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
+import xyz.painapp.pocketdoc.entities.BodyRegion
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.fragments.LoadingFragment
+import xyz.painapp.pocketdoc.fragments.RegionFragment
 
 class RegionActivity : AppCompatActivity(), View.OnTouchListener, AdapterView.OnItemClickListener {
     private var region = ""
@@ -33,24 +35,22 @@ class RegionActivity : AppCompatActivity(), View.OnTouchListener, AdapterView.On
         val toolbar = findViewById<Toolbar>(R.id.main_toolbar)
         setSupportActionBar(toolbar)
 
-
-
         region = intent.getStringExtra("Region")
 
         val dataList = ArrayList<String>()
         dataList.add("dataList=" + region)
         fManager = fragmentManager
 
-        symptomsListView = findViewById(R.id.region_symptoms_list_view)
-        regionImageView = findViewById(R.id.region_image_view)
+       // symptomsListView = findViewById(R.id.region_symptoms_list_view)
+        //regionImageView = findViewById(R.id.region_image_view)
 
 
 
         // TODO implement dynamic data based on region argument
-        symptomsListView!!.adapter = ArrayAdapter.createFromResource(this, R.array.sample_symptoms_list, R.layout.symptom_list_item)
+/*        symptomsListView!!.adapter = ArrayAdapter.createFromResource(this, R.array.sample_symptoms_list, R.layout.symptom_list_item)
         regionImageView!!.setImageResource(R.drawable.calf_region)
 
-        symptomsListView!!.onItemClickListener = this
+        symptomsListView!!.onItemClickListener = this*/
 
         DownloadRegionInfoTask().execute(HTTPUrlMethod(
                 HTTPUrlMethod.BODY_REGION_URL,
@@ -110,8 +110,13 @@ class RegionActivity : AppCompatActivity(), View.OnTouchListener, AdapterView.On
         }
 
         override fun onPostExecute(result: JSONObject?) {
+            val bundle = Bundle()
+            bundle.putParcelable("BodyRegion", BodyRegion(result!!))
+
             val transaction = fManager!!.beginTransaction()
             val newFragment: Fragment = RegionFragment() as Fragment
+            newFragment.arguments = bundle
+
             transaction.replace(R.id.fragment_container, newFragment)
             transaction.commit()
         }
