@@ -1,6 +1,7 @@
 package org.pain.app.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,21 +25,23 @@ public class SyndromeService {
 			bodyRegionIdMap = new HashMap<Integer, BodyRegion>();
 			sBodyRegionIdMap = new HashMap<Integer, SpecificBodyRegion>();
 			// Creating some objects of Syndrome while initializing
-			BodyRegion hip = new BodyRegion(0, "Hip");
-			BodyRegion forearm = new BodyRegion(1, "Forearm");
-			BodyRegion foot = new BodyRegion(2, "Foot");
-			
-			SpecificBodyRegion medial = new SpecificBodyRegion(0, "Medial", hip);
-			SpecificBodyRegion posterior = new SpecificBodyRegion(1, "Posterior", hip);
-			SpecificBodyRegion medial2 = new SpecificBodyRegion(2, "Medial", forearm);
-			SpecificBodyRegion lateral = new SpecificBodyRegion(3, "Lateral", foot);
 			
 					
-			Syndrome ovarianCyst = new Syndrome(0, "Ovarian Cyst", hip, medial);
-			Syndrome endometriosis = new Syndrome(1, "Endometriosis", hip, medial);
-			Syndrome sacralStressFX = new Syndrome(2, "Sacral Stress FX", hip, posterior);
-			Syndrome ulnarBursitis = new Syndrome(3, "Ulnar Bursitis", forearm, medial2);
-			Syndrome highAnkleSprain = new Syndrome(4, "High Ankle Sprain", foot, lateral);
+			Syndrome ovarianCyst = new Syndrome(0, "Ovarian Cyst");
+			Syndrome endometriosis = new Syndrome(1, "Endometriosis");
+			Syndrome sacralStressFX = new Syndrome(2, "Sacral Stress FX");
+			Syndrome ulnarBursitis = new Syndrome(3, "Ulnar Bursitis");
+			Syndrome highAnkleSprain = new Syndrome(4, "High Ankle Sprain");
+
+			
+			SpecificBodyRegion medial = new SpecificBodyRegion(0, "Medial", new ArrayList<Syndrome>(Arrays.asList(ovarianCyst, endometriosis)));
+			SpecificBodyRegion posterior = new SpecificBodyRegion(1, "Posterior", new ArrayList<Syndrome>(Arrays.asList(sacralStressFX)));
+			SpecificBodyRegion medial2 = new SpecificBodyRegion(2, "Medial", new ArrayList<Syndrome>(Arrays.asList(ulnarBursitis)));
+			SpecificBodyRegion lateral = new SpecificBodyRegion(3, "Lateral", new ArrayList<Syndrome>(Arrays.asList(highAnkleSprain)));
+
+			BodyRegion hip = new BodyRegion(0, "Hip", new ArrayList<SpecificBodyRegion>(Arrays.asList(medial, posterior)));
+			BodyRegion forearm = new BodyRegion(1, "Forearm", new ArrayList<SpecificBodyRegion>(Arrays.asList(medial2)));
+			BodyRegion foot = new BodyRegion(2, "Foot", new ArrayList<SpecificBodyRegion>(Arrays.asList(lateral)));
 
 			syndromeIdMap.put(0, ovarianCyst);
 			syndromeIdMap.put(1, endometriosis);
@@ -62,25 +65,14 @@ public class SyndromeService {
 	
 	//Get all syndromes in specific body region
 	public List getAllSyndromesInSpecificBodyRegion(int sBodyRegionId) {
-		List syndromes = new ArrayList();
-		for(int i = 0; i < syndromeIdMap.size(); i++) {
-			if(syndromeIdMap.get(i).getsBodyRegion().getId() == sBodyRegionId) {
-				syndromes.add(syndromeIdMap.get(i));
-			}
-		}
-		return syndromes;
+		
+		return sBodyRegionIdMap.get(sBodyRegionId).getListOfSyndromes();
 	}
 	
 	//get all specific body regions in body region id
 	public List getAllSpecificBodyRegionsInBodyRegion(int bodyRegionId) {
-		List sBodyRegions = new ArrayList();
-		System.out.println(bodyRegionId);
-		for(int i = 0; i < sBodyRegionIdMap.size(); i++) {
-			if(sBodyRegionIdMap.get(i).getBodyRegion().getId() == bodyRegionId) {
-				sBodyRegions.add(sBodyRegionIdMap.get(i));
-			}
-		}
-		return sBodyRegions;
+		
+		return bodyRegionIdMap.get(bodyRegionId).getListOfSpecificBodyRegions();
 	}
 	
 	public List getAllSyndromes() {
