@@ -1,0 +1,38 @@
+All data is in proper JSON format
+All data will be provided in the body of the HTTP request 
+Base url: http://<ipaddress>:<port>/PocketDoc/
+
+1) /body_regions
+    Method: GET
+    Data provided: None
+    Data returned: { body_regions: [ { id: <body_region_id>, name: <body_region_name> }, .... ]}
+
+2) /body_regions
+    Method: POST
+    Data provided: { id: <body_region_id> }
+
+    Data returned: { id: <body_region_id>,
+                 name: <body_region_name>,
+                 specific_regions: [
+                     { id: <specific_region_id>
+                       name: <specific_region_name> }, ... 
+                 ] }
+3) /specific_regions
+    Method: POST
+    Data provided: { body_region_id: <body_region_id>, id: <specific_region_id>}
+    Data returned: { id: <specific_region_id>,
+                 name: <specific_region_name>,
+                 causes: [ 
+                     { id: <cause_id>, 
+                     name: <cause_name>,
+                     classification: <cause_classification> 
+                     }, ... 
+                    ]
+                 }
+
+4) /causes
+    Method: POST
+    Data provided: { body_region_id: <body_region_id>, specific_region_id: <specific_region_id>, id: <cause_id>}
+    Data returned: { id: <cause_id>,
+                 name: <cause_name>,
+                 classification: <cause_classification>}
