@@ -4,12 +4,18 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
+import org.w3c.dom.Text
 
 import xyz.painapp.pocketdoc.R
+import xyz.painapp.pocketdoc.adapters.SpecificRegionRecyclerViewAdapter
 import xyz.painapp.pocketdoc.entities.BodyRegion
+import xyz.painapp.pocketdoc.entities.SpecificBodyRegion
 
 /**
  * A simple [Fragment] subclass.
@@ -21,7 +27,10 @@ import xyz.painapp.pocketdoc.entities.BodyRegion
  */
 class RegionFragment : Fragment() {
 
+
     private lateinit var bodyRegion: BodyRegion
+    private lateinit var titleView: TextView
+    private lateinit var regionListView: RecyclerView
 
     private var mListener: OnFragmentInteractionListener? = null
 
@@ -38,6 +47,20 @@ class RegionFragment : Fragment() {
         return inflater!!.inflate(R.layout.fragment_region, container, false)
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        titleView = getView().findViewById(R.id.specific_region_title)
+        regionListView = getView().findViewById(R.id.sRegion_recyclerView)
+        titleView.text = resources.getString(R.string.specific_region_title, bodyRegion.name)
+
+
+        regionListView.setHasFixedSize(true)
+        regionListView.layoutManager = LinearLayoutManager(activity)
+
+        regionListView.adapter = SpecificRegionRecyclerViewAdapter(bodyRegion.specificRegionList)
+
+    }
+
     fun onButtonPressed(uri: Uri) {
         if (mListener != null) {
             mListener!!.onFragmentInteraction(uri)
@@ -49,7 +72,7 @@ class RegionFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             mListener = context
         } else {
-            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
+           // throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -74,7 +97,7 @@ class RegionFragment : Fragment() {
 
     companion object {
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private val ARG_BODY_REGION = "Body Region"
+        private const val ARG_BODY_REGION = "body_region"
 
         /**
          * Use this factory method to create a new instance of
@@ -85,7 +108,7 @@ class RegionFragment : Fragment() {
         fun newInstance(region: BodyRegion): RegionFragment {
             val fragment = RegionFragment()
             val args = Bundle()
-            args.putParcelable("Region", region)
+            args.putParcelable(ARG_BODY_REGION, region)
             fragment.arguments = args
             return fragment
         }

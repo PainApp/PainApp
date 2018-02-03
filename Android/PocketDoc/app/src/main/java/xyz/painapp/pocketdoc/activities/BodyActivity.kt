@@ -1,25 +1,26 @@
 package xyz.painapp.pocketdoc.activities
 
-import android.content.Intent
+import android.app.Fragment
+import android.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
+import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
+import xyz.painapp.pocketdoc.entities.BodyRegion
+import xyz.painapp.pocketdoc.entities.DownloadDataTask
+import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
+import xyz.painapp.pocketdoc.fragments.BodyFragment
+import xyz.painapp.pocketdoc.fragments.LoadingFragment
 
-class BodyActivity : AppCompatActivity(), View.OnClickListener {
+class BodyActivity : AppCompatActivity(){
 
-    private var flipped: Boolean = false
-    private var bodyConstraintLayout : ConstraintLayout? = null
-    private var flipButton : Button? = null
-    private val regionMap: HashMap<Int, String> = HashMap()
+
+    private var fManager: FragmentManager? = null
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,23 +30,11 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         // Set toolbar
         val toolbar = findViewById<Toolbar>(R.id.main_toolbar)
         setSupportActionBar(toolbar)
-
-        flipButton = findViewById(R.id.flip_body_button)
-
-        regionMap[R.id.front_hips_image_view] = "0"
-        regionMap[R.id.front_left_forearm_imageView] = "1"
-        regionMap[R.id.front_feet_imageView] = "2"
-
-        bodyConstraintLayout = findViewById(R.id.body_constraintLayout)
-
-        (0..bodyConstraintLayout!!.childCount)
-                .map { bodyConstraintLayout!!.getChildAt(it) }
-                .forEach { (it as? ImageView)?.setOnClickListener(this) }
-
-
-        flipButton!!.setOnClickListener(this)
-
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        fManager = fragmentManager
+
+        DownloadBodyInfo().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -66,26 +55,29 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onClick(v: View?) {
-
-        val intent = Intent(this, RegionActivity::class.java)
-
-        when (v!!.id) {
-            R.id.flip_body_button -> return
-            else -> {
-                if (regionMap.keys.contains(v.id)) {
-                    Log.i("Region", regionMap[v.id])
-                    intent.putExtra("Region", regionMap[v.id])
-                    startActivity(intent)
-                }
-            }
+    inner class DownloadBodyInfo: DownloadDataTask() {
+        override fun onPreExecute() {
+            val transaction = fManager!!.beginTransaction()
+            val newFragment = LoadingFragment()
+            transaction.replace(R.id.body_fragment_container, newFragment)
+            transaction.commit()
         }
+
+        override fun onPostExecute(result: JSONObject?) {
+            val transaction = fManager!!.beginTransaction()
+            val newFragment: Fragment? = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
+                BodyFragment.newInstance(BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR)))
+            } else {
+                LoadingFragment.newInstance(getString(R.string.error_server_message))
+            }
+
+
+            transaction.replace(R.id.body_fragment_container, newFragment!!)
+            transaction.commit()
+        }
+
     }
 
-    // TODO figure out which region of the body was clicked
-    private fun getBodyRegion(x: Int, y: Int): String {
-        return "calf"
-    }
 
 
 }

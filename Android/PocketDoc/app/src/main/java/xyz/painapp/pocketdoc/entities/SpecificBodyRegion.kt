@@ -2,6 +2,7 @@ package xyz.painapp.pocketdoc.entities
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import org.json.JSONObject
 
 /**
@@ -10,50 +11,65 @@ import org.json.JSONObject
  */
 
 class SpecificBodyRegion() : Parcelable {
-    private var id: Int = 0
-    private var name: String = ""
-    private var symptomList: ArrayList<Symptom> = ArrayList()
+    var bodyRegionId: Int = 0
+    var id: Int = 0
+    var name: String = ""
+    var causeList: ArrayList<Cause> = ArrayList()
+
+
+    constructor(parcel: Parcel) : this() {
+        this.id = parcel.readInt()
+        this.bodyRegionId = parcel.readInt()
+        this.name = parcel.readString()
+        parcel.readTypedList(this.causeList, Cause.CREATOR)
+    }
+
+    constructor(jsonObject: JSONObject, bodyRegionId: Int) : this() {
+        this.id = jsonObject.getInt("id")
+        this.bodyRegionId = bodyRegionId
+        this.name = jsonObject.getString("name")
+        if (jsonObject.has("causes")) {
+            val sList = jsonObject.getJSONArray("causes")
+
+            for (i: Int in 0..(sList.length() - 1)) {
+                causeList.add(Cause(sList.getJSONObject(i)))
+            }
+        }
+    }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(this.id)
+        dest.writeInt(this.bodyRegionId)
         dest.writeString(name)
-        dest.writeTypedList(this.symptomList)
+        dest.writeTypedList(this.causeList)
     }
 
     override fun describeContents(): Int {
         return 0
     }
 
-    constructor(parcel: Parcel) : this() {
-        this.id = parcel.readInt()
-        this.name = parcel.readString()
-        parcel.readTypedList(this.symptomList, Symptom.CREATOR)
+    fun toJSONObject(): JSONObject {
+        val res = JSONObject()
+        res.put(BODY_REGION_STR, this.bodyRegionId)
+        res.put(ID_STR, this.id)
+        return res
     }
 
-    /*
-     * TODO Fix server code to look like this
-     * { id: ,
-     *   name: ,
-     *   syndromeList: [ ]
-     *  }
-     */
-    constructor(jsonObject: JSONObject) : this() {
-        this.id = jsonObject.getInt("id")
-        this.name = jsonObject.getString("name")
-        val sList = jsonObject.getJSONArray("syndromeList")
 
-        for (i: Int in 0..(sList.length() - 1)) {
-            symptomList.add(Symptom(sList.getJSONObject(i)))
-        }
-    }
 
-    companion object CREATOR : Parcelable.Creator<SpecificBodyRegion> {
-        override fun createFromParcel(parcel: Parcel): SpecificBodyRegion {
-            return SpecificBodyRegion(parcel)
-        }
+    companion object {
+        const val S_REGION_STR = "specific_region"
+        const val S_REGIONS_STR = "specific_regions"
+        const val BODY_REGION_STR = "body_region_id"
+        const val ID_STR = "id"
+        @JvmField val CREATOR = object : Parcelable.Creator<SpecificBodyRegion> {
+            override fun createFromParcel(parcel: Parcel): SpecificBodyRegion {
+                return SpecificBodyRegion(parcel)
+            }
 
-        override fun newArray(size: Int): Array<SpecificBodyRegion?> {
-            return arrayOfNulls(size)
+            override fun newArray(size: Int): Array<SpecificBodyRegion?> {
+                return arrayOfNulls(size)
+            }
         }
     }
 

@@ -1,32 +1,28 @@
 package xyz.painapp.pocketdoc.entities
 
+import org.json.JSONObject
 import java.net.URL
 
 /**
  * Created by keyur on 1/23/18.
  * Package: xyz.painapp.pocketdoc.entities as part of PocketDoc
  */
-class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: List<String>?) {
+class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: JSONObject?) {
     companion object {
-        val POST = "POST"
-        val GET = "GET"
+        const val POST = "POST"
+        const val GET = "GET"
+        const val RESPONSE_CODE_STR = "response_code"
 
-        val BODY_REGION_URL: URL = URL("http://localhost:8081/PainAppDatabaseAccess/rest/syndromes/bodyRegion/")
+        private const val BASE_URL: String = "http://155.246.89.120:8080/PocketDoc"
+        val BODY_REGION_URL: URL = URL(BASE_URL + "/body_regions")
+        val SPECIFIC_REGION_URL: URL = URL(BASE_URL + "/specific_regions")
     }
 
-    fun getDataAsBytes() : ByteArray {
-        var result = ""
-
+    fun getDataAsBytes() : ByteArray? {
         if (dataList != null) {
-            for (i in dataList!!.indices) {
-                result += dataList!![i]
-                if (i != dataList!!.size - 1) {
-                    result += "&"
-                }
-            }
+            return dataList.toString().toByteArray()
         }
-
-        return result.toByteArray()
+        return null
     }
 
 

@@ -20,8 +20,6 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
         var results = JSONObject("{}")
         val urlMethod = urlList[0]
         var myConnection: HttpURLConnection? = null
-        Thread.sleep(8000)
-
 
         try {
             Log.i("Url", urlMethod!!.url.toString())
@@ -30,7 +28,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
             myConnection.requestMethod = urlMethod.methodString
             myConnection.doInput = true
 
-            if (urlMethod.methodString == HTTPUrlMethod.POST) {
+            if (urlMethod.methodString == HTTPUrlMethod.POST && urlMethod.dataList != null) {
                 myConnection.doOutput = true
                 myConnection.setRequestProperty("Content-Type", "application/json")
                 val outputStream = myConnection.outputStream
@@ -41,7 +39,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
                 if (myConnection.responseCode != 200) {
                     // TODO add some way of letting the user know the data is not available
                     Log.e("Response Code", myConnection.responseMessage)
-                    return JSONObject("{ responseCode: " + myConnection.responseCode + "}")
+                    return errorCodeJSON(myConnection.responseCode)
                 }
             }
 
@@ -53,17 +51,15 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
         } catch (e: Exception) {
             e.printStackTrace()
-
             results = if (e is ConnectException) {
-                JSONObject("{responseCode: 404}")
+                ERROR_404
             } else {
-                JSONObject( "{responseCode: 500} ")
+                ERROR_500
             }
 
         } finally {
             myConnection?.disconnect()
         }
-
 
         return results
     }
@@ -71,14 +67,24 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
     private fun readStream(inputStream: BufferedReader): JSONObject {
 
         return try {
-            val strBuilder = StringBuilder()
-            inputStream.forEachLine { s: String -> strBuilder.append(s) }
-
-            JSONObject(strBuilder.toString())
+            val retStr = StringBuilder(inputStream.readText()).toString()
+            JSONObject(retStr)
         } catch (e: IOException) {
             e.printStackTrace()
-            JSONObject()
+            if (e is ConnectException) {
+                ERROR_404
+            } else {
+                ERROR_500
+            }
         }
     }
+    companion object {
+        fun errorCodeJSON(errorCode: Int): JSONObject {
+            return JSONObject("{\"" + HTTPUrlMethod.RESPONSE_CODE_STR + "\":" + errorCode + "}")
+        }
+        val ERROR_404 = errorCodeJSON(404)
+        val ERROR_500 = errorCodeJSON(500)
+    }
+
 
 }

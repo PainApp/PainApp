@@ -30,13 +30,13 @@ class DetailActivity : AppCompatActivity() {
         // TODO set title, images and symptoms based on actual data from bundle arg
         primarySymptoms = ArrayList()
         secondarySymptoms = ArrayList()
-        primarySymptoms.add("Primary Symptom 1")
-        primarySymptoms.add("Primary Symptom 2")
-        primarySymptoms.add("Primary Symptom 3")
+        primarySymptoms.add("Primary Cause 1")
+        primarySymptoms.add("Primary Cause 2")
+        primarySymptoms.add("Primary Cause 3")
 
-        secondarySymptoms.add("Secondary Symptom 1")
-        secondarySymptoms.add("Secondary Symptom 2")
-        secondarySymptoms.add("Secondary Symptom 3")
+        secondarySymptoms.add("Secondary Cause 1")
+        secondarySymptoms.add("Secondary Cause 2")
+        secondarySymptoms.add("Secondary Cause 3")
 
         primarySymptomListView  = findViewById(R.id.primary_symptoms_list)
         secondarySymptomListView  = findViewById(R.id.secondary_symptoms_list)

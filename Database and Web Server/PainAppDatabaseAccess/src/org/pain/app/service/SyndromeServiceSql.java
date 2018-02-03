@@ -17,6 +17,7 @@ public class SyndromeServiceSql {
 	Statement stmt;
 	String sql;
 	ResultSet rs;
+	private HashMap<Integer, Syndrome> syndromeIdMap;
 
 	public SyndromeServiceSql()  {
 		
@@ -75,7 +76,7 @@ public class SyndromeServiceSql {
 		syndromeIdMap.remove(id);
 	}
 
-	public static HashMap<Integer, Syndrome> getSyndromeIdMap() {
+	public HashMap<Integer, Syndrome> getSyndromeIdMap() {
 		return syndromeIdMap;
 	}
 }

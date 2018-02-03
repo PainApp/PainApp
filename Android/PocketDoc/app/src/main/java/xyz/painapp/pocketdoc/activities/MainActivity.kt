@@ -1,16 +1,20 @@
 package xyz.painapp.pocketdoc.activities
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import xyz.painapp.pocketdoc.R
-import java.net.InetAddress
+import android.net.ConnectivityManager
+
+
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     private lateinit var actionListView : ListView
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         actionListView.onItemClickListener = this
 
         if (!isInternetAvailable()) {
+          //  Log.i("TEST: ", "TEST")
             val builder = android.app.AlertDialog.Builder(this)
 
             builder.setMessage(R.string.error_connect_internet)
@@ -55,15 +60,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
     }
 
-    fun isInternetAvailable(): Boolean {
-        try {
-            val ipAddr = InetAddress.getByName("google.com")
-            //You can replace it with your name
-            return !ipAddr.equals("")
+    private fun isInternetAvailable(): Boolean {
+        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        } catch (e: Exception) {
-            return false
-        }
+        val activeNetwork = cm.activeNetworkInfo
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting
+
 
     }
 }

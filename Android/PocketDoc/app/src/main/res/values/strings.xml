@@ -27,5 +27,7 @@
     <string name="error_dialog_title">Error</string>
     <string name="error_connect_internet">Ensure your device is connected to the internet before continuing</string>
     <string name="ok">ok</string>
+    <string name="specific_region_title">%1$s Specific Regions</string>
+    <string name="causes_title">%1$s Causes</string>
 </resources>
 

@@ -36,3 +36,13 @@ Base url: http://<ipaddress>:<port>/PocketDoc/
     Data returned: { id: <cause_id>,
                  name: <cause_name>,
                  classification: <cause_classification>}
+
+
+If data isn't available, leave that key in the return value without any values
+For example if the user clicks front head and there are no specific regions the server would return:
+{ 
+  "id": 1,
+  "name": "Front Head",
+   "specific_regions": []
+}
+	

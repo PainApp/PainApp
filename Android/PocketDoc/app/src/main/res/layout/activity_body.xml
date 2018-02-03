@@ -2,209 +2,21 @@
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/app_bar" />
+    <include
+        android:id="@+id/main_toolbar"
+        layout="@layout/app_bar" />
 
-    <!--TODO extract into a different layout file then just programmatically swap layouts whenever the flip button is pressed -->
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/body_constraintLayout"
+        android:id="@+id/body_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="522dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/front_head_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/front_head"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/front_head" />
-
-        <ImageView
-            android:id="@+id/front_chest_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/front_chest"
-            android:src="@drawable/front_chest"
-            app:layout_constraintEnd_toEndOf="@+id/front_head_imageView"
-            app:layout_constraintStart_toStartOf="@+id/front_head_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_head_imageView" />
-
-        <ImageView
-            android:id="@+id/front_right_shoulder_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:adjustViewBounds="true"
-            app:layout_constraintEnd_toStartOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toTopOf="@+id/front_chest_imageView"
-            app:srcCompat="@drawable/front_right_shoulder" />
-
-        <ImageView
-            android:id="@+id/front_right_upperarm_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            app:layout_constraintStart_toStartOf="@+id/front_right_shoulder_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_right_shoulder_imageView"
-            app:srcCompat="@drawable/front_right_upperarm" />
-
-        <ImageView
-            android:id="@+id/front_right_elbow_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="86dp"
-            android:layout_marginTop="24dp"
-            android:adjustViewBounds="true"
-            app:layout_constraintEnd_toEndOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toTopOf="@+id/front_right_upperarm_imageView"
-            app:srcCompat="@drawable/front_right_elbow" />
-
-
-        <ImageView
-            android:id="@+id/front_right_forearm_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="91dp"
-            app:layout_constraintEnd_toEndOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_right_elbow_imageView"
-            app:srcCompat="@drawable/front_right_forearm" />
-
-        <ImageView
-            android:id="@+id/front_right_hand_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="26dp"
-            app:layout_constraintEnd_toEndOf="@+id/front_right_forearm_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_right_forearm_imageView"
-            app:srcCompat="@drawable/front_right_hand" />
-
-        <ImageView
-            android:id="@+id/front_left_shoulder_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            app:layout_constraintStart_toEndOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_head_imageView"
-            app:srcCompat="@drawable/front_left_shoulder" />
-
-        <ImageView
-            android:id="@+id/front_left_elbow_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="88.5dp"
-            app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_right_upperarm_imageView"
-            app:srcCompat="@drawable/front_left_elbow" />
-
-        <ImageView
-            android:id="@+id/front_left_forearm_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="93dp"
-            app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_left_elbow_imageView"
-            app:srcCompat="@drawable/front_left_forearm" />
-
-        <ImageView
-            android:id="@+id/front_left_upperarm_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/front_left_shoulder_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_left_shoulder_imageView"
-            app:srcCompat="@drawable/front_left_upperarm" />
-
-        <ImageView
-            android:id="@+id/front_left_hand_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="118dp"
-            app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_left_forearm_imageView"
-            app:srcCompat="@drawable/front_left_hand" />
-
-        <ImageView
-            android:id="@+id/front_hips_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="49dp"
-            app:layout_constraintEnd_toEndOf="@+id/front_left_forearm_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_chest_imageView"
-            app:srcCompat="@drawable/front_hips" />
-
-        <ImageView
-            android:id="@+id/front_groin_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="73.6dp"
-            app:layout_constraintStart_toStartOf="@+id/front_right_hand_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_hips_image_view"
-            app:srcCompat="@drawable/front_groin" />
-
-        <ImageView
-            android:id="@+id/front_thighs_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="74dp"
-            app:layout_constraintStart_toStartOf="@+id/front_right_hand_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_groin_imageView"
-            app:srcCompat="@drawable/front_thighs" />
-
-        <ImageView
-            android:id="@+id/front_knees_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="87dp"
-            app:layout_constraintStart_toStartOf="@+id/front_right_hand_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_thighs_imageView"
-            app:srcCompat="@drawable/front_knees" />
-
-        <ImageView
-            android:id="@+id/front_lowerlegs_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintEnd_toEndOf="@+id/front_thighs_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_knees_imageView"
-            app:srcCompat="@drawable/front_lowerlegs" />
-
-        <ImageView
-            android:id="@+id/front_feet_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintEnd_toEndOf="@+id/front_lowerlegs_imageView"
-            app:layout_constraintTop_toBottomOf="@+id/front_lowerlegs_imageView"
-            app:srcCompat="@drawable/front_feet" />
-
-
-
-    </android.support.constraint.ConstraintLayout>
-
-
-    <Button
-        android:id="@+id/flip_body_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="456dp"
-        android:text="@string/flip_body"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <!--  <android.support.design.widget.BottomNavigationView
       android:id="@+id/body_bottom_navigation"
