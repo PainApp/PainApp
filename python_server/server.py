@@ -94,6 +94,8 @@ class S(BaseHTTPRequestHandler):
             self._set_headers()
             out = json.dumps(self.body_regions_dict)
             self.wfile.write(out)
+        if self.path == "/PocketDoc":
+            self._set_headers()
         else:
             self.send_error(404)
 
