@@ -6,15 +6,15 @@ class S(BaseHTTPRequestHandler):
         "body_regions" : [
         {
             "id" : 0,
-            "name" : "front_hip"
+            "name" : "Front Hip"
         }, 
         {
             "id" : 1,
-            "name" : "front_head"
+            "name" : "Front Head"
         },
         {
             "id" : 2,
-            "name" : "front_feet"
+            "name" : "Front Feet"
         }]
     }
 
@@ -22,27 +22,27 @@ class S(BaseHTTPRequestHandler):
         0 : [
             {
                 "id" : 0,
-                "name" : "deep_hip"
+                "name" : "Deep Hip"
             },
             {
                 "id" : 1,
-                "name" : "anterolateral"
+                "name" : "Anterolateral"
             },
             {
                 "id" : 2,
-                "name" : "posterior"
+                "name" : "Posterior"
             },
             {
                 "id" : 3,
-                "name" : "anterior"
+                "name" : "Anterior"
             },
             {
                 "id" : 4,
-                "name" : "medial"
+                "name" : "Medial"
             },
             {
                 "id" : 5,
-                "name" : "lateral"
+                "name" : "Lateral"
             }]
     }
 
@@ -114,9 +114,17 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
         post_data = json.loads(post_data)
+        if "id" not in post_data:
+            self.send_error(400)
+            return
         body_region_id = post_data["id"]
+        if body_region_id < 0 or body_region_id >= len(self.body_regions_dict["body_regions"]):
+            self.send_error(404)
+            return
         data = dict(self.body_regions_dict["body_regions"][body_region_id])
-        lst = self.specific_regions[body_region_id]
+        lst = []
+        if body_region_id in self.specific_regions:
+            lst = self.specific_regions[body_region_id]
         data["specific_regions"] = lst
         self._set_headers()
         self.wfile.write(json.dumps(data))
@@ -125,10 +133,18 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
         post_data = json.loads(post_data)
+        if ("id" not in post_data) or ("body_region_id" not in post_data):
+            self.send_error(400)
+            return
         body_region_id = post_data["body_region_id"]
         specific_region_id = post_data["id"]
+        if (body_region_id not in self.specific_regions) or (specific_region_id < 0) or (specific_region_id >= len(self.specific_regions[body_region_id])):
+            self.send_error(404)
+            return
         data = dict(self.specific_regions[body_region_id][specific_region_id])
-        lst = self.causes[body_region_id][specific_region_id]
+        lst = []
+        if (body_region_id in self.causes) and (specific_region_id in self.causes[body_region_id]):
+            lst = self.causes[body_region_id][specific_region_id]
         data["causes"] = lst
         self._set_headers()
         self.wfile.write(json.dumps(data))
@@ -137,9 +153,15 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
         post_data = json.loads(post_data)
+        if ("id" not in post_data) or ("body_region_id" not in post_data) or ("specific_region_id" not in post_data):
+            self.send_error(400)
+            return
         body_region_id = post_data["body_region_id"]
         specific_region_id = post_data["specific_region_id"]
         cause_id = post_data["id"]
+        if (body_region_id not in self.causes) or (specific_region_id not in self.causes[body_region_id]) or (cause_id < 0) or (cause_id >= len(self.causes[body_region_id][specific_region_id])):
+            self.send_error(404)
+            return
         data = dict(self.causes[body_region_id][specific_region_id][cause_id])
         self._set_headers()
         self.wfile.write(json.dumps(data))
