@@ -49,7 +49,7 @@ class Cause() : Parcelable {
         return if (classification in CLASSIFICATION_LIST) {
             CLASSIFICATION_LIST[classification]!!
         } else {
-            R.color.white
+            R.color.gray
         }
     }
 

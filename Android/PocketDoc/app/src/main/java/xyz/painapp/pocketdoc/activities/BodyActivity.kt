@@ -2,9 +2,11 @@ package xyz.painapp.pocketdoc.activities
 
 import android.app.Fragment
 import android.app.FragmentManager
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -20,6 +22,7 @@ class BodyActivity : AppCompatActivity(){
 
 
     private var fManager: FragmentManager? = null
+    private var currentFragment: Fragment? = null
 
 
 
@@ -33,9 +36,18 @@ class BodyActivity : AppCompatActivity(){
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         fManager = fragmentManager
+        DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
 
-        DownloadBodyInfo().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
     }
+
+    override fun onResume() {
+        super.onResume()
+        if (currentFragment != null) {
+            fManager!!.beginTransaction().replace(R.id.body_fragment_container, currentFragment).commit()
+        }
+
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.body_activity_options_menu, menu)
@@ -55,8 +67,10 @@ class BodyActivity : AppCompatActivity(){
         return super.onOptionsItemSelected(item)
     }
 
-    inner class DownloadBodyInfo: DownloadDataTask() {
+
+    inner class DownloadBodyInfoTask: DownloadDataTask() {
         override fun onPreExecute() {
+            Log.i("HERE", "Here")
             val transaction = fManager!!.beginTransaction()
             val newFragment = LoadingFragment()
             transaction.replace(R.id.body_fragment_container, newFragment)
@@ -65,17 +79,46 @@ class BodyActivity : AppCompatActivity(){
 
         override fun onPostExecute(result: JSONObject?) {
             val transaction = fManager!!.beginTransaction()
-            val newFragment: Fragment? = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
+            currentFragment = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
                 BodyFragment.newInstance(BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR)))
             } else {
                 LoadingFragment.newInstance(getString(R.string.error_server_message))
             }
 
 
-            transaction.replace(R.id.body_fragment_container, newFragment!!)
+            transaction.replace(R.id.body_fragment_container, currentFragment!!)
             transaction.commit()
         }
 
+    }
+
+    inner class DownloadRegionInfoTask: DownloadDataTask() {
+        override fun onPreExecute() {
+            val transaction = fManager!!.beginTransaction()
+            Log.i("HERE", "Here2")
+
+            val newFragment = LoadingFragment()
+            transaction.replace(R.id.body_fragment_container, newFragment)
+            transaction.commit()
+        }
+
+        override fun onPostExecute(result: JSONObject?) {
+            if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
+                val intent = Intent(applicationContext, RegionActivity::class.java)
+                val region = BodyRegion(result)
+                if (region.specificRegionList.size > 0) {
+                    intent.putExtra(BodyRegion.BODY_REGION_STR, BodyRegion(result))
+                    applicationContext.startActivity(intent)
+                } else {
+                    if (currentFragment != null) {
+                        fManager!!.beginTransaction().replace(R.id.body_fragment_container, currentFragment).commit()
+                    }
+                    Toast.makeText(applicationContext, getString(R.string.no_data, region.name), Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                fManager!!.beginTransaction().replace(R.id.region_fragment_container, LoadingFragment.newInstance(getString(R.string.error_server_message))).commit()
+            }
+        }
     }
 
 

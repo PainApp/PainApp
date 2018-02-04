@@ -13,7 +13,9 @@ import android.widget.ListView
 import android.widget.Toast
 import xyz.painapp.pocketdoc.R
 import android.net.ConnectivityManager
-
+import android.net.http.HttpResponseCache
+import java.io.File
+import java.io.IOException
 
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
@@ -33,11 +35,22 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
             builder.setMessage(R.string.error_connect_internet)
                     .setTitle(R.string.error_dialog_title)
 
-            builder.setPositiveButton(R.string.ok) { _, _ ->
+            builder.setPositiveButton(R.string.open_network_settings) { _, _ ->
                 startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
             }
 
+
+
             builder.create().show()
+        } else {
+            try {
+                val httpCacheDir = File(cacheDir, "http")
+                val httpCacheSize = (10 * 1024 * 1024).toLong() // 10 MiB
+                HttpResponseCache.install(httpCacheDir, httpCacheSize)
+            } catch (e: IOException) {
+                Log.e("Error", "HTTP response cache installation failed:" + e)
+                e.printStackTrace()
+            }
         }
 
     }
@@ -60,12 +73,16 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        HttpResponseCache.getInstalled()?.flush()
+    }
+
     private fun isInternetAvailable(): Boolean {
         val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         val activeNetwork = cm.activeNetworkInfo
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting
-
 
     }
 }

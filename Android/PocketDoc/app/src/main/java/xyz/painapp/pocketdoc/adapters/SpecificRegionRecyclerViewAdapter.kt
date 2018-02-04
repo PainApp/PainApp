@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.activities.CausesActivity
+import xyz.painapp.pocketdoc.activities.RegionActivity
+import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.entities.SpecificBodyRegion
 
 
@@ -43,13 +45,18 @@ class SpecificRegionRecyclerViewAdapter : RecyclerView.Adapter<SpecificRegionRec
     }
 
     class RegionViewHolder(parent: View) : RecyclerView.ViewHolder(parent), View.OnClickListener {
-        var sRegion: SpecificBodyRegion? = null
-        var regionTextView: TextView = parent.findViewById(R.id.card_item_textView)
+        private var sRegion: SpecificBodyRegion? = null
+        private var regionTextView: TextView = parent.findViewById(R.id.card_item_textView)
 
         override fun onClick(v: View?) {
-            val intent = Intent(v!!.context, CausesActivity::class.java)
+            (v?.context as RegionActivity).DownloadCauseInfo().execute(HTTPUrlMethod(
+                    HTTPUrlMethod.SPECIFIC_REGION_URL,
+                    HTTPUrlMethod.POST,
+                    sRegion?.toJSONObject()
+            ))
+            /*val intent = Intent(v!!.context, CausesActivity::class.java)
             intent.putExtra(SpecificBodyRegion.S_REGION_STR, sRegion)
-            v.context.startActivity(intent)
+            v.context.startActivity(intent)*/
         }
 
         fun setItem(item: SpecificBodyRegion) {

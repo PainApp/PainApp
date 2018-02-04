@@ -49,15 +49,20 @@ class RegionFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        titleView = getView().findViewById(R.id.specific_region_title)
-        regionListView = getView().findViewById(R.id.sRegion_recyclerView)
-        titleView.text = resources.getString(R.string.specific_region_title, bodyRegion.name)
+        if (bodyRegion.specificRegionList.size > 0) {
+            titleView = getView().findViewById(R.id.specific_region_title)
+            regionListView = getView().findViewById(R.id.sRegion_recyclerView)
+            titleView.text = resources.getString(R.string.specific_region_title, bodyRegion.name)
 
 
-        regionListView.setHasFixedSize(true)
-        regionListView.layoutManager = LinearLayoutManager(activity)
+            regionListView.setHasFixedSize(true)
+            regionListView.layoutManager = LinearLayoutManager(activity)
 
-        regionListView.adapter = SpecificRegionRecyclerViewAdapter(bodyRegion.specificRegionList)
+            regionListView.adapter = SpecificRegionRecyclerViewAdapter(bodyRegion.specificRegionList)
+       }/* else {
+            Toast.makeText(activity, getString(R.string.no_data, bodyRegion.name), Toast.LENGTH_SHORT).show()
+            activity.onBackPressed()
+        }*/
 
     }
 
@@ -106,6 +111,7 @@ class RegionFragment : Fragment() {
          * @return A new instance of fragment RegionFragment.
          */
         fun newInstance(region: BodyRegion): RegionFragment {
+
             val fragment = RegionFragment()
             val args = Bundle()
             args.putParcelable(ARG_BODY_REGION, region)

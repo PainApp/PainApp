@@ -13,8 +13,10 @@ import android.widget.Button
 import android.widget.ImageView
 
 import xyz.painapp.pocketdoc.R
+import xyz.painapp.pocketdoc.activities.BodyActivity
 import xyz.painapp.pocketdoc.activities.RegionActivity
 import xyz.painapp.pocketdoc.entities.BodyRegion
+import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 
 /**
  * A simple [Fragment] subclass.
@@ -79,20 +81,21 @@ class BodyFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
 
-        val intent = Intent(activity, RegionActivity::class.java)
-
         when (v!!.id) {
             R.id.flip_body_button -> return
             else -> {
-                var found = false
-                for (i in 0 until bodyRegionList.size) {
-                    if (bodyRegionList[i].viewId == v.id) {
-                        intent.putExtra(BodyRegion.BODY_REGION_STR, bodyRegionList[i])
-                        found = true
-                        break
-                    }
+                val found: BodyRegion? = (0 until bodyRegionList.size)
+                        .firstOrNull { bodyRegionList[it].viewId == v.id }
+                        ?.let { bodyRegionList[it] }
+                if (found != null) {
+
+                    (activity as BodyActivity).DownloadRegionInfoTask().execute(HTTPUrlMethod(
+                            HTTPUrlMethod.BODY_REGION_URL,
+                            HTTPUrlMethod.POST,
+                            found.toJSONObject()
+                    )
+                    )
                 }
-                if (found) startActivity(intent)
             }
         }
     }

@@ -42,7 +42,7 @@ class BodyRegion() : Parcelable {
                 val sRegionList = jsonObject.getJSONArray(SpecificBodyRegion.S_REGIONS_STR)
 
                 for (i: Int in 0..(sRegionList.length() - 1)) {
-                    specificRegionList.add(SpecificBodyRegion(sRegionList.getJSONObject(i), this.id))
+                    specificRegionList.add(SpecificBodyRegion(sRegionList.getJSONObject(i), this.id, this.name))
                 }
             }
         } catch (e: Exception) {

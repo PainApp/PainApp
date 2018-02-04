@@ -11,6 +11,7 @@ import org.json.JSONObject
  */
 
 class SpecificBodyRegion() : Parcelable {
+    var bodyRegionName: String = ""
     var bodyRegionId: Int = 0
     var id: Int = 0
     var name: String = ""
@@ -21,26 +22,33 @@ class SpecificBodyRegion() : Parcelable {
         this.id = parcel.readInt()
         this.bodyRegionId = parcel.readInt()
         this.name = parcel.readString()
+        this.bodyRegionName = parcel.readString()
         parcel.readTypedList(this.causeList, Cause.CREATOR)
     }
 
-    constructor(jsonObject: JSONObject, bodyRegionId: Int) : this() {
+    constructor(jsonObject: JSONObject, bodyRegionId: Int, bodyRegionName: String) : this() {
         this.id = jsonObject.getInt("id")
         this.bodyRegionId = bodyRegionId
+        this.bodyRegionName = bodyRegionName
         this.name = jsonObject.getString("name")
         if (jsonObject.has("causes")) {
             val sList = jsonObject.getJSONArray("causes")
 
-            for (i: Int in 0..(sList.length() - 1)) {
+            for (i: Int in 0 until sList.length()) {
                 causeList.add(Cause(sList.getJSONObject(i)))
             }
         }
+    }
+
+    fun getFullName(): String {
+        return this.name + " " + this.bodyRegionName
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(this.id)
         dest.writeInt(this.bodyRegionId)
         dest.writeString(name)
+        dest.writeString(bodyRegionName)
         dest.writeTypedList(this.causeList)
     }
 

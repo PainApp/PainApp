@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.adapters.CausesRecylerViewAdapter
@@ -46,15 +47,20 @@ class CausesFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        causeRecyclerView = getView().findViewById(R.id.cause_recyclerView)
-        causeTitleTextView = getView().findViewById(R.id.cause_title_textView)
+        if (specificBodyRegion.causeList.size > 0) {
+            causeRecyclerView = getView().findViewById(R.id.cause_recyclerView)
+            causeTitleTextView = getView().findViewById(R.id.cause_title_textView)
 
-        causeTitleTextView.text = getString(R.string.causes_title, specificBodyRegion.name)
+            causeTitleTextView.text = getString(R.string.causes_title, specificBodyRegion.getFullName())
 
-        causeRecyclerView.setHasFixedSize(true)
-        causeRecyclerView.layoutManager = LinearLayoutManager(activity)
+            causeRecyclerView.setHasFixedSize(true)
+            causeRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        causeRecyclerView.adapter = CausesRecylerViewAdapter(specificBodyRegion.causeList)
+            causeRecyclerView.adapter = CausesRecylerViewAdapter(specificBodyRegion.causeList)
+        } else {
+            Toast.makeText(activity, getString(R.string.no_data, specificBodyRegion.name), Toast.LENGTH_SHORT).show()
+            activity.onBackPressed()
+        }
     }
 
     fun onButtonPressed(uri: Uri) {
