@@ -1,88 +1,73 @@
 package xyz.painapp.pocketdoc.activities
 
-import android.content.Context
-import android.content.Intent
+import android.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
 import xyz.painapp.pocketdoc.R
-import android.net.ConnectivityManager
 import android.net.http.HttpResponseCache
-import java.io.File
-import java.io.IOException
+import org.json.JSONObject
+import xyz.painapp.pocketdoc.entities.DownloadDataTask
+import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
+import xyz.painapp.pocketdoc.fragments.LoadingFragment
+import xyz.painapp.pocketdoc.fragments.MainFragment
+import java.io.*
+import java.net.URL
 
 
-class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var actionListView : ListView
+    private lateinit var fManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        actionListView = findViewById(R.id.main_action_list)
-        actionListView.adapter = ArrayAdapter.createFromResource(this, R.array.main_action_list, R.layout.main_action_list_item)
-        actionListView.onItemClickListener = this
+     //   actionListView = findViewById(R.id.main_action_list)
 
-        if (!isInternetAvailable()) {
-          //  Log.i("TEST: ", "TEST")
-            val builder = android.app.AlertDialog.Builder(this)
+/*        builder = android.app.AlertDialog.Builder(this)
 
-            builder.setMessage(R.string.error_connect_internet)
-                    .setTitle(R.string.error_dialog_title)
-
-            builder.setPositiveButton(R.string.open_network_settings) { _, _ ->
-                startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
-            }
+        builder.setMessage(R.string.error_connect_internet)
+                .setTitle(R.string.error_dialog_title)*/
+        fManager = fragmentManager
 
 
+       DownloadConnectInfo().execute(HTTPUrlMethod(URL(HTTPUrlMethod.BASE_URL), HTTPUrlMethod.GET, null))
 
-            builder.create().show()
-        } else {
-            try {
-                val httpCacheDir = File(cacheDir, "http")
-                val httpCacheSize = (10 * 1024 * 1024).toLong() // 10 MiB
-                HttpResponseCache.install(httpCacheDir, httpCacheSize)
-            } catch (e: IOException) {
-                Log.e("Error", "HTTP response cache installation failed:" + e)
-                e.printStackTrace()
-            }
-        }
 
     }
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val item = actionListView.getItemAtPosition(position) as String
 
-        // TODO add in handlers for other activities
-        val intent : Intent? =
-                when (item) {
-                    "start" -> Intent(this, BodyActivity::class.java)
-                    "debug" -> Intent(this, DebugActivity::class.java)
-                    else -> null
-                }
-
-        if (intent != null) {
-            startActivity(intent)
-        } else {
-            Toast.makeText(this, "That action isn't supported yet!", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     override fun onStop() {
         super.onStop()
         HttpResponseCache.getInstalled()?.flush()
     }
 
-    private fun isInternetAvailable(): Boolean {
-        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        val activeNetwork = cm.activeNetworkInfo
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting
+    inner class DownloadConnectInfo: DownloadDataTask() {
+        override fun onPreExecute() {
+            val transaction = fManager.beginTransaction()
+            val newFragment = LoadingFragment.newInstance(internetError = true)
+            transaction.replace(R.id.main_fragment_container, newFragment)
+            transaction.commit()
+        }
 
+        override fun onPostExecute(result: JSONObject?) {
+            Log.i("Result", result.toString())
+            if (result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR) && result[HTTPUrlMethod.RESPONSE_CODE_STR] != 200) {
+                fManager.beginTransaction().replace(R.id.main_fragment_container, LoadingFragment.newInstance(errorMessage = getString(R.string.error_connect_internet), internetError = true)).commit()
+            } else {
+                fManager.beginTransaction().replace(R.id.main_fragment_container, MainFragment.newInstance()).commit()
+                try {
+                    val httpCacheDir = File(cacheDir, "http")
+                    val httpCacheSize = (10 * 1024 * 1024).toLong() // 10 MiB
+                    HttpResponseCache.install(httpCacheDir, httpCacheSize)
+                } catch (e: IOException) {
+                    Log.e("Error", "HTTP response cache installation failed:" + e)
+                    e.printStackTrace()
+                }
+            }
+        }
     }
 }

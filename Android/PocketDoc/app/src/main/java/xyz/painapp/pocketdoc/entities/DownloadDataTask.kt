@@ -26,6 +26,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
             val url = urlMethod.url
             myConnection = url.openConnection() as HttpURLConnection
             myConnection.requestMethod = urlMethod.methodString
+            myConnection.connectTimeout = 3000
             myConnection.doInput = true
 
             if (urlMethod.methodString == HTTPUrlMethod.POST && urlMethod.dataList != null) {
@@ -68,7 +69,13 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
         return try {
             val retStr = StringBuilder(inputStream.readText()).toString()
-            JSONObject(retStr)
+            //Log.i("RET:", retStr)
+            if (!retStr.isEmpty()) {
+              //Log.i("RET is empty:", retStr.isEmpty().toString())
+                JSONObject(retStr)
+            } else {
+                JSONObject()
+            }
         } catch (e: IOException) {
             e.printStackTrace()
             if (e is ConnectException) {

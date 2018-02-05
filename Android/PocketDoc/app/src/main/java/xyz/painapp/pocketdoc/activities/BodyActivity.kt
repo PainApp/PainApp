@@ -40,11 +40,19 @@ class BodyActivity : AppCompatActivity(){
 
     }
 
+    override fun onPostResume() {
+        super.onPostResume()
+        fManager = fragmentManager
+      //  Log.i("HERE", "HERE")
+        DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
+    }
+
     override fun onResume() {
         super.onResume()
         if (currentFragment != null) {
             fManager!!.beginTransaction().replace(R.id.body_fragment_container, currentFragment).commit()
         }
+    //    DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
 
     }
 
@@ -79,6 +87,7 @@ class BodyActivity : AppCompatActivity(){
 
         override fun onPostExecute(result: JSONObject?) {
             val transaction = fManager!!.beginTransaction()
+            Log.i("Results:", result.toString())
             currentFragment = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
                 BodyFragment.newInstance(BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR)))
             } else {
