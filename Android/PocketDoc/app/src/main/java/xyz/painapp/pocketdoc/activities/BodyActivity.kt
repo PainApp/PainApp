@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
@@ -18,14 +20,15 @@ import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.fragments.BodyFragment
 import xyz.painapp.pocketdoc.fragments.LoadingFragment
 
-class BodyActivity : AppCompatActivity(){
+class BodyActivity : AppCompatActivity(), View.OnClickListener {
+
 
 
     private var fManager: FragmentManager? = null
     private var currentFragment: Fragment? = null
-
-
-
+    private lateinit var flipButton: Button
+    private var orientation = true
+    private var bodyRegionList: ArrayList<BodyRegion>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_body)
@@ -35,9 +38,12 @@ class BodyActivity : AppCompatActivity(){
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        flipButton = findViewById(R.id.flip_body_button)
+
         fManager = fragmentManager
         DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
 
+        flipButton.setOnClickListener(this)
     }
 
     override fun onPostResume() {
@@ -75,6 +81,16 @@ class BodyActivity : AppCompatActivity(){
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onClick(v: View?) {
+        when (v!!.id) {
+            R.id.flip_body_button -> this.flipBody()
+        }
+    }
+
+    private fun flipBody() {
+        orientation = !orientation
+        fManager!!.beginTransaction().replace(R.id.body_fragment_container, BodyFragment.newInstance(bodyRegionList!!, orientation)).commit()
+    }
 
     inner class DownloadBodyInfoTask: DownloadDataTask() {
         override fun onPreExecute() {
@@ -89,7 +105,8 @@ class BodyActivity : AppCompatActivity(){
             val transaction = fManager!!.beginTransaction()
             Log.i("Results:", result.toString())
             currentFragment = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
-                BodyFragment.newInstance(BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR)))
+                bodyRegionList = BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR))
+                BodyFragment.newInstance(bodyRegionList!!, orientation)
             } else {
                 LoadingFragment.newInstance(getString(R.string.error_server_message))
             }

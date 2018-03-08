@@ -1,0 +1,183 @@
+<android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/body_constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/back_head_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/back_head"
+        app:layout_constraintEnd_toStartOf="@+id/back_right_shoulder_imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_head" />
+
+    <ImageView
+        android:id="@+id/back_back_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:adjustViewBounds="true"
+        android:src="@drawable/back_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back_head_imageView" />
+
+    <ImageView
+        android:id="@+id/back_right_shoulder_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toEndOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toTopOf="@+id/back_back_imageView"
+        app:srcCompat="@drawable/back_right_shoulder" />
+
+
+    <ImageView
+        android:id="@+id/back_left_shoulder_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_head_imageView"
+        app:srcCompat="@drawable/back_left_shoulder" />
+
+       <ImageView
+           android:id="@+id/back_right_upperarm_imageView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="1dp"
+           app:layout_constraintStart_toStartOf="@+id/back_right_shoulder_imageView"
+           app:layout_constraintTop_toBottomOf="@+id/back_right_shoulder_imageView"
+           app:srcCompat="@drawable/back_right_upperarm" />
+
+    <ImageView
+        android:id="@+id/back_right_elbow_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintStart_toEndOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_right_upperarm_imageView"
+        app:srcCompat="@drawable/back_right_elbow" />
+
+
+    <ImageView
+        android:id="@+id/back_right_forearm_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        app:layout_constraintStart_toStartOf="@+id/back_right_upperarm_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_right_elbow_imageView"
+        app:srcCompat="@drawable/back_right_forearm" />
+
+    <ImageView
+        android:id="@+id/back_right_hand_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="@+id/back_right_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_right_forearm_imageView"
+        app:srcCompat="@drawable/back_right_hand" />
+
+    <ImageView
+        android:id="@+id/back_left_upperarm_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/back_left_shoulder_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_left_shoulder_imageView"
+        app:srcCompat="@drawable/back_left_upperarm" />
+
+
+    <ImageView
+        android:id="@+id/back_left_elbow_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_left_upperarm_imageView"
+        app:srcCompat="@drawable/back_left_elbow" />
+
+
+    <ImageView
+        android:id="@+id/back_left_forearm_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_left_elbow_imageView"
+        app:srcCompat="@drawable/back_left_forearm" />
+
+    <ImageView
+        android:id="@+id/back_left_hand_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/back_left_upperarm_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_left_forearm_imageView"
+        app:srcCompat="@drawable/back_left_hand" />
+
+    <ImageView
+        android:id="@+id/back_hips_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        app:layout_constraintStart_toStartOf="@+id/back_left_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_back_imageView"
+        app:srcCompat="@drawable/back_hips" />
+
+    <ImageView
+        android:id="@+id/back_butt_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        app:layout_constraintStart_toStartOf="@+id/back_left_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_hips_image_view"
+        app:srcCompat="@drawable/back_butt" />
+
+    <ImageView
+        android:id="@+id/back_thighs_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="67dp"
+        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_butt_imageView"
+        app:srcCompat="@drawable/back_thighs" />
+
+    <ImageView
+        android:id="@+id/back_knees_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="79dp"
+        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_thighs_imageView"
+        app:srcCompat="@drawable/back_knees" />
+
+    <ImageView
+        android:id="@+id/back_calves_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_knees_imageView"
+        app:srcCompat="@drawable/back_calfs" />
+
+    <ImageView
+        android:id="@+id/back_feet_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_calves_imageView"
+        app:srcCompat="@drawable/back_feet" />-->
+</android.support.constraint.ConstraintLayout>
