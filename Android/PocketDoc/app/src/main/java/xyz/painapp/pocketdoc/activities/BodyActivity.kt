@@ -38,7 +38,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        flipButton = findViewById(R.id.flip_body_button)
+        flipButton = findViewById<Button>(R.id.flip_body_button)
 
         fManager = fragmentManager
         DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
