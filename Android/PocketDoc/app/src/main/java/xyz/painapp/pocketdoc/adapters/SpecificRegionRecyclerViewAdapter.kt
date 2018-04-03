@@ -31,8 +31,8 @@ class SpecificRegionRecyclerViewAdapter : RecyclerView.Adapter<SpecificRegionRec
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SpecificRegionRecyclerViewAdapter.RegionViewHolder {
-        val itemView: View = LayoutInflater.from(parent!!.context).inflate(R.layout.card_item_view, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpecificRegionRecyclerViewAdapter.RegionViewHolder {
+        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.card_item_view, parent, false)
         return RegionViewHolder(itemView)
     }
 
@@ -40,8 +40,8 @@ class SpecificRegionRecyclerViewAdapter : RecyclerView.Adapter<SpecificRegionRec
         return sRegions.size
     }
 
-    override fun onBindViewHolder(holder: RegionViewHolder?, position: Int) {
-        holder!!.setItem(sRegions[position])
+    override fun onBindViewHolder(holder: RegionViewHolder, position: Int) {
+        holder.setItem(sRegions[position])
     }
 
     class RegionViewHolder(parent: View) : RecyclerView.ViewHolder(parent), View.OnClickListener {

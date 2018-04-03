@@ -17,7 +17,7 @@ import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var actionListView : ListView
+    //private lateinit var actionListView : ListView
     private lateinit var fManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
 
        DownloadConnectInfo().execute(HTTPUrlMethod(URL(HTTPUrlMethod.BASE_URL), HTTPUrlMethod.GET, null))
-
 
     }
 
@@ -54,7 +53,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onPostExecute(result: JSONObject?) {
-            Log.i("Result", result.toString())
             if (result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR) && result[HTTPUrlMethod.RESPONSE_CODE_STR] != 200) {
                 fManager.beginTransaction().replace(R.id.main_fragment_container, LoadingFragment.newInstance(errorMessage = getString(R.string.error_connect_internet), internetError = true)).commit()
             } else {

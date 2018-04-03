@@ -67,7 +67,7 @@ class CausesActivity : AppCompatActivity() {
             val transaction = fManager!!.beginTransaction()
             Log.i("s_region_result", result.toString())
             val newFragment: Fragment? = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
-                CausesFragment.newInstance(SpecificBodyRegion(result, specificBodyRegion!!.bodyRegionId, specificBodyRegion!!.bodyRegionName))
+                CausesFragment.newInstance(SpecificBodyRegion(result, specificBodyRegion.bodyRegionId, specificBodyRegion.bodyRegionName))
             } else {
                 LoadingFragment.newInstance(getString(R.string.error_server_message))
             }
