@@ -12,7 +12,10 @@ import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_loading.*
+import org.w3c.dom.Text
 
 import xyz.painapp.pocketdoc.R
 
@@ -29,6 +32,8 @@ class LoadingFragment : Fragment() {
     private var mListener: OnFragmentInteractionListener? = null
     private var errorMessage: String? = null
     private var internetError: Boolean = false
+    private var progressBar: ProgressBar? = null
+    private var loadingTextView: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,11 +73,12 @@ class LoadingFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val loadingConstraintView: ConstraintLayout = getView().findViewById(R.id.loading_constraint_layout)
-        val loadingTextView: TextView = getView().findViewById(R.id.loading_textView)
+        loadingTextView = getView().findViewById(R.id.loading_textView)
+        progressBar = getView().findViewById(R.id.progressBar)
 
         if (internetError) {
             loadingConstraintView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-            loadingTextView.setTextColor(ContextCompat.getColor(activity, R.color.white))
+            loadingTextView!!.setTextColor(ContextCompat.getColor(activity, R.color.white))
         }
     }
 
@@ -95,6 +101,16 @@ class LoadingFragment : Fragment() {
     override fun onDetach() {
         super.onDetach()
         mListener = null
+    }
+
+    fun setProgressVisible(visible: Boolean) {
+        if (!visible) {
+            progressBar?.visibility = View.INVISIBLE
+            loadingTextView?.visibility = View.INVISIBLE
+        } else {
+            progressBar?.visibility = View.VISIBLE
+            loadingTextView?.visibility = View.VISIBLE
+        }
     }
 
     /**

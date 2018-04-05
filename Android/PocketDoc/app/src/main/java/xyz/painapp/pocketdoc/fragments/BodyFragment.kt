@@ -82,12 +82,12 @@ class BodyFragment : Fragment(), View.OnClickListener {
             val found: BodyRegion? = (0 until bodyRegionList.size)
                     .firstOrNull { bodyRegionList[it].viewId == v?.id }
                     ?.let { bodyRegionList[it] }
-            if (found != null) {
+          /*  if (found != null) {
                 (activity as BodyActivity).DownloadRegionInfoTask().execute(HTTPUrlMethod(
                         HTTPUrlMethod.BODY_REGION_URL,
                         HTTPUrlMethod.POST,
                         found.toJSONObject()))
-        }
+        }*/
     }
 
     /**

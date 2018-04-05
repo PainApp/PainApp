@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
                         testConnection()
                     }
                 })
-        fragmentManager.beginTransaction().replace(R.id.main_fragment_container, MainFragment.newInstance()).commit()
+       // fragmentManager.beginTransaction().replace(R.id.main_fragment_container, MainFragment.newInstance()).commit()
         testConnection()
     }
 
@@ -82,14 +82,14 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
         class DownloadConnectInfo(private val fragmentManager: FragmentManager, private val errorSnackbar: Snackbar, private val cacheDir: File) : DownloadDataTask() {
 
             override fun onPreExecute() {
-                fragmentManager.beginTransaction().add(R.id.main_fragment_container, MainFragment.newInstance(), FRAGMENT_TAG).commit()
-
-                val mainFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as MainFragment
-                mainFragment.setProgressVisibility(true)
+                val mainFragment = MainFragment.newInstance(progressBarVisible = true)
+                fragmentManager.beginTransaction().add(R.id.main_fragment_container, mainFragment, FRAGMENT_TAG).commit()
             }
 
             override fun onPostExecute(result: JSONObject?) {
+                val mainFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as MainFragment
                 if (result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR) && result[HTTPUrlMethod.RESPONSE_CODE_STR] != 200) {
+                    mainFragment.setActionListVisibility(false)
                     errorSnackbar.show()
                 } else {
                     mainFragment.setProgressVisibility(false)

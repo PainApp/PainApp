@@ -2,11 +2,11 @@ package xyz.painapp.pocketdoc.activities
 
 import android.app.Fragment
 import android.app.FragmentManager
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,10 +17,11 @@ import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.BodyRegion
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
+import xyz.painapp.pocketdoc.entities.OnTaskCompleted
 import xyz.painapp.pocketdoc.fragments.BodyFragment
 import xyz.painapp.pocketdoc.fragments.LoadingFragment
 
-class BodyActivity : AppCompatActivity(), View.OnClickListener {
+class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompleted {
 
 
 
@@ -28,7 +29,9 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
     private var currentFragment: Fragment? = null
     private lateinit var flipButton: Button
     private var orientation = true
+    private lateinit var errorSnackbar: Snackbar
     private var bodyRegionList: ArrayList<BodyRegion>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_body)
@@ -41,16 +44,27 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         flipButton = findViewById(R.id.flip_body_button)
 
         fManager = fragmentManager
-        DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
+        errorSnackbar = Snackbar.make(findViewById<ConstraintLayout>(R.id.body_fragment_container), getString(R.string.error_connect_internet), Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry), {
+                    _ ->
+                    run {
+                        errorSnackbar.dismiss()
+                        testConnection()
+                    }
+                })
+
 
         flipButton.setOnClickListener(this)
+    }
+
+    private fun testConnection() {
+        DownloadBodyInfoTask(this, fManager!!, errorSnackbar, orientation).execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
     }
 
     override fun onPostResume() {
         super.onPostResume()
         fManager = fragmentManager
-      //  Log.i("HERE", "HERE")
-        DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
+        DownloadBodyInfoTask(this, fManager!!, errorSnackbar, orientation).execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
     }
 
     override fun onResume() {
@@ -58,7 +72,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         if (currentFragment != null) {
             fManager!!.beginTransaction().replace(R.id.body_fragment_container, currentFragment).commit()
         }
-    //    DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
 
     }
 
@@ -87,36 +100,48 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // TODO fix implementation of flipBody
     private fun flipBody() {
         orientation = !orientation
         fManager!!.beginTransaction().replace(R.id.body_fragment_container, BodyFragment.newInstance(bodyRegionList!!, orientation)).commit()
     }
 
-    inner class DownloadBodyInfoTask: DownloadDataTask() {
-        override fun onPreExecute() {
-            val transaction = fManager!!.beginTransaction()
-            val newFragment = LoadingFragment()
-            transaction.replace(R.id.body_fragment_container, newFragment)
-            transaction.commit()
+    override fun onTaskCompleted(vararg values: Any?) {
+        if (values[0] is ArrayList<*>) {
+            val mList = values[0] as ArrayList<*>
+            bodyRegionList = mList.filterIsInstance<BodyRegion>() as ArrayList<BodyRegion>
         }
-
-        override fun onPostExecute(result: JSONObject?) {
-            val transaction = fManager!!.beginTransaction()
-            currentFragment = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
-                bodyRegionList = BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR))
-                BodyFragment.newInstance(bodyRegionList!!, orientation)
-            } else {
-                LoadingFragment.newInstance(getString(R.string.error_server_message))
-            }
-
-
-            transaction.replace(R.id.body_fragment_container, currentFragment!!)
-            transaction.commit()
-        }
-
     }
 
-    inner class DownloadRegionInfoTask: DownloadDataTask() {
+    companion object {
+
+        private const val LOADING_FRAGMENT_TAG = "loading_fragment"
+        const val BODY_FRAGMENT_TAG = "body_fragment"
+
+        class DownloadBodyInfoTask(private val listener: OnTaskCompleted, val fragmentManager: FragmentManager, private val errorSnackbar: Snackbar, private val orientation: Boolean) : DownloadDataTask() {
+            override fun onPreExecute() {
+                val transaction = fragmentManager.beginTransaction()
+                val newFragment = LoadingFragment()
+                transaction.replace(R.id.body_fragment_container, newFragment, LOADING_FRAGMENT_TAG)
+                transaction.commit()
+            }
+
+            override fun onPostExecute(result: JSONObject?) {
+                val transaction = fragmentManager.beginTransaction()
+                if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
+                    val bodyRegionList = BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR))
+                    listener.onTaskCompleted(bodyRegionList)
+                    transaction.replace(R.id.body_fragment_container, BodyFragment.newInstance(bodyRegionList, orientation), BODY_FRAGMENT_TAG).commit()
+                } else {
+                    val lFragment = fragmentManager.findFragmentByTag(LOADING_FRAGMENT_TAG) as LoadingFragment
+                    lFragment.setProgressVisible(false)
+                    errorSnackbar.show()
+                }
+            }
+    }
+
+/*
+    class DownloadRegionInfoTask: DownloadDataTask() {
         override fun onPreExecute() {
             val transaction = fManager!!.beginTransaction()
             val newFragment = LoadingFragment()
@@ -140,8 +165,9 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 fManager!!.beginTransaction().replace(R.id.region_fragment_container, LoadingFragment.newInstance(getString(R.string.error_server_message))).commit()
             }
-        }
+        }*/
     }
+
 
 
 
