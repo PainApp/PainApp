@@ -6,10 +6,9 @@
     "body-parser": "latest",
     "express": "latest",
     "mysql2": "latest",
-    "execsql": "latest",
     "prompt-sync": "latest"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "mysql -h pocketdoc.cxx8xktili9j.us-east-2.rds.amazonaws.com -P 3306 -u ghost -p pocket_doc < 'connection/initialize.sql' && node app.js"
   }
 }
