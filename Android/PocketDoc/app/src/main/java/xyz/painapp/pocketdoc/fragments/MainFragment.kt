@@ -1,15 +1,13 @@
 package xyz.painapp.pocketdoc.fragments
 
 import android.app.Fragment
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.activities.BodyActivity
 import xyz.painapp.pocketdoc.activities.DebugActivity
@@ -20,6 +18,12 @@ import xyz.painapp.pocketdoc.activities.DebugActivity
  */
 class MainFragment : Fragment(), AdapterView.OnItemClickListener {
     private lateinit var actionListView: ListView
+    private lateinit var progressBar: ProgressBar
+    lateinit var mCallback: OnMainActionSelectedListener
+
+    interface OnMainActionSelectedListener {
+        fun onMainActionSelected(action: String)
+    }
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -29,33 +33,39 @@ class MainFragment : Fragment(), AdapterView.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         actionListView = getView().findViewById(R.id.main_action_list)
+        progressBar = getView().findViewById(R.id.loading_bar)
 
         actionListView.adapter = ArrayAdapter.createFromResource(activity, R.array.main_action_list, R.layout.main_action_list_item)
         actionListView.onItemClickListener = this
-
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val item = actionListView.getItemAtPosition(position) as String
+        mCallback.onMainActionSelected(actionListView.getItemAtPosition(position) as String)
+    }
 
-        // TODO add in handlers for other activities
-        val intent : Intent? =
-                when (item) {
-                    "start" -> Intent(activity, BodyActivity::class.java)
-                    "debug" -> Intent(activity, DebugActivity::class.java)
-                    else -> null
-                }
-
-        if (intent != null) {
-            startActivity(intent)
-        } else {
-            Toast.makeText(activity, "That action isn't supported yet!", Toast.LENGTH_SHORT).show()
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        try {
+            mCallback = activity as OnMainActionSelectedListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException(activity.toString()
+                    + " must implement OnHeadlineSelectedListener");
         }
     }
 
+    fun setProgressVisibility(visibility: Boolean) {
+        if (!visibility) {
+            actionListView.visibility = View.VISIBLE
+            progressBar.visibility = View.INVISIBLE
+        } else  {
+            actionListView.visibility = View.INVISIBLE
+            progressBar.visibility = View.VISIBLE
+        }
+    }
+
+
     companion object {
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
         fun newInstance(): MainFragment {
             return MainFragment()
         }

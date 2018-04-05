@@ -74,7 +74,7 @@ class DebugActivity: AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 "}\n")
 
 
-        debugButton.setOnClickListener { v ->
+        debugButton.setOnClickListener { _ ->
 
             if (urlEditText.text != null && urlEditText.text.toString() != "" && methodSpinnerVal != "") {
          //       DebugDownloadDataTask(this).execute(HTTPUrlMethod(URL(urlEditText.text.toString()), methodSpinnerVal, dataList = dataList))

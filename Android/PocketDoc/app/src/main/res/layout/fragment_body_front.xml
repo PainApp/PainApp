@@ -8,9 +8,6 @@
     app:layout_constraintTop_toTopOf="parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-    <!--TODO extract into different layout file to programmatically swap-->
     <ImageView
         android:id="@+id/front_head_imageView"
         android:layout_width="wrap_content"
@@ -33,9 +30,9 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/front_chest"
         android:src="@drawable/front_chest"
-        app:layout_constraintEnd_toEndOf="@+id/front_head_imageView"
-        app:layout_constraintStart_toStartOf="@+id/front_head_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_head_imageView" />
+        app:layout_constraintEnd_toEndOf="@id/front_head_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_head_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_head_imageView" />
 
     <ImageView
         android:id="@+id/front_right_shoulder_imageView"
@@ -43,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:adjustViewBounds="true"
-        app:layout_constraintEnd_toStartOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toTopOf="@+id/front_chest_imageView"
+        app:layout_constraintEnd_toStartOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toTopOf="@id/front_chest_imageView"
         app:srcCompat="@drawable/front_right_shoulder" />
 
     <ImageView
@@ -52,8 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        app:layout_constraintStart_toStartOf="@+id/front_right_shoulder_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_right_shoulder_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_right_shoulder_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_right_shoulder_imageView"
         app:srcCompat="@drawable/front_right_upperarm" />
 
     <ImageView
@@ -63,8 +60,8 @@
         android:layout_marginEnd="86dp"
         android:layout_marginTop="24dp"
         android:adjustViewBounds="true"
-        app:layout_constraintEnd_toEndOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toTopOf="@+id/front_right_upperarm_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toTopOf="@id/front_right_upperarm_imageView"
         app:srcCompat="@drawable/front_right_elbow" />
 
 
@@ -73,8 +70,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="91dp"
-        app:layout_constraintEnd_toEndOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_right_elbow_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_right_elbow_imageView"
         app:srcCompat="@drawable/front_right_forearm" />
 
     <ImageView
@@ -82,8 +79,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="26dp"
-        app:layout_constraintEnd_toEndOf="@+id/front_right_forearm_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_right_forearm_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_right_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_right_forearm_imageView"
         app:srcCompat="@drawable/front_right_hand" />
 
     <ImageView
@@ -91,8 +88,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        app:layout_constraintStart_toEndOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_head_imageView"
+        app:layout_constraintStart_toEndOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_head_imageView"
         app:srcCompat="@drawable/front_left_shoulder" />
 
     <ImageView
@@ -100,8 +97,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88.5dp"
-        app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_right_upperarm_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_right_upperarm_imageView"
         app:srcCompat="@drawable/front_left_elbow" />
 
     <ImageView
@@ -109,16 +106,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
-        app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_left_elbow_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_left_elbow_imageView"
         app:srcCompat="@drawable/front_left_forearm" />
 
     <ImageView
         android:id="@+id/front_left_upperarm_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/front_left_shoulder_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_left_shoulder_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_left_shoulder_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_left_shoulder_imageView"
         app:srcCompat="@drawable/front_left_upperarm" />
 
     <ImageView
@@ -126,8 +123,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="118dp"
-        app:layout_constraintStart_toStartOf="@+id/front_chest_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_left_forearm_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_chest_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_left_forearm_imageView"
         app:srcCompat="@drawable/front_left_hand" />
 
     <ImageView
@@ -135,8 +132,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="49dp"
-        app:layout_constraintEnd_toEndOf="@+id/front_left_forearm_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_chest_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_left_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_chest_imageView"
         app:srcCompat="@drawable/front_hips" />
 
     <ImageView
@@ -144,8 +141,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="73.6dp"
-        app:layout_constraintStart_toStartOf="@+id/front_right_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_hips_image_view"
+        app:layout_constraintStart_toStartOf="@id/front_right_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_hips_image_view"
         app:srcCompat="@drawable/front_groin" />
 
     <ImageView
@@ -153,8 +150,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
-        app:layout_constraintStart_toStartOf="@+id/front_right_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_groin_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_right_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_groin_imageView"
         app:srcCompat="@drawable/front_thighs" />
 
     <ImageView
@@ -162,8 +159,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="87dp"
-        app:layout_constraintStart_toStartOf="@+id/front_right_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_thighs_imageView"
+        app:layout_constraintStart_toStartOf="@id/front_right_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_thighs_imageView"
         app:srcCompat="@drawable/front_knees" />
 
     <ImageView
@@ -171,8 +168,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/front_thighs_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_knees_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_thighs_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_knees_imageView"
         app:srcCompat="@drawable/front_lowerlegs" />
 
     <ImageView
@@ -180,20 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/front_lowerlegs_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/front_lowerlegs_imageView"
+        app:layout_constraintEnd_toEndOf="@id/front_lowerlegs_imageView"
+        app:layout_constraintTop_toBottomOf="@id/front_lowerlegs_imageView"
         app:srcCompat="@drawable/front_feet" />
-
-
-    <Button
-        android:id="@+id/flip_body_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@color/white"
-        android:text="@string/flip_body"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

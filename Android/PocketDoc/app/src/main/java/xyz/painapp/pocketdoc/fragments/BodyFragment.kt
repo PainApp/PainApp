@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.app.Fragment
-import android.content.Intent
 import android.support.constraint.ConstraintLayout
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,6 @@ import android.widget.ImageView
 
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.activities.BodyActivity
-import xyz.painapp.pocketdoc.activities.RegionActivity
 import xyz.painapp.pocketdoc.entities.BodyRegion
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 
@@ -28,34 +26,35 @@ import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
  */
 class BodyFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var flipButton: Button
     private lateinit var bodyConstraintLayout: ConstraintLayout
     private lateinit var bodyRegionList: ArrayList<BodyRegion>
     private var mListener: OnFragmentInteractionListener? = null
+    private var front: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
             bodyRegionList = arguments.getParcelableArrayList(ARG_BODY_LIST)
+            front = arguments.getBoolean(ARG_ORIENTATION)
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_body, container, false)
+        return if (front) {
+            inflater!!.inflate(R.layout.fragment_body_front, container, false)
+        } else {
+            inflater!!.inflate(R.layout.fragment_body_back, container, false)
+        }
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bodyConstraintLayout = getView().findViewById(R.id.body_constraintLayout)
-        flipButton = getView().findViewById(R.id.flip_body_button)
         (0..bodyConstraintLayout.childCount)
                 .map { bodyConstraintLayout.getChildAt(it) }
                 .forEach { (it as? ImageView)?.setOnClickListener(this) }
-
-        //TODO implement flip button with new picture
-        flipButton!!.setOnClickListener(this)
     }
 
     fun onButtonPressed(uri: Uri) {
@@ -80,23 +79,14 @@ class BodyFragment : Fragment(), View.OnClickListener {
 
 
     override fun onClick(v: View?) {
-
-        when (v!!.id) {
-            R.id.flip_body_button -> return
-            else -> {
-                val found: BodyRegion? = (0 until bodyRegionList.size)
-                        .firstOrNull { bodyRegionList[it].viewId == v.id }
-                        ?.let { bodyRegionList[it] }
-                if (found != null) {
-
-                    (activity as BodyActivity).DownloadRegionInfoTask().execute(HTTPUrlMethod(
-                            HTTPUrlMethod.BODY_REGION_URL,
-                            HTTPUrlMethod.POST,
-                            found.toJSONObject()
-                    )
-                    )
-                }
-            }
+            val found: BodyRegion? = (0 until bodyRegionList.size)
+                    .firstOrNull { bodyRegionList[it].viewId == v?.id }
+                    ?.let { bodyRegionList[it] }
+            if (found != null) {
+                (activity as BodyActivity).DownloadRegionInfoTask().execute(HTTPUrlMethod(
+                        HTTPUrlMethod.BODY_REGION_URL,
+                        HTTPUrlMethod.POST,
+                        found.toJSONObject()))
         }
     }
 
@@ -116,6 +106,7 @@ class BodyFragment : Fragment(), View.OnClickListener {
     companion object {
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
         private val ARG_BODY_LIST = "body_list"
+        private val ARG_ORIENTATION = "orientation"
 
         /**
          * Use this factory method to create a new instance of
@@ -123,10 +114,11 @@ class BodyFragment : Fragment(), View.OnClickListener {
 
          * @return A new instance of fragment RegionFragment.
          */
-        fun newInstance(bodyRegionList: ArrayList<BodyRegion>): BodyFragment {
+        fun newInstance(bodyRegionList: ArrayList<BodyRegion>, orientation: Boolean): BodyFragment {
             val fragment = BodyFragment()
             val args = Bundle()
             args.putParcelableArrayList(ARG_BODY_LIST, bodyRegionList)
+            args.putBoolean(ARG_ORIENTATION, orientation)
             fragment.arguments = args
             return fragment
         }

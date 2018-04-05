@@ -28,8 +28,8 @@ class CausesRecylerViewAdapter : RecyclerView.Adapter<CausesRecylerViewAdapter.C
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CausesRecylerViewAdapter.CausesViewHolder {
-        val itemView: View = LayoutInflater.from(parent!!.context).inflate(R.layout.card_item_view, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CausesRecylerViewAdapter.CausesViewHolder {
+        val itemView: View = LayoutInflater.from(parent.context).inflate(R.layout.card_item_view, parent, false)
         return CausesViewHolder(itemView)
     }
 
@@ -37,12 +37,12 @@ class CausesRecylerViewAdapter : RecyclerView.Adapter<CausesRecylerViewAdapter.C
         return causes.size
     }
 
-    override fun onBindViewHolder(holder: CausesViewHolder?, position: Int) {
-        holder!!.setItem(causes[position])
+    override fun onBindViewHolder(holder: CausesViewHolder, position: Int) {
+        holder.setItem(causes[position])
     }
 
     class CausesViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
-        var causeTextView: TextView = parent.findViewById(R.id.card_item_textView)
+        private var causeTextView: TextView = parent.findViewById(R.id.card_item_textView)
 
         fun setItem(item: Cause) {
             causeTextView.text = item.name

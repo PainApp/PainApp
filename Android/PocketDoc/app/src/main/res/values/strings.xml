@@ -25,11 +25,13 @@
     <string name="loading">Loading…</string>
     <string name="error_server_message">Something went wrong, please contact the application owners</string>
     <string name="error_dialog_title">Error</string>
-    <string name="error_connect_internet">Ensure your device is connected to the internet before continuing</string>
-    <string name="ok">ok</string>
+    <string name="error_connect_internet">Error connecting</string>
+    <string name="retry">RETRY</string>
+    <string name="ok">OK</string>
     <string name="specific_region_title">%1$s Specific Regions</string>
     <string name="causes_title">Causes of Pain in %1$s</string>
     <string name="no_data">There is no data for %1$s</string>
     <string name="open_network_settings">Open network settings</string>
+    <string name="back_head">Back Head</string>
 </resources>
 
