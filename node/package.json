@@ -1,0 +1,15 @@
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "mysql2": "latest",
+    "execsql": "latest",
+    "prompt-sync": "latest"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
