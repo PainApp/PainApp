@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "aws-sdk": "latest",
     "body-parser": "latest",
     "ejs": "latest",
@@ -10,6 +11,12 @@
     "mysql": "latest",
     "seed": "^0.4.4",
     "seed-js": "0.0.11"
+=======
+    "body-parser": "latest",
+    "express": "latest",
+    "mysql2": "latest",
+    "prompt-sync": "latest"
+>>>>>>> f053da26f6f55709d776e5190b6661f06a61fcac
   },
   "scripts": {
     "seed": "node ./tasks/seed.js",
