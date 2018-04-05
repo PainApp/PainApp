@@ -3,14 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "ejs": "latest",
     "aws-sdk": "latest",
-    "express": "latest",
     "body-parser": "latest",
-    "mysql": "latest"
+    "ejs": "latest",
+    "express": "latest",
+    "mysql": "latest",
+    "seed": "^0.4.4",
+    "seed-js": "0.0.11"
   },
   "scripts": {
-    "start": "node app.js",
     "seed": "node ./tasks/seed.js",
+    "createDB": "node ./tasks/createDB.js",
+    "createTables": "node ./tasks/createTables.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   }
 }
