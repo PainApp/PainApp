@@ -32,7 +32,7 @@
         <activity
             android:name=".activities.CausesActivity"
             android:parentActivityName=".activities.RegionActivity" />
-        <activity android:name=".activities.DetailActivity"></activity>
+        <activity android:name=".activities.DetailActivity" />
     </application>
 
 </manifest>
