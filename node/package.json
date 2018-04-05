@@ -3,11 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "ejs": "latest",
-    "aws-sdk": "latest",
-    "express": "latest",
     "body-parser": "latest",
-    "mysql": "latest"
+    "express": "latest",
+    "mysql2": "latest",
+    "prompt-sync": "latest"
   },
   "scripts": {
     "start": "node app.js"

@@ -1,21 +1,11 @@
-var mysql = require('mysql');
+const express = require("express");
+const bodyParser = require("body-parser");
 
-var connection = mysql.createConnection({
-  host     : "pocketdoc.cxx8xktili9j.us-east-2.rds.amazonaws.com",
-  user     : "ghost",
-  password : "B&n4nA9(",
-  port     : "3306"
+var app = express();
+var configRoutes = require("./routes");
+
+app.use(bodyParser.json());
+configRoutes(app);
+
+app.listen(8080, () => {
 });
-
-connection.connect(function(err) {
-  if (err) {
-    console.error('Database connection failed: ' + err.stack);
-    return;
-  }
-
-  console.log('Connected to database.');
-});
-
-//connection.end();
-
-
