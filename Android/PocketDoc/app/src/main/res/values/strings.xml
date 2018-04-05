@@ -25,7 +25,8 @@
     <string name="loading">Loading…</string>
     <string name="error_server_message">Something went wrong, please contact the application owners</string>
     <string name="error_dialog_title">Error</string>
-    <string name="error_connect_internet">Ensure your device is connected to the internet before continuing</string>
+    <string name="error_connect_internet">Error connecting</string>
+    <string name="retry">RETRY</string>
     <string name="ok">OK</string>
     <string name="specific_region_title">%1$s Specific Regions</string>
     <string name="causes_title">Causes of Pain in %1$s</string>

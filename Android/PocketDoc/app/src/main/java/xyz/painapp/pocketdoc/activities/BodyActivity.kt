@@ -38,7 +38,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        flipButton = findViewById<Button>(R.id.flip_body_button)
+        flipButton = findViewById(R.id.flip_body_button)
 
         fManager = fragmentManager
         DownloadBodyInfoTask().execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET,null))
@@ -94,7 +94,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
 
     inner class DownloadBodyInfoTask: DownloadDataTask() {
         override fun onPreExecute() {
-            Log.i("HERE", "Here")
             val transaction = fManager!!.beginTransaction()
             val newFragment = LoadingFragment()
             transaction.replace(R.id.body_fragment_container, newFragment)
@@ -103,7 +102,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
 
         override fun onPostExecute(result: JSONObject?) {
             val transaction = fManager!!.beginTransaction()
-            Log.i("Results:", result.toString())
             currentFragment = if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
                 bodyRegionList = BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR))
                 BodyFragment.newInstance(bodyRegionList!!, orientation)
@@ -121,8 +119,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener {
     inner class DownloadRegionInfoTask: DownloadDataTask() {
         override fun onPreExecute() {
             val transaction = fManager!!.beginTransaction()
-            Log.i("HERE", "Here2")
-
             val newFragment = LoadingFragment()
             transaction.replace(R.id.body_fragment_container, newFragment)
             transaction.commit()

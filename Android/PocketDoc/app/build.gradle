@@ -33,6 +33,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.deano2390:MaterialShowcaseView:1.2.0@aar'
+    implementation 'com.android.support:design:27.1.0'
 
 }
 repositories {

@@ -7,6 +7,9 @@ import android.util.Log
 import android.widget.ListView
 import xyz.painapp.pocketdoc.R
 import android.net.http.HttpResponseCache
+import android.support.constraint.ConstraintLayout
+import android.support.design.widget.Snackbar
+import android.view.View
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
@@ -19,6 +22,7 @@ import java.net.URL
 class MainActivity : AppCompatActivity() {
     //private lateinit var actionListView : ListView
     private lateinit var fManager: FragmentManager
+    private lateinit var errorSnackbar: Snackbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +34,16 @@ class MainActivity : AppCompatActivity() {
         builder.setMessage(R.string.error_connect_internet)
                 .setTitle(R.string.error_dialog_title)*/
         fManager = fragmentManager
+        errorSnackbar = Snackbar.make(findViewById<ConstraintLayout>(R.id.main_fragment_container), getString(R.string.error_connect_internet), Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry), {
+                    _ ->
+                    run {
+                        errorSnackbar.dismiss()
+                        testConnection()
+                    }
+                })
 
-
-       DownloadConnectInfo().execute(HTTPUrlMethod(URL(HTTPUrlMethod.BASE_URL), HTTPUrlMethod.GET, null))
-
+        testConnection()
     }
 
 
@@ -41,6 +51,10 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         HttpResponseCache.getInstalled()?.flush()
+    }
+
+    private fun testConnection() {
+        DownloadConnectInfo().execute(HTTPUrlMethod(URL(HTTPUrlMethod.BASE_URL), HTTPUrlMethod.GET, null))
     }
 
 
@@ -54,7 +68,8 @@ class MainActivity : AppCompatActivity() {
 
         override fun onPostExecute(result: JSONObject?) {
             if (result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR) && result[HTTPUrlMethod.RESPONSE_CODE_STR] != 200) {
-                fManager.beginTransaction().replace(R.id.main_fragment_container, LoadingFragment.newInstance(errorMessage = getString(R.string.error_connect_internet), internetError = true)).commit()
+                errorSnackbar.show()
+               // fManager.beginTransaction().replace(R.id.main_fragment_container, LoadingFragment.newInstance(errorMessage = getString(R.string.error_connect_internet), internetError = true)).commit()
             } else {
                 fManager.beginTransaction().replace(R.id.main_fragment_container, MainFragment.newInstance()).commit()
                 try {
