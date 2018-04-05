@@ -19,7 +19,7 @@ Base url: http://<ipaddress>:<port>/PocketDoc/
                  ] }
 3) /specific_regions
     Method: POST
-    Data provided: { body_region_id: <body_region_id>, id: <specific_region_id>}
+    Data provided: { id: <specific_region_id>}
     Data returned: { id: <specific_region_id>,
                  name: <specific_region_name>,
                  causes: [ 
@@ -32,10 +32,15 @@ Base url: http://<ipaddress>:<port>/PocketDoc/
 
 4) /causes
     Method: POST
-    Data provided: { body_region_id: <body_region_id>, specific_region_id: <specific_region_id>, id: <cause_id>}
+    Data provided: { id: <cause_id>}
     Data returned: { id: <cause_id>,
                  name: <cause_name>,
                  classification: <cause_classification>}
+
+5) /
+    Method: GET
+    Data provided: None
+    Data returned: None (Status code 200 if server is running)
 
 
 If data isn't available, leave that key in the return value without any values
