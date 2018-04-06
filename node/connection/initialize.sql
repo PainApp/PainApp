@@ -21,7 +21,7 @@ CREATE TABLE causes (id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 
 INSERT INTO body_regions (id, name)
 VALUES (1, "Front Hips"), 
-       (2, "Back Hips")
+       (2, "Back Hips"),
        (3, "Front Elbow"), 
        (4, "Back Elbow"),
        (5, "Front Feet"), 
@@ -44,7 +44,7 @@ VALUES (1, "Front Hips"),
        (22, "Back Groin"),
        (23, "Front Shoulder"), 
        (24, "Back Shoulder"),  
-       (25, "Front Chest");
+       (25, "Front Chest"),
        (26, "Back Chest");
 INSERT INTO specific_regions (id, body_region_id, name)
 VALUES (1, 1, "Deep Hip"), 
@@ -54,19 +54,19 @@ VALUES (1, 1, "Deep Hip"),
        (5, 2, "Lateral"), 
        (6, 2, "Posterior"), 
        
-       (7, 3, "All"), --front
-       (8, 3, "Lateral"), --front
-       (9, 4, "Anterior"), --back
-       (10, 4, "Local"), --back
-       (11, 4, "Medial"), --back
-       (12, 4, "Posterior"), --back
+       (7, 3, "All"), 
+       (8, 3, "Lateral"), 
+       (9, 4, "Anterior"),
+       (10, 4, "Local"), 
+       (11, 4, "Medial"), 
+       (12, 4, "Posterior"), 
        
-       (13, 5, "Arch"), --front
-       (14, 5, "Sole"), --front
-       (15, 5, "Toes"), --front
-       (16, 6, "Lateral"), --back
-       (17, 6, "Medial"),  --back
-       (18, 6, "Posterior"), --back
+       (13, 5, "Arch"), 
+       (14, 5, "Sole"), 
+       (15, 5, "Toes"), 
+       (16, 6, "Lateral"), 
+       (17, 6, "Medial"),  
+       (18, 6, "Posterior"); 
        
        /*(7, 3, "All"), --front
        (8, 3, "Medial"),
@@ -244,6 +244,6 @@ VALUES (13, "Subtalar OA", "default"),
        (18, "Calcaneal apophysisitis severs dx", "default"),
        (18, "Posterior Retinaculum", "default"),       
        (18, "Retrocalcaneal bursitis", "default"),       
-       (18, "Subcu bursa of calcaneal tendon", "default"),
+       (18, "Subcu bursa of calcaneal tendon", "default");
        
        
