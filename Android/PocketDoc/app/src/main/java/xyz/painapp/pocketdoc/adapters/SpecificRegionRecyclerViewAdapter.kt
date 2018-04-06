@@ -2,14 +2,13 @@ package xyz.painapp.pocketdoc.adapters
 
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.widget.TextView
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.activities.CausesActivity
-import xyz.painapp.pocketdoc.activities.RegionActivity
-import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.entities.SpecificBodyRegion
 
 
@@ -49,14 +48,17 @@ class SpecificRegionRecyclerViewAdapter : RecyclerView.Adapter<SpecificRegionRec
         private var regionTextView: TextView = parent.findViewById(R.id.card_item_textView)
 
         override fun onClick(v: View?) {
-            (v?.context as RegionActivity).DownloadCauseInfo().execute(HTTPUrlMethod(
+            /*(v?.context as RegionActivity).DownloadCauseInfo().execute(HTTPUrlMethod(
                     HTTPUrlMethod.SPECIFIC_REGION_URL,
                     HTTPUrlMethod.POST,
                     sRegion?.toJSONObject()
-            ))
-            /*val intent = Intent(v!!.context, CausesActivity::class.java)
-            intent.putExtra(SpecificBodyRegion.S_REGION_STR, sRegion)
-            v.context.startActivity(intent)*/
+            ))*/
+            Log.i("Specific Region", sRegion!!.toJSONObject().toString())
+            if (v != null) {
+                val intent = Intent(v.context, CausesActivity::class.java)
+                intent.putExtra(SpecificBodyRegion.S_REGION_STR, sRegion)
+                v.context.startActivity(intent)
+            }
         }
 
         fun setItem(item: SpecificBodyRegion) {

@@ -1,5 +1,6 @@
 package xyz.painapp.pocketdoc.entities
 
+import android.app.FragmentManager
 import android.os.AsyncTask
 import android.util.Log
 import org.json.JSONObject
@@ -14,8 +15,12 @@ import java.net.HttpURLConnection
  */
 
 abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
+    protected abstract val listener: OnTaskCompletedListener
+    protected abstract val fragmentManager: FragmentManager
+
     abstract override fun onPreExecute()
     abstract override fun onPostExecute(result: JSONObject?)
+
     override fun doInBackground(vararg urlList: HTTPUrlMethod?): JSONObject {
         var results = JSONObject("{}")
         val urlMethod = urlList[0]

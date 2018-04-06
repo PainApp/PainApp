@@ -20,7 +20,7 @@ class MainFragment : Fragment(), AdapterView.OnItemClickListener {
     private var actionListView: ListView? = null
     private var progressBar: ProgressBar? = null
     private var progressBarVisible: Boolean = false
-    lateinit var mCallback: OnMainActionSelectedListener
+    private var mListener: OnMainActionSelectedListener? = null
 
     interface OnMainActionSelectedListener {
         fun onMainActionSelected(action: String)
@@ -48,16 +48,16 @@ class MainFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        mCallback.onMainActionSelected(actionListView!!.getItemAtPosition(position) as String)
+        mListener!!.onMainActionSelected(actionListView!!.getItemAtPosition(position) as String)
     }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         try {
-            mCallback = activity as OnMainActionSelectedListener
+            mListener = activity as OnMainActionSelectedListener
         } catch (e: ClassCastException) {
             throw ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement OnHeadlineSelectedListener")
         }
     }
 
@@ -77,6 +77,11 @@ class MainFragment : Fragment(), AdapterView.OnItemClickListener {
         } else {
             actionListView?.visibility = View.INVISIBLE
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        mListener = null
     }
 
 

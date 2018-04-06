@@ -1,5 +1,5 @@
 package xyz.painapp.pocketdoc.entities
 
-interface OnTaskCompleted {
+interface OnTaskCompletedListener {
     fun onTaskCompleted(vararg values: Any?)
 }

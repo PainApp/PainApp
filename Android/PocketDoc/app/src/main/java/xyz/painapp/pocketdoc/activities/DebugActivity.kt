@@ -91,8 +91,7 @@ class DebugActivity: AppCompatActivity(), AdapterView.OnItemSelectedListener {
         methodSpinnerVal = ""
     }
 
-    companion object {
-        class DebugDownloadDataTask(context: DebugActivity) : DownloadDataTask() {
+    companion object { /*class DebugDownloadDataTask(context: DebugActivity) : DownloadDataTask() {
             private var debugActivity:  WeakReference<DebugActivity> = WeakReference(context)
 
             override fun onPreExecute() {
@@ -108,6 +107,6 @@ class DebugActivity: AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 }
             }
     
-        }
+        }*/
     }
 }

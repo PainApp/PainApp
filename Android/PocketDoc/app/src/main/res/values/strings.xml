@@ -33,5 +33,6 @@
     <string name="no_data">There is no data for %1$s</string>
     <string name="open_network_settings">Open network settings</string>
     <string name="back_head">Back Head</string>
+    <string name="dismiss">Dismiss</string>
 </resources>
 

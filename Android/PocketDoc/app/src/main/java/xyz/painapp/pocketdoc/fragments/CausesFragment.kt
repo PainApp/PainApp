@@ -58,8 +58,8 @@ class CausesFragment : Fragment() {
 
             causeRecyclerView.adapter = CausesRecylerViewAdapter(specificBodyRegion.causeList)
         } else {
-            Toast.makeText(activity, getString(R.string.no_data, specificBodyRegion.name), Toast.LENGTH_SHORT).show()
-            activity.onBackPressed()
+            /*Toast.makeText(activity, getString(R.string.no_data, specificBodyRegion.name), Toast.LENGTH_SHORT).show()
+            activity.onBackPressed()*/
         }
     }
 

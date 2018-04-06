@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import org.json.JSONObject
 
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.activities.BodyActivity
@@ -28,8 +29,12 @@ class BodyFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bodyConstraintLayout: ConstraintLayout
     private lateinit var bodyRegionList: ArrayList<BodyRegion>
-    private var mListener: OnFragmentInteractionListener? = null
+    private var mListener: OnBodyRegionSelectedListener? = null
     private var front: Boolean = true
+
+    interface OnBodyRegionSelectedListener {
+        fun onRegionSelected(bodyRegion: BodyRegion)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,23 +57,19 @@ class BodyFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bodyConstraintLayout = getView().findViewById(R.id.body_constraintLayout)
+
         (0..bodyConstraintLayout.childCount)
                 .map { bodyConstraintLayout.getChildAt(it) }
                 .forEach { (it as? ImageView)?.setOnClickListener(this) }
     }
 
-    fun onButtonPressed(uri: Uri) {
-        if (mListener != null) {
-            mListener!!.onFragmentInteraction(uri)
-        }
-    }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
+        if (context is OnBodyRegionSelectedListener) {
             mListener = context
         } else {
-//            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
+          throw RuntimeException(context!!.toString() + " must implement OnBodyRegionSelectedListener")
         }
     }
 
@@ -79,28 +80,13 @@ class BodyFragment : Fragment(), View.OnClickListener {
 
 
     override fun onClick(v: View?) {
-            val found: BodyRegion? = (0 until bodyRegionList.size)
-                    .firstOrNull { bodyRegionList[it].viewId == v?.id }
-                    ?.let { bodyRegionList[it] }
-          /*  if (found != null) {
-                (activity as BodyActivity).DownloadRegionInfoTask().execute(HTTPUrlMethod(
-                        HTTPUrlMethod.BODY_REGION_URL,
-                        HTTPUrlMethod.POST,
-                        found.toJSONObject()))
-        }*/
-    }
+        val found: BodyRegion? = (0 until bodyRegionList.size)
+                .firstOrNull { bodyRegionList[it].viewId == v?.id }
+                ?.let { bodyRegionList[it] }
+        if (found != null) {
+            mListener!!.onRegionSelected(found)
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html) for more information.
-     */
-    interface OnFragmentInteractionListener {
-        fun onFragmentInteraction(uri: Uri)
+        }
     }
 
     companion object {

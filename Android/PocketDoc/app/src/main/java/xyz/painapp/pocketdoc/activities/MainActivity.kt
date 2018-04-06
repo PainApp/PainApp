@@ -1,53 +1,30 @@
 package xyz.painapp.pocketdoc.activities
 
 import android.app.FragmentManager
-import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
-import android.widget.ListView
-import xyz.painapp.pocketdoc.R
 import android.net.http.HttpResponseCache
+import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.design.widget.Snackbar
-import android.view.View
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
 import org.json.JSONObject
+import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
-import xyz.painapp.pocketdoc.fragments.LoadingFragment
+import xyz.painapp.pocketdoc.entities.OnTaskCompletedListener
 import xyz.painapp.pocketdoc.fragments.MainFragment
-import java.io.*
+import java.io.File
+import java.io.IOException
 import java.net.URL
 
 
-class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListener {
-
-
-    //private lateinit var actionListView : ListView
-    private lateinit var fManager: FragmentManager
-    private lateinit var errorSnackbar: Snackbar
+class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListener, OnTaskCompletedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-     //   actionListView = findViewById(R.id.main_action_list)
-
-/*        builder = android.app.AlertDialog.Builder(this)
-
-        builder.setMessage(R.string.error_connect_internet)
-                .setTitle(R.string.error_dialog_title)*/
-        fManager = fragmentManager
-        errorSnackbar = Snackbar.make(findViewById<ConstraintLayout>(R.id.main_fragment_container), getString(R.string.error_connect_internet), Snackbar.LENGTH_INDEFINITE)
-                .setAction(getString(R.string.retry), {
-                    _ ->
-                    run {
-                        errorSnackbar.dismiss()
-                        testConnection()
-                    }
-                })
-       // fragmentManager.beginTransaction().replace(R.id.main_fragment_container, MainFragment.newInstance()).commit()
         testConnection()
     }
 
@@ -73,13 +50,42 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
     }
 
     private fun testConnection() {
-        DownloadConnectInfo(fManager, errorSnackbar, cacheDir).execute(HTTPUrlMethod(URL(HTTPUrlMethod.BASE_URL), HTTPUrlMethod.GET, null))
+        DownloadConnectInfo(this, fragmentManager).execute(HTTPUrlMethod(URL(HTTPUrlMethod.BASE_URL), HTTPUrlMethod.GET, null))
+    }
+
+    override fun onTaskCompleted(vararg values: Any?) {
+        if (values[0] is Boolean) {
+            val error = values[0] as Boolean
+            val mainFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as MainFragment
+
+            if (error) {
+                mainFragment.setActionListVisibility(false)
+                val snackbar = Snackbar.make(findViewById<ConstraintLayout>(R.id.main_fragment_container), getString(R.string.error_connect_internet), Snackbar.LENGTH_INDEFINITE)
+                snackbar.setAction(getString(R.string.retry), {
+                    _ ->
+                    run {
+                        snackbar.dismiss()
+                        testConnection()
+                    }
+                }).show()
+            } else {
+                mainFragment.setProgressVisibility(false)
+                try {
+                    val httpCacheDir = File(cacheDir, "http")
+                    val httpCacheSize = (10 * 1024 * 1024).toLong() // 10 MiB
+                    HttpResponseCache.install(httpCacheDir, httpCacheSize)
+                } catch (e: IOException) {
+                    Log.e("Error", "HTTP response cache installation failed:$e")
+                    e.printStackTrace()
+                }
+            }
+        }
     }
 
 
     companion object {
         const val FRAGMENT_TAG = "MAIN_FRAGMENT"
-        class DownloadConnectInfo(private val fragmentManager: FragmentManager, private val errorSnackbar: Snackbar, private val cacheDir: File) : DownloadDataTask() {
+        class DownloadConnectInfo(override val listener: OnTaskCompletedListener, override val fragmentManager: FragmentManager) : DownloadDataTask() {
 
             override fun onPreExecute() {
                 val mainFragment = MainFragment.newInstance(progressBarVisible = true)
@@ -87,20 +93,10 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
             }
 
             override fun onPostExecute(result: JSONObject?) {
-                val mainFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as MainFragment
                 if (result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR) && result[HTTPUrlMethod.RESPONSE_CODE_STR] != 200) {
-                    mainFragment.setActionListVisibility(false)
-                    errorSnackbar.show()
+                    listener.onTaskCompleted(true)
                 } else {
-                    mainFragment.setProgressVisibility(false)
-                    try {
-                        val httpCacheDir = File(cacheDir, "http")
-                        val httpCacheSize = (10 * 1024 * 1024).toLong() // 10 MiB
-                        HttpResponseCache.install(httpCacheDir, httpCacheSize)
-                    } catch (e: IOException) {
-                        Log.e("Error", "HTTP response cache installation failed:$e")
-                        e.printStackTrace()
-                    }
+                    listener.onTaskCompleted(false)
                 }
             }
         }
