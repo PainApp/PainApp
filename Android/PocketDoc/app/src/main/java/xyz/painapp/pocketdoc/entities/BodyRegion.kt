@@ -26,12 +26,7 @@ class BodyRegion() : Parcelable {
         parcel.readTypedList(specificRegionList, SpecificBodyRegion.CREATOR)
     }
 
-    /*
-     * TODO Fix server code to make it look like this:
-     * { id: ,
-     *   name: ,
-     *   sBodyRegionList: [ { id: , name: } ] }
-     */
+
     constructor(jsonObject: JSONObject) : this() {
         try {
             this.id = jsonObject.getInt(ID_STR)
@@ -75,8 +70,33 @@ class BodyRegion() : Parcelable {
             override fun newArray(size: Int): Array<BodyRegion?> = arrayOfNulls(size)
 
         }
-
-        val REGION_ID_MAP: HashMap<String, Int> = hashMapOf("Front Hip" to R.id.front_hips_image_view, "Front Head" to R.id.front_head_imageView, "Front Feet" to R.id.front_feet_imageView)
+        //TODO Fix left/right issues
+        val REGION_ID_MAP: HashMap<String, Int> = hashMapOf(
+                "Front Hips" to R.id.front_hips_image_view,
+                "Back Hips" to R.id.back_hips_image_view,
+                "Front Elbow" to R.id.front_left_elbow_imageView,
+                "Back Elbow" to R.id.back_left_elbow_imageView,
+                "Front Feet" to R.id.front_feet_imageView,
+                "Back Feet" to R.id.back_feet_imageView,
+                "Front Hand" to R.id.front_left_hand_imageView,
+                "Back Hand" to R.id.back_left_hand_imageView,
+                "Front Upperarm" to R.id.front_left_upperarm_imageView,
+                "Back Upperarm" to R.id.back_left_upperarm_imageView,
+                "Front Forearm" to R.id.back_left_forearm_imageView,
+                "Back Forearm" to R.id.back_left_upperarm_imageView,
+                "Front Lowerlegs" to R.id.front_lowerlegs_imageView,
+                "Back Lowerlegs" to R.id.back_calves_imageView,
+                "Front Knees" to R.id.front_knees_imageView,
+                "Back Knees" to R.id.back_knees_imageView,
+                "Front Thighs" to R.id.front_thighs_imageView,
+                "Back Thighs" to R.id.back_thighs_imageView,
+                "Front Groin" to R.id.front_groin_imageView,
+                "Back Groin" to R.id.back_butt_imageView,
+                "Front Shoulder" to R.id.front_left_shoulder_imageView,
+                "Back Shoulder" to R.id.back_left_shoulder_imageView,
+                "Front Chest" to R.id.front_chest_imageView,
+                "Back Chest" to R.id.back_back_imageView,
+                "Front Head" to R.id.front_head_imageView)
         const val BODY_REGIONS_STR = "body_regions"
         const val BODY_REGION_STR = "body_region"
         const val NAME_STR = "name"

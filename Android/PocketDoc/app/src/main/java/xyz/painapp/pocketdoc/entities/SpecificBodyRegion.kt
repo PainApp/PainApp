@@ -58,7 +58,7 @@ class SpecificBodyRegion() : Parcelable {
 
     fun toJSONObject(): JSONObject {
         val res = JSONObject()
-        res.put(BODY_REGION_STR, this.bodyRegionId)
+      //  res.put(BODY_REGION_STR, this.bodyRegionId)
         res.put(ID_STR, this.id)
         return res
     }

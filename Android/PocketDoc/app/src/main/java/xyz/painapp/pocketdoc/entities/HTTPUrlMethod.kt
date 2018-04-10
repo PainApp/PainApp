@@ -13,7 +13,7 @@ class HTTPUrlMethod(var url: URL, var methodString: String, var dataList: JSONOb
         const val GET = "GET"
         const val RESPONSE_CODE_STR = "response_code"
 
-        private const val SERVER_ADDRESS = "155.246.89.120:8080"
+        private const val SERVER_ADDRESS = "18.218.162.185:8080"
         const val BASE_URL: String = "http://$SERVER_ADDRESS/PocketDoc"
         val BODY_REGION_URL: URL = URL("$BASE_URL/body_regions")
         val SPECIFIC_REGION_URL: URL = URL("$BASE_URL/specific_regions")

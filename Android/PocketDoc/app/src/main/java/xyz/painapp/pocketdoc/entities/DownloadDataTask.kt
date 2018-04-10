@@ -43,7 +43,6 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
 
                 if (myConnection.responseCode != 200) {
-                    // TODO add some way of letting the user know the data is not available
                     Log.e("Response Code", myConnection.responseMessage)
                     return errorCodeJSON(myConnection.responseCode)
                 }
@@ -74,7 +73,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
         return try {
             val retStr = StringBuilder(inputStream.readText()).toString()
-            //Log.i("RET:", retStr)
+           // Log.i("RET:", retStr)
             if (!retStr.isEmpty()) {
               //Log.i("RET is empty:", retStr.isEmpty().toString())
                 JSONObject(retStr)

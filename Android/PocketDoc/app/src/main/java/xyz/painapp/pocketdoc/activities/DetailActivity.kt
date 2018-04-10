@@ -27,7 +27,6 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-        // TODO set title, images and symptoms based on actual data from bundle arg
         primarySymptoms = ArrayList()
         secondarySymptoms = ArrayList()
         primarySymptoms.add("Primary Cause 1")

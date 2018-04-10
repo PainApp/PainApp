@@ -75,7 +75,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item!!.itemId) {
-            R.id.search_btn -> Toast.makeText(this, "You clicked search", Toast.LENGTH_SHORT).show() // TODO add search handler
+            R.id.search_btn -> Toast.makeText(this, "You clicked search", Toast.LENGTH_SHORT).show()
             else -> {
                 return super.onOptionsItemSelected(item)
             }
@@ -90,7 +90,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
         }
     }
 
-    // TODO fix implementation of flipBody
     private fun flipBody() {
         orientation = !orientation
         fManager!!.beginTransaction().replace(R.id.body_fragment_container, BodyFragment.newInstance(bodyRegionList!!, orientation)).commit()
