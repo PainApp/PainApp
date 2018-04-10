@@ -242,6 +242,51 @@ VALUES (12, "Subtalar OA", "default"),
        (17, "Retrocalcaneal bursitis", "default"),       
        (17, "Subcu bursa of calcaneal tendon", "default");
 
-/*INSERT INTO causes (sbody_region_id, name, classification)
-VALUES () */
+INSERT INTO causes (sbody_region_id, name, classification)
+VALUES (18, "Heart Attack", "extreme"),
+       (18, "Facet Pain", "default"),
+       (18, "Coracobrachial bursa", "default"),
+       (18, "Bursa of latissimus dorsi", "default"),
+       (18, "Bursa of greater pec muscle", "default"),
+       (18, "Trapezoid bursa", "default"),
+       (18, "Subacromial bursa", "default"),
+       (18, "Subdeltoid bursa", "default"),
+       (18, "Coracobrachial bursa", "default"),
+       (18, "Supraserratus bursa", "default"),
+       (18, "Infraserratus bursa", "default"),
+       (18, "Infraserratus bursa", "default"),
+       (18, "Subserratus bursa", "default"),
+       (18, "Acromioclavicular Ganglion", "default"),
+       (18, "Acromioclavicular subluxation", "default"),
+       (18, "Spinal Accessory Nerve", "default"),
+       (18, "Bankart", "default"),
+       (18, "Hill-Sachs", "default"),
+       (18, "Sick Scapula", "default"),
+       (18, "Long thoracic nerve", "default"),
+       (18, "Shoulder Osteoarthrirtis", "default"),
+       (18, "Axillary Nerve Compression", "default"),
+       (18, "Supraclavicular nerve compression", "default"),
+       
+       
+       (19, "Biceps subluxation", "default"),
+       (19, "Transverse humeral ligament sprain/rupture", "default"),
+       (19, "Acromioclavicular joint sprain", "default"),
+       
+       (20, "subacromial bursa", "default"),
+       (20, "Acromial apophysiolysis", "default"),
+       
+       (21, "Subcoracoid bursa", "default"),
+       (21, "HAGL Lesion", "default"),
+       (21, "Perthes lesion", "default"),
+       (21, "ALPSA", "default"),
+       
+       (22, "Labrum (SLAP) lesion", "default"),
+       (22, "Posterior glenoid impingement", "default"),
+       (22, "Shoulder capsule", "default"),
+       (22, "Adhesive capsulitis", "default"),
+       (22, "Internal Impingement", "default"),
+       (22, "Supracapular nerve entrapment", "default"),
+       (22, "Quadrilateral Space Syndrome", "default"),
+       (22, "", "default");
+
        
