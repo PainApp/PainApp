@@ -26,8 +26,8 @@ VALUES (1, "Front Hips"),
        (4, "Back Elbow"),
        (5, "Front Feet"), 
        (6, "Back Feet"), 
-       (7, "Front Hand"), 
-       (8, "Back Hand"),  
+       (7, "Front Shoulder"), 
+       (8, "Back Shoulder"), 
        (9, "Front Upperarm"), 
        (10, "Back Upperarm"),  
        (11, "Front Forearm"), 
@@ -41,9 +41,9 @@ VALUES (1, "Front Hips"),
        (19, "Front Thighs"), 
        (20, "Back Thighs"), 
        (21, "Front Groin"), 
-       (22, "Back Groin"),
-       (23, "Front Shoulder"), 
-       (24, "Back Shoulder"),  
+       (22, "Back Groin"), 
+       (23, "Front Hand"), 
+       (24, "Back Hand"),  
        (25, "Front Chest"),
        (26, "Back Chest");
 INSERT INTO specific_regions (id, body_region_id, name)
@@ -57,27 +57,26 @@ VALUES (1, 1, "Deep Hip"),
        (7, 3, "All"), 
        (8, 3, "Lateral"), 
        (9, 4, "Anterior"),
-       (11, 4, "Medial"), 
-       (12, 4, "Posterior"), 
+       (10, 4, "Medial"), 
+       (11, 4, "Posterior"), 
        
-       (13, 5, "Arch"), 
-       (14, 5, "Sole"), 
-       (15, 5, "Toes"), 
-       (16, 6, "Lateral"), 
-       (17, 6, "Medial"),  
-       (18, 6, "Posterior"); 
+       (12, 5, "Arch"), 
+       (13, 5, "Sole"), 
+       (14, 5, "Toes"), 
+       (15, 6, "Lateral"), 
+       (16, 6, "Medial"),  
+       (17, 6, "Posterior");,
+       
+       (18, 7, "All"),
+       (19, 7, "Front"),
+       (20, 7, "Top"),
+       (21, 8, "Anterior"),
+       (22, 8, "Posterior");
        
        /*(7, 3, "All"), --front
        (8, 3, "Medial"),
        (9, 4, "Lateral"); --back
        
-       
-       (3, "Anterior"), 
-       (3, "Front"), 
-       (3, "Local"), 
-       (3, "Posterior"), 
-       (3, "Top"), 
-
        (6, "All"), 
        (6, "Anterior"), 
        (6, "Lateral"), 
@@ -190,6 +189,7 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (11, "Subluxating elbow", "default"),
        (11, "Snapping Triceps Syndrome", "default"),
        (11, "Gout", "default");
+       
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES (12, "Subtalar OA", "default"),
        (12, "Lisfranc", "default"),
@@ -241,5 +241,7 @@ VALUES (12, "Subtalar OA", "default"),
        (17, "Posterior Retinaculum", "default"),       
        (17, "Retrocalcaneal bursitis", "default"),       
        (17, "Subcu bursa of calcaneal tendon", "default");
-       
+
+/*INSERT INTO causes (sbody_region_id, name, classification)
+VALUES () */
        
