@@ -65,7 +65,7 @@ VALUES (1, 1, "Deep Hip"),
        (14, 5, "Toes"), 
        (15, 6, "Lateral"), 
        (16, 6, "Medial"),  
-       (17, 6, "Posterior");,
+       (17, 6, "Posterior"),
        
        (18, 7, "All"),
        (19, 7, "Front"),
