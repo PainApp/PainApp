@@ -31,15 +31,11 @@
             android:name="xyz.painapp.pocketdoc.activities.BodyActivity"
             android:parentActivityName="xyz.painapp.pocketdoc.activities.MainActivity" />
         <activity
-            android:name="xyz.painapp.pocketdoc.activities.DebugActivity"
-            android:parentActivityName="xyz.painapp.pocketdoc.activities.MainActivity" />
-        <activity
             android:name="xyz.painapp.pocketdoc.activities.RegionActivity"
             android:parentActivityName="xyz.painapp.pocketdoc.activities.BodyActivity" />
         <activity
             android:name="xyz.painapp.pocketdoc.activities.CausesActivity"
             android:parentActivityName="xyz.painapp.pocketdoc.activities.RegionActivity" />
-        <activity android:name="xyz.painapp.pocketdoc.activities.DetailActivity" />
     </application>
 
 </manifest>
