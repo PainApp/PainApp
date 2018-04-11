@@ -28,8 +28,8 @@ VALUES (1, "Front Hips"),
        (6, "Back Feet"), 
        (7, "Front Shoulder"), 
        (8, "Back Shoulder"), 
-       (9, "Front Upperarm"), 
-       (10, "Back Upperarm"),  
+       (9, "Front Abdomen"),
+       (10, "Back Abdomen"),  
        (11, "Front Forearm"), 
        (12, "Back Forearm"),
        (13, "Front Lowerlegs"), 
@@ -45,7 +45,9 @@ VALUES (1, "Front Hips"),
        (23, "Front Hand"), 
        (24, "Back Hand"),  
        (25, "Front Chest"),
-       (26, "Back Chest");
+       (26, "Back Chest"),
+       (27, "Front Upperarm"), 
+       (28, "Back Upperarm");
 INSERT INTO specific_regions (id, body_region_id, name)
 VALUES (1, 1, "Deep Hip"), 
        (2, 1, "Anterior"), 
@@ -72,6 +74,16 @@ VALUES (1, 1, "Deep Hip"),
        (20, 7, "Top"),
        (21, 8, "Anterior"),
        (22, 8, "Posterior");
+       
+       (23, 9, "Top Left"),
+       (24, 9, "Middle Left"),
+       (25, 9, "Bottom Left"),
+       (26, 9, "Top Middle"),
+       (27, 9, "Middle Middle"),
+       (28, 9, "Bottom middle"),
+       (29, 9, "Top Right"),
+       (30, 9, "Middle Right"),
+       (31, 9, "Bottom Right");
        
        /*(7, 3, "All"), --front
        (8, 3, "Medial"),
@@ -289,4 +301,63 @@ VALUES (18, "Heart Attack", "extreme"),
        (22, "Quadrilateral Space Syndrome", "default"),
        (22, "", "default");
 
+INSERT INTO causes (sbody_region_id, name, classification)
+VALUES (23, "Biliary Tract Disorder", "default"),
+       (23, "Hepatitis", "default"),
+       (23, "Fitz-Hughes- Curtis", "default"),
+       (23, "RUQ Syndrome", "default"),
+       (23, "Budd-Chiari Syndrome", "default"),
+       (23, "Basal Pneumonia", "default"),
+       (23, "Retrocecal Appendicitis", "extreme"),
+       
+       (24, "Kidney Stones", "default"),
+       (24, "Kidney Infection", "default"),
+       
+       (25, "Appendicitis", "extreme"),
+       (25, "Crohn’s Disease", "default"),
+       (25, "Ovarian Cyst", "female"),
+       (25, "Ovarian Torsion", "extreme"),
+       (25, "Ovarian Remnant Syndrome", "female"),
+       (25, "Pregnancy", "female"),
+       (25, "Ectopic Pregnancy (Ruptured)", "female"),
+       (25, "Pelvic Inflammatory Disease", "female"),
+       (25, "Tubo-ovarian abscess", "female"),
+       (25, "Mittelschmerz", "female"),
+       (25, "Pelvic Congestion Syndrome", "female"),
+       
+       (26, "Ulcer Disease", "default"),
+       (26, "Pancreatitis", "default"),
+       (26, "Myocardial Ischemia", "extreme"),
+       (26, "Boerhaave Syndrome", "default"),
+       
+       (27, "Pancreatitis", "default"),
+       (27, "Myocardial Ischemia", "extreme"),
+       (27, "Early Appendicitis", "extreme"),
+       (27, "Small Bowel Obstruction", "extreme"),
+       (27, "Abdominal Aortic Aneurysm", "default"),
+       
+       (28, "Urinary Retention", "default"),
+       (28, "Pregnancy", "default"),
+       (28, "Cystitis", "default"),
+       (28, "Fibroid", "female"),
+       (28, "Adenomyosis", "female"),
+       (28, "Allen-Masters Syndrome", "female"),
+       
+       (29, "Splenic Disorder", "default"),
+       (29, "Basal Pneumonia", "default"),
+       
+       (30, "Kidney Stones", "default"),
+       (30, "Kidney Infection", "default"),
+       (30, "Nutcracker Syndrome", "default"),
+       
+       (31, "Diverticulitis/Diverticulosis", "default"),
+       (31, "Ovarian Cyst", "female"),
+       (31, "Ovarian Torsion", "extreme"),
+       (31, "Ovarian Remnant Syndrome", "female"),
+       (31, "Pregnancy", "female"),
+       (31, "Ectopic Pregnancy", "default"),
+       (31, "Pelvic Inflammatory Disease", "female"),
+       (31, "Tubo-ovarian abscess", "female"),
+       (31, "Mittelschmerz", "female"),
+       (31, "Pelvic Congestion Syndrome", "female");
        
