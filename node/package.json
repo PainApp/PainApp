@@ -5,10 +5,9 @@
   "dependencies": {
     "body-parser": "latest",
     "express": "latest",
-    "mysql2": "latest",
-    "prompt-sync": "latest"
+    "mysql2": "latest"
   },
   "scripts": {
-    "start": "mysql -h pocketdoc.cxx8xktili9j.us-east-2.rds.amazonaws.com -P 3306 -u ghost -p pocket_doc < 'connection/initialize.sql' && node app.js"
+    "start": "mysql --defaults-extra-file=/home/ec2-user/node/.my.cnf -h pocketdoc.cxx8xktili9j.us-east-2.rds.amazonaws.com -P 3306 -u ghost pocket_doc < '/home/ec2-user/node/connection/initialize.sql' && node app.js"
   }
 }
