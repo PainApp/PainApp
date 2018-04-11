@@ -142,38 +142,6 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
                 }
             }
         }
-/*
-        class DownloadRegionInfoTask(private val listener: OnTaskCompletedListener, private val fragmentManager: FragmentManager, private val errorSnackbar: Snackbar): DownloadDataTask() {
-            override fun onPreExecute() {
-                val transaction = fragmentManager.beginTransaction()
-                val newFragment = LoadingFragment()
-                transaction.replace(R.id.body_fragment_container, newFragment, LOADING_FRAGMENT_TAG)
-                transaction.commit()
-            }
-
-            override fun onPostExecute(result: JSONObject?) {
-                if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
-                    val intent = Intent(context, RegionActivity::class.java)
-                    val region = BodyRegion(result)
-
-                    // If we found data for the body region
-                    if (region.specificRegionList.size > 0) {
-                        intent.putExtra(BodyRegion.BODY_REGION_STR, BodyRegion(result))
-                        context.startActivity(intent)
-                    } else {
-                        if (currentFragment != null) {
-                            fragmentManager.beginTransaction().replace(R.id.body_fragment_container, currentFragment).commit()
-                        }
-                        Toast.makeText(context, context.getString(R.string.no_data, region.name), Toast.LENGTH_SHORT).show()
-                    }
-                } else
-                    errorSnackbar.show()
-                    fragmentManager.beginTransaction().replace(R.id.region_fragment_container, LoadingFragment.newInstance(getString(R.string.error_server_message))).commit()
-                }
-            }
-
-        }*/
-
 
     }
 }

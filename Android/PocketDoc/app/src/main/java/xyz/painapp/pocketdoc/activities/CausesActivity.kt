@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.widget.Toast
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
@@ -60,7 +61,8 @@ class CausesActivity : AppCompatActivity(), OnTaskCompletedListener {
             if (specificBodyRegion.causeList.size > 0) {
                 fManager!!.beginTransaction().replace(R.id.causes_fragment_container, CausesFragment.newInstance(specificBodyRegion)).commit()
             } else {
-               showSnackBarError(String.format(getString(R.string.no_data), specificBodyRegion.getFullName()))
+                Toast.makeText(this, String.format(getString(R.string.no_data), specificBodyRegion.getFullName()), Toast.LENGTH_SHORT).show()
+                this.onBackPressed()
             }
         } else {
             showSnackBarError(getString(R.string.error_connect_internet))

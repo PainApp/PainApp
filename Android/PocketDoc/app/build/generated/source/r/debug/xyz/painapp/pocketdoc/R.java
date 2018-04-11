@@ -3593,7 +3593,7 @@ public final class R {
     public static final int avd_show_password=0x7f08005a;
     public static final int back_back=0x7f08005b;
     public static final int back_butt=0x7f08005c;
-    public static final int back_calfs=0x7f08005d;
+    public static final int back_calves =0x7f08005d;
     public static final int back_feet=0x7f08005e;
     public static final int back_head=0x7f08005f;
     public static final int back_hips=0x7f080060;

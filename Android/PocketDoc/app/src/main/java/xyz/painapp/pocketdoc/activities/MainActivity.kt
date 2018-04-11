@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
         val intent: Intent? =
         when (action) {
             "start" -> Intent(this, BodyActivity::class.java)
-            "debug" -> Intent(this, DebugActivity::class.java)
             else -> null
         }
 

@@ -81,7 +81,7 @@ class BodyFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val found: BodyRegion? = (0 until bodyRegionList.size)
-                .firstOrNull { bodyRegionList[it].viewId == v?.id }
+                .firstOrNull { bodyRegionList[it].tag == v?.tag }
                 ?.let { bodyRegionList[it] }
         if (found != null) {
             mListener!!.onRegionSelected(found)

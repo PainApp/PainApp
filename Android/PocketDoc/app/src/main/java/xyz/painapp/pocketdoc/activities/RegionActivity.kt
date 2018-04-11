@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.widget.Toast
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.BodyRegion
@@ -51,11 +52,6 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener {
         return true
     }
 
-    override fun onBackPressed() {
-        finish()
-        super.onBackPressed()
-    }
-
     private fun downloadRegionInfo() {
          DownloadRegionInfoTask(this, fragmentManager).execute(HTTPUrlMethod(
                 HTTPUrlMethod.BODY_REGION_URL,
@@ -69,7 +65,8 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener {
             if (bodyRegion.specificRegionList.size > 0) {
                 fragmentManager.beginTransaction().replace(R.id.region_fragment_container, RegionFragment.newInstance(bodyRegion)).commit()
             } else {
-                showSnackBarError(String.format(getString(R.string.no_data), bodyRegion.name))
+                Toast.makeText(this, String.format(getString(R.string.no_data), bodyRegion.name), Toast.LENGTH_SHORT).show()
+                this.onBackPressed()
             }
         } else {
             showSnackBarError(getString(R.string.error_connect_internet))
