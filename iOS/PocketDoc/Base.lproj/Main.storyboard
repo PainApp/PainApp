@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,42 +103,82 @@
                                 <rect key="frame" x="46" y="28" width="140.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="D6h-va-pJ4"/>
-                                    <constraint firstAttribute="width" constant="140.5" id="SNd-fd-tU2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_chest" translatesAutoresizingMaskIntoConstraints="NO" id="vhA-VA-QYh">
-                                <rect key="frame" x="116" y="162" width="136" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_head" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-Fv-Tbe">
-                                <rect key="frame" x="155" y="70" width="65" height="103"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="front_chest" translatesAutoresizingMaskIntoConstraints="NO" id="vhA-VA-QYh">
+                                <rect key="frame" x="116" y="165" width="136" height="131"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="qSv-eU-wLM"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_right_shoulder" translatesAutoresizingMaskIntoConstraints="NO" id="VYY-tz-r2c">
-                                <rect key="frame" x="94" y="168" width="53" height="59"/>
+                                <rect key="frame" x="39" y="162" width="53" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_left_shoulder" translatesAutoresizingMaskIntoConstraints="NO" id="Hhx-yb-riw">
-                                <rect key="frame" x="222" y="168" width="53" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_hips" translatesAutoresizingMaskIntoConstraints="NO" id="rYD-3M-ApA">
-                                <rect key="frame" x="128" y="291" width="109" height="53"/>
+                                <rect key="frame" x="297" y="172" width="53" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_groin" translatesAutoresizingMaskIntoConstraints="NO" id="L11-Zo-TtU">
-                                <rect key="frame" x="128" y="342" width="109" height="39"/>
+                                <rect key="frame" x="128" y="343" width="109" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_thighs" translatesAutoresizingMaskIntoConstraints="NO" id="zmC-XJ-ENH">
+                                <rect key="frame" x="128" y="373" width="106" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_knees" translatesAutoresizingMaskIntoConstraints="NO" id="kPe-CD-KKE">
+                                <rect key="frame" x="141" y="428" width="79" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_lowerlegs" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-2A-1Lv">
+                                <rect key="frame" x="138" y="461" width="85" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_feet" translatesAutoresizingMaskIntoConstraints="NO" id="Cpj-gb-xE2">
+                                <rect key="frame" x="138" y="530" width="82" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="front_head" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-Fv-Tbe">
+                                <rect key="frame" x="155" y="69" width="65" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="78F-fa-cal"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_left_upperarm" translatesAutoresizingMaskIntoConstraints="NO" id="Ndn-yo-WCH">
+                                <rect key="frame" x="300" y="239" width="37" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_right_upperarm" translatesAutoresizingMaskIntoConstraints="NO" id="190-Ei-0HF">
+                                <rect key="frame" x="39" y="229" width="33" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front_left_elbow" translatesAutoresizingMaskIntoConstraints="NO" id="OCt-xF-j1M">
+                                <rect key="frame" x="306" y="291" width="44" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="front_hips" translatesAutoresizingMaskIntoConstraints="NO" id="rYD-3M-ApA">
+                                <rect key="frame" x="128" y="291" width="109" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="f5o-Ri-iBC"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VRf-2n-ErQ" firstAttribute="trailing" secondItem="Udl-Fv-Tbe" secondAttribute="trailing" constant="155" id="1u6-Q8-nHE"/>
+                            <constraint firstItem="vhA-VA-QYh" firstAttribute="top" secondItem="Udl-Fv-Tbe" secondAttribute="bottom" constant="-5" id="HgF-LG-vV2"/>
+                            <constraint firstItem="Udl-Fv-Tbe" firstAttribute="leading" secondItem="VRf-2n-ErQ" secondAttribute="leading" constant="155" id="JhY-8Q-d5f"/>
+                            <constraint firstItem="Udl-Fv-Tbe" firstAttribute="top" secondItem="VRf-2n-ErQ" secondAttribute="top" constant="49" id="RXj-1g-DhP"/>
+                            <constraint firstItem="VRf-2n-ErQ" firstAttribute="trailing" secondItem="vhA-VA-QYh" secondAttribute="trailing" constant="123" id="UCf-Lj-UFj"/>
+                            <constraint firstItem="rYD-3M-ApA" firstAttribute="top" secondItem="vhA-VA-QYh" secondAttribute="bottom" constant="-5" id="Y7s-gf-q9a"/>
                             <constraint firstItem="VRf-2n-ErQ" firstAttribute="trailing" secondItem="LQ3-oe-NZb" secondAttribute="trailing" constant="188.5" id="diq-of-vSx"/>
                             <constraint firstItem="LQ3-oe-NZb" firstAttribute="top" secondItem="VRf-2n-ErQ" secondAttribute="top" constant="8" id="shA-sJ-7pP"/>
                             <constraint firstItem="LQ3-oe-NZb" firstAttribute="leading" secondItem="VRf-2n-ErQ" secondAttribute="leading" constant="46" id="u5P-oz-up0"/>
+                            <constraint firstItem="vhA-VA-QYh" firstAttribute="leading" secondItem="VRf-2n-ErQ" secondAttribute="leading" constant="116" id="yXf-gz-SeJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VRf-2n-ErQ"/>
                     </view>
@@ -155,11 +194,18 @@
     </scenes>
     <resources>
         <image name="front_chest" width="46" height="63"/>
+        <image name="front_feet" width="38" height="18"/>
         <image name="front_groin" width="53" height="13"/>
         <image name="front_head" width="29" height="38"/>
         <image name="front_hips" width="54" height="31"/>
+        <image name="front_knees" width="38" height="21"/>
+        <image name="front_left_elbow" width="21" height="9"/>
         <image name="front_left_shoulder" width="16" height="28"/>
+        <image name="front_left_upperarm" width="17" height="14"/>
+        <image name="front_lowerlegs" width="41" height="39"/>
         <image name="front_right_shoulder" width="14" height="27"/>
+        <image name="front_right_upperarm" width="16" height="14"/>
+        <image name="front_thighs" width="51" height="26"/>
         <image name="homeIcon" width="200" height="200"/>
     </resources>
 </document>
