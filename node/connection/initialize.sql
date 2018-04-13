@@ -73,7 +73,7 @@ VALUES (1, 1, "Deep Hip"),
        (19, 7, "Front"),
        (20, 7, "Top"),
        (21, 8, "Anterior"),
-       (22, 8, "Posterior");
+       (22, 8, "Posterior"),
        
        (23, 9, "Top Left"),
        (24, 9, "Middle Left"),
@@ -429,6 +429,4 @@ VALUES (36, "Gamekeepers thumb", "default"),
        (37, "Gamekeepers thumb", "default"),
        (37, "Ulnar bursitis", "default");
        
-       
-
        
