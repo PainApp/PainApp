@@ -88,7 +88,7 @@ VALUES (1, 1, "Deep Hip"),
        (32, 11, "Lateral"),
        (33, 11, "Medial"),
        (34, 11, "Posterior"),
-       (35, 11, "Anterior")
+       (35, 11, "Anterior"),
        
        (36, 13, "Fingers"),
        
