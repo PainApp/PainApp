@@ -32,8 +32,8 @@ VALUES (1, "Front Hips"),
        (10, "Back Abdomen"),  
        (11, "Front Forearm"), 
        (12, "Back Forearm"),
-       (13, "Front Lowerlegs"), 
-       (14, "Back Lowerlegs"), 
+       (13, "Front Hand"), 
+       (14, "Back Hand"),  
        (15, "Front Knees"), 
        (16, "Back Knees"), 
        (17, "Front Hips"), 
@@ -42,8 +42,8 @@ VALUES (1, "Front Hips"),
        (20, "Back Thighs"), 
        (21, "Front Groin"), 
        (22, "Back Groin"), 
-       (23, "Front Hand"), 
-       (24, "Back Hand"),  
+       (23, "Front Lowerlegs"), 
+       (24, "Back Lowerlegs"), 
        (25, "Front Chest"),
        (26, "Back Chest"),
        (27, "Front Upperarm"), 
@@ -83,35 +83,26 @@ VALUES (1, 1, "Deep Hip"),
        (28, 9, "Bottom middle"),
        (29, 9, "Top Right"),
        (30, 9, "Middle Right"),
-       (31, 9, "Bottom Right");
+       (31, 9, "Bottom Right"),
        
-       /*(7, 3, "All"), --front
-       (8, 3, "Medial"),
-       (9, 4, "Lateral"); --back
+       (32, 11, "Lateral"),
+       (33, 11, "Medial"),
+       (34, 11, "Posterior"),
+       (35, 11, "Anterior")
        
-       (6, "All"), 
-       (6, "Anterior"), 
-       (6, "Lateral"), 
-       (6, "Local"), 
-       (6, "Medial"), 
-       (6, "Posterior"), 
+       (36, 13, "Fingers"),
+       
+       (37, 14, "Fingers");
+       
+    /*   
+       (11, "Front Forearm"), 
+       (12, "Back Forearm"),
+       (13, "Front Hand"), 
+       (14, "Back Hand"),
+       */
 
-       (9, "Anterior"), 
-       (9, "Front"), 
-       (9, "Local"), 
-       (9, "Posterior"), 
-       (9, "Top"),
 
-       (11, "Lateral"), 
-       (11, "Medial"), 
-
-       (15, "Ear"), 
-       (15, "Eye"), 
-       (15, "Frontal"), 
-       (15, "Jaw/Cheek"), 
-       (15, "Neck"), 
-       (15, "Throat"), 
-*/
+/* Hip */
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES (1, "Legg-Calves-Perthes", "extreme"), 
        (1, "Slipped Capital Femoral Epiphysis", "extreme"), 
@@ -164,7 +155,8 @@ VALUES (1, "Legg-Calves-Perthes", "extreme"),
        (6, "Coccygeal FX", "default"), 
        (6, "Coccydynia", "default"), 
        (6, "Ischial Tuberosity Avulsion Fracture", "children");
-       
+     
+/* Elbow */
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (7, "Interosseous membrane sprain", "default"),
@@ -178,7 +170,8 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (8, "Elbow Plica", "default"),
        (8, "The synovial fold of the humeroradial joint", "default"),
        (8, "Osteochondrosis of the capitellum", "default"),
-       (8, "Lateral (Ulnar) Collateral Ligament Sprain", "default"),
+       (8, "Lateral (Ulnar) Collateral Ligament Sprain", "default"),  
+       (8, "Essex-Lopresti Injury", "default"),
        
        (9, "Bicipitioradial Bursitis", "default"),
        (9, "Biceps tendinosis", "default"),
@@ -191,6 +184,7 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (10, "Medial (Radial) Collateral Ligament Sprain", "default"),
        (10, "Ulnar nerve dislocation", "default"),
        (10, "Heart Attack", "extreme"),
+       (10, "Cubital Tunnel Syndrome", "extreme"),
        
        (11, "BURSITIS triceps", "default"),
        (11, "Olecranon impingement", "default"),
@@ -201,7 +195,8 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (11, "Subluxating elbow", "default"),
        (11, "Snapping Triceps Syndrome", "default"),
        (11, "Gout", "default");
-       
+ 
+/* Feet */
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES (12, "Subtalar OA", "default"),
        (12, "Lisfranc", "default"),
@@ -254,6 +249,7 @@ VALUES (12, "Subtalar OA", "default"),
        (17, "Retrocalcaneal bursitis", "default"),       
        (17, "Subcu bursa of calcaneal tendon", "default");
 
+/* Shoulder */
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES (18, "Heart Attack", "extreme"),
        (18, "Facet Pain", "default"),
@@ -301,6 +297,7 @@ VALUES (18, "Heart Attack", "extreme"),
        (22, "Quadrilateral Space Syndrome", "default"),
        (22, "", "default");
 
+/* Abdomen */
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES (23, "Biliary Tract Disorder", "default"),
        (23, "Hepatitis", "default"),
@@ -360,4 +357,78 @@ VALUES (23, "Biliary Tract Disorder", "default"),
        (31, "Tubo-ovarian abscess", "female"),
        (31, "Mittelschmerz", "female"),
        (31, "Pelvic Congestion Syndrome", "female");
+
+/* Forearm */
+INSERT INTO causes (sbody_region_id, name, classification)
+VALUES (32, "Avascular Necrosis of Scaphoid", "default"),
+       (32, "Gymnast's Wrist / Distal Radial Physeal Stress Syndrome", "default"),
+       (32, "Posterior Interosseous Nerve Syndrome", "default"),
+       (32, "Carpal Tunnel Syndrome", "default"),
+       (32, "Wartenberg syndrome", "default"),
+       (32, "Radial Bursitis", "default"),
+       (32, "Aseptic necrosis capitate", "default"),
+       (32, "Tunnel of Guyon Syndrome", "default"),
+       (32, "Intersection Syndrome", "default"),
+       (32, "Dequervains Tenosynovitis", "default"),
+       (32, "Median neuropathy", "default"),
+       (32, "Fracture", "default"),
+       (32, "Osteoarthritis", "default"),
+       (32, "Rheumatoid Arthritis", "default"),
+       (32, "Essex-Lopresti Injury", "default"),
+       (32, "Essex-Lopresti Injury", "default"),
+       (32, "Gamekeepers thumb", "default"),
+       
+       (33, "Snapping Extensor Carpi Ulnaris", "default"),
+       (33, "Triangular Fibrocartilage (TFC) Injury", "default"),
+       (33, "Ulnar styloid impaction syndrome", "default"),
+       (33, "Ulnar impingement syndrome", "default"),
+       (33, "Hamatolunate impingement syndrome", "default"),
+       (33, "Ulnocarpal impaction syndrome", "default"),
+       (33, "Ulnar bursitis", "default"),
+       (33, "Kienboch disease", "default"),
+       (33, "Ulnar impaction syndrome", "default"),
+       (33, "Hypothenar Hammer Syndrome", "default"),
+       (33, "Pisotriquetral arthritis", "default"),
+       (33, "Lunate dislocation", "default"),
+       (33, "Lunotriquetral injury", "default"),
+       (33, "Cubital Tunnel Syndrome", "default"),
+       (33, "Ulnar Bursitis", "default"),
+       (33, "Fracture", "default"),
+       (33, "Osteoarthritis", "default"),
+       (33, "Rheumatoid Arthritis", "default"),
+       
+       (34, "Carpal Instability", "default"),
+       (34, "Extensor indicis proprius syndrome", "default"),
+       (34, "Carpal boss", "default"),
+       (34, "Wartenberg syndrome", "default"),
+       (34, "Aseptic necrosis capitate", "default"),
+       (34, "Distal Intersection Syndrome", "default"),
+       (34, "Distal Radioulnar joint injury", "default"),
+       (34, "Ganglion/Growths", "default"),
+       (34, "Compartment Syndrome", "extreme"),
+       (34, "Fracture", "default"),
+       (34, "Osteoarthritis", "default"),
+       (34, "Rheumatoid Arthritis", "default"),
+       
+       (35, "Carpal Instability", "default"),
+       (35, "Aseptic necrosis capitate", "default"),
+       (35, "Pronator Syndrome", "default"),
+       (35, "Ganglion/Growths", "default"),
+       (35, "Compartment Syndrome", "extreme"),
+       (35, "Fracture", "default"),
+       (35, "Osteoarthritis", "default"),
+       (35, "Rheumatoid Arthritis", "default");
+       
+/* Hand */       
+INSERT INTO causes (sbody_region_id, name, classification)
+VALUES (36, "Gamekeepers thumb", "default"),
+       (36, "Tunnel of Guyon Syndrome", "default"),
+       (36, "Ulnar bursitis", "default"),
+       
+       (37, "Tunnel of Guyon Syndrome", "default"),
+       (37, "Gamekeepers thumb", "default"),
+       (37, "Ulnar bursitis", "default");
+       
+       
+
        
