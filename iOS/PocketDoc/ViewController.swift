@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var search: UIButton!
     @IBOutlet weak var settings: UIButton!
     @IBOutlet weak var about: UIButton!
+    @IBOutlet weak var navBar: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,16 @@ class ViewController: UIViewController {
         settings.setTitleColor(UIColor.white, for: .normal)
         about.setTitleColor(UIColor.white, for: .normal)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
