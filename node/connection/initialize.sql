@@ -89,8 +89,8 @@ VALUES (1, 1, "Deep Hip"),
        
        (32, 11, "Lateral"),
        (33, 11, "Medial"),
-       (34, 11, "Posterior"),
-       (35, 11, "Anterior"),
+       (34, 12, "Posterior"),
+       (35, 12, "Anterior"),
        
        (36, 13, "Fingers"),
        
@@ -108,7 +108,9 @@ VALUES (1, 1, "Deep Hip"),
 
 /* Hip */
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (1, "Legg-Calves-Perthes", "extreme"), 
+VALUES 
+       /* Deep Hip */
+       (1, "Legg-Calves-Perthes", "extreme"), 
        (1, "Slipped Capital Femoral Epiphysis", "extreme"), 
        (1, "Avascular Necrosis of Femoral Head", "extreme"), 
        (1, "Osteoarthritis", "default"), 
@@ -117,11 +119,13 @@ VALUES (1, "Legg-Calves-Perthes", "extreme"),
        (1, "Sacroiliac referred", "default"), 
        (1, "Synovitis", "default"), 
 
+       /* Anterior */
        (2, "Psoas Impingement", "default"), 
        (2, "Psoas Abscess", "default"), 
        (2, "AIIS Avulsion Fracture", "children"), 
        (2, "ASIS Avulsion Fracture", "children"), 
 
+       /* Medial/Groin */
        (3, "Pubic Symphysis OA", "default"), 
        (3, "Adductor Enthesopathy", "default"), 
        (3, "Adductor Tendinitis" ,"default"), 
@@ -147,13 +151,16 @@ VALUES (1, "Legg-Calves-Perthes", "extreme"),
        (3, "Testicular/Ovarian Torsion", "extreme"), 
        (3, "Kidney Stone", "default"), 
        
+       /* Anterolateral */
        (4, "Subacute Strain at the Femoral Insertion of Anterior Hip Capsule", "default"), 
-
+       
+       /* Lateral */
        (5, "OA", "default"), 
        (5, "Iliac Crest Contusion (Hip Pointer)", "default"), 
        (5, "Greater Trochanter Avulsion Fracture", "default"), 
        (5, "Lesser Trochanter Avulsion Fracture", "default"),
-
+       
+       /* Posterior */
        (6, "Gluetus Maxiumus Bursitis", "default"), 
        (6, "Sacral Stress FX", "default"), 
        (6, "Coccygeal FX", "default"), 
@@ -162,11 +169,15 @@ VALUES (1, "Legg-Calves-Perthes", "extreme"),
      
 /* Elbow */
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (7, "Interosseous BURSITIS of elbow", "default"),
+VALUES 
+
+       /* All */
+       (7, "Interosseous BURSITIS of elbow", "default"),
        (7, "Interosseous membrane sprain", "default"),
        (7, "Compartment Syndrome", "extreme"),
        (7, "Fracture", "extreme"),
-              
+        
+       /* Lateral */  
        (8, "Lateral Epincondylosis", "default"),
        (8, "Anterolateral capsule ganglion", "default"),
        (8, "Nursemaid’s Elbow", "children"),
@@ -177,11 +188,13 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (8, "Lateral (Ulnar) Collateral Ligament Sprain", "default"),  
        (8, "Essex-Lopresti Injury", "default"),
        
+       /* Anterior */
        (9, "Bicipitioradial Bursitis", "default"),
        (9, "Biceps tendinosis", "default"),
        (9, "Anterior capsule strain", "default"),
        (9, "Brachialis tendonitis", "default"),
        
+       /* Medial */
        (10, "Medial Epicondylosis-Golfer’s Elbow", "default"),
        (10, "Bursitis medial epicondyle", "default"),
        (10, "Medial Epicondylar Apophysitis/Little League Elbow", "default"),
@@ -190,6 +203,7 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
        (10, "Heart Attack", "extreme"),
        (10, "Cubital Tunnel Syndrome", "extreme"),
        
+       /* Posterior */
        (11, "BURSITIS triceps", "default"),
        (11, "Olecranon impingement", "default"),
        (11, "Posterior Elbow Impingement", "default"),
@@ -202,7 +216,9 @@ VALUES (7, "Interosseous BURSITIS of elbow", "default"),
  
 /* Feet */
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (12, "Subtalar OA", "default"),
+VALUES 
+       /* Arch */
+       (12, "Subtalar OA", "default"),
        (12, "Lisfranc", "default"),
        (12, "Kohler disease / Avascular Necrosis Navicular", "default"),
        (12, "Inferior Extensor Retinaculum", "default"),
@@ -212,11 +228,13 @@ VALUES (12, "Subtalar OA", "default"),
        (12, "Subtalar dislocation", "default"),
        (12, "Subcu bursa of calcaneal tendon", "default"),
        
+       /* Sole */
        (13, "Plantar fasciitis", "default"),
        (13, "Sesamoiditis", "default"),
        (13, "Turf toe", "default"),
        (13, "Plantar plate rupture", "default"),
        
+       /* Toes */
        (14, "Freiberg infraction", "default"),
        (14, "Plantar plate disruption at the second through fifth MTP joints", "default"),
        (14, "Ganglion", "default"),
@@ -227,6 +245,7 @@ VALUES (12, "Subtalar OA", "default"),
        (14, "Intermetatarsal bursa", "default"),
        (14, "Forefoot extensor bursa", "default"),
        
+       /* Lateral */
        (15, "ATFL Ligament", "default"),
        (15, "Sinus tarsi syndrome", "default"),
        (15, "Anterior tibiotalar impingement", "default"),
@@ -239,10 +258,12 @@ VALUES (12, "Subtalar OA", "default"),
        (15, "Calcaneofibular ligament", "default"),
        (15, "Anteroinferior tibiofibular lig", "default"),
        
+       /* Medial */
        (16, "medial malleolus bursa", "default"),
        (16, "Posterior tibial tendon dysfunction", "default"),
        (16, "Sustentaculum tali fracture", "default"),
        
+       /* Posterior */
        (17, "Haglunds triad", "default"),       
        (17, "Calcaneal stress fx", "default"),       
        (17, "Achilles enthesopathy", "default"),       
@@ -255,7 +276,9 @@ VALUES (12, "Subtalar OA", "default"),
 
 /* Shoulder */
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (18, "Heart Attack", "extreme"),
+VALUES 
+       /* All */
+       (18, "Heart Attack", "extreme"),
        (18, "Facet Pain", "default"),
        (18, "Coracobrachial bursa", "default"),
        (18, "Bursa of latissimus dorsi", "default"),
@@ -279,19 +302,22 @@ VALUES (18, "Heart Attack", "extreme"),
        (18, "Axillary Nerve Compression", "default"),
        (18, "Supraclavicular nerve compression", "default"),
        
-       
+       /* Front */
        (19, "Biceps subluxation", "default"),
        (19, "Transverse humeral ligament sprain/rupture", "default"),
        (19, "Acromioclavicular joint sprain", "default"),
        
+       /* Top */
        (20, "subacromial bursa", "default"),
        (20, "Acromial apophysiolysis", "default"),
        
+       /* Anterior */
        (21, "Subcoracoid bursa", "default"),
        (21, "HAGL Lesion", "default"),
        (21, "Perthes lesion", "default"),
        (21, "ALPSA", "default"),
        
+       /* Posterior */
        (22, "Labrum (SLAP) lesion", "default"),
        (22, "Posterior glenoid impingement", "default"),
        (22, "Shoulder capsule", "default"),
@@ -303,7 +329,10 @@ VALUES (18, "Heart Attack", "extreme"),
 
 /* Abdomen */
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (23, "Biliary Tract Disorder", "default"),
+VALUES 
+
+       /* Top Left */
+       (23, "Biliary Tract Disorder", "default"),
        (23, "Hepatitis", "default"),
        (23, "Fitz-Hughes- Curtis", "default"),
        (23, "RUQ Syndrome", "default"),
@@ -311,9 +340,11 @@ VALUES (23, "Biliary Tract Disorder", "default"),
        (23, "Basal Pneumonia", "default"),
        (23, "Retrocecal Appendicitis", "extreme"),
        
+       /* Middle Left */
        (24, "Kidney Stones", "default"),
        (24, "Kidney Infection", "default"),
        
+       /* Bottom Left */
        (25, "Appendicitis", "extreme"),
        (25, "Crohn’s Disease", "default"),
        (25, "Ovarian Cyst", "female"),
@@ -326,17 +357,20 @@ VALUES (23, "Biliary Tract Disorder", "default"),
        (25, "Mittelschmerz", "female"),
        (25, "Pelvic Congestion Syndrome", "female"),
        
+       /* Top Middle */
        (26, "Ulcer Disease", "default"),
        (26, "Pancreatitis", "default"),
        (26, "Myocardial Ischemia", "extreme"),
        (26, "Boerhaave Syndrome", "default"),
        
+       /* Middle Middle */
        (27, "Pancreatitis", "default"),
        (27, "Myocardial Ischemia", "extreme"),
        (27, "Early Appendicitis", "extreme"),
        (27, "Small Bowel Obstruction", "extreme"),
        (27, "Abdominal Aortic Aneurysm", "default"),
        
+       /* Bottom Middle */
        (28, "Urinary Retention", "default"),
        (28, "Pregnancy", "default"),
        (28, "Cystitis", "default"),
@@ -344,13 +378,16 @@ VALUES (23, "Biliary Tract Disorder", "default"),
        (28, "Adenomyosis", "female"),
        (28, "Allen-Masters Syndrome", "female"),
        
+       /* Top Right */
        (29, "Splenic Disorder", "default"),
        (29, "Basal Pneumonia", "default"),
        
+       /* Middle Right */
        (30, "Kidney Stones", "default"),
        (30, "Kidney Infection", "default"),
        (30, "Nutcracker Syndrome", "default"),
        
+       /* Bottom Right */
        (31, "Diverticulitis/Diverticulosis", "default"),
        (31, "Ovarian Cyst", "female"),
        (31, "Ovarian Torsion", "extreme"),
@@ -364,7 +401,9 @@ VALUES (23, "Biliary Tract Disorder", "default"),
 
 /* Forearm */
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (32, "Avascular Necrosis of Scaphoid", "default"),
+VALUES 
+       /* Lateral */
+       (32, "Avascular Necrosis of Scaphoid", "default"),
        (32, "Gymnast's Wrist / Distal Radial Physeal Stress Syndrome", "default"),
        (32, "Posterior Interosseous Nerve Syndrome", "default"),
        (32, "Carpal Tunnel Syndrome", "default"),
@@ -382,6 +421,7 @@ VALUES (32, "Avascular Necrosis of Scaphoid", "default"),
        (32, "Essex-Lopresti Injury", "default"),
        (32, "Gamekeepers thumb", "default"),
        
+       /* Medial */
        (33, "Snapping Extensor Carpi Ulnaris", "default"),
        (33, "Triangular Fibrocartilage (TFC) Injury", "default"),
        (33, "Ulnar styloid impaction syndrome", "default"),
@@ -401,6 +441,7 @@ VALUES (32, "Avascular Necrosis of Scaphoid", "default"),
        (33, "Osteoarthritis", "default"),
        (33, "Rheumatoid Arthritis", "default"),
        
+       /* Posterior */
        (34, "Carpal Instability", "default"),
        (34, "Extensor indicis proprius syndrome", "default"),
        (34, "Carpal boss", "default"),
@@ -414,6 +455,7 @@ VALUES (32, "Avascular Necrosis of Scaphoid", "default"),
        (34, "Osteoarthritis", "default"),
        (34, "Rheumatoid Arthritis", "default"),
        
+       /* Anterior */
        (35, "Carpal Instability", "default"),
        (35, "Aseptic necrosis capitate", "default"),
        (35, "Pronator Syndrome", "default"),
@@ -425,10 +467,13 @@ VALUES (32, "Avascular Necrosis of Scaphoid", "default"),
        
 /* Hand */       
 INSERT INTO causes (sbody_region_id, name, classification)
-VALUES (36, "Gamekeepers thumb", "default"),
+VALUES 
+       /* Front Fingers */
+       (36, "Gamekeepers thumb", "default"),
        (36, "Tunnel of Guyon Syndrome", "default"),
        (36, "Ulnar bursitis", "default"),
        
+       /* Back Fingers */
        (37, "Tunnel of Guyon Syndrome", "default"),
        (37, "Gamekeepers thumb", "default"),
        (37, "Ulnar bursitis", "default");
@@ -436,6 +481,7 @@ VALUES (36, "Gamekeepers thumb", "default"),
 /* Head */
 INSERT INTO causes (sbody_region_id, name, classification)
 VALUES 
+       /* Facial/Frontal */
        (38, "C1 radiculopathy", "default"),
        (38, "C3 radiculopathy", "default"),
        (38, "Parasellar syndrome", "default"),
@@ -457,6 +503,7 @@ VALUES
        (38, "Temporal arteritis", "default"),
        (38, "Migraine Headache", "default"),
        
+       /* Temporal */
        (39, "C2 radiculopathy", "default"),
        (39, "C3 radiculopathy", "default"),
        (39, "Masseter myotendonitis", "default"),
@@ -475,12 +522,14 @@ VALUES
        (39, "Migraine Headache", "default"),
        (39, "Temporomandibular Joint Dysfunction", "default"),
        
+       /* Parietal */
        (40, "C2 radiculopathy", "default"),
        (40, "Arnold - Chiari", "default"),
        (40, "Greater Occipital and Lesser Occipital Nerve Neuralgia", "default"),
        (40, "Tension Headache", "default"),
        (40, "Clivus syndrome", "default"),
        
+       /* Neck */
        (41, "Cardiac Ischemia", "extreme"),       
        (41, "C4 Radiculopathy", "default"),       
        (41, "C3 dermatome", "default"),       
@@ -493,6 +542,7 @@ VALUES
        (41, "Temporomandibular Joint Dysfunction", "default"),    
        (41, "C4-C5, C5-C6, C6-C7 Facet Joint", "default"),
        
+       /* Occipital */
        (42, "C3 radiculopathy", "default"),
        (42, "C4 radiculopathy", "default"),
        (42, "Occipital neuralgia", "default"),
@@ -505,6 +555,7 @@ VALUES
        (42, "Migraine Headache", "default"),
        (42, "Neck tongue Syndrome", "default"),
        
+       /* Cerviccal Spine */
        (43, "Occipitoatlas Joint", "default"),
        (43, "Acute calcific retropharyngeal tendinitis", "default"),
        (43, "Retropharyngeal abscess", "default"),
