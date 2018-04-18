@@ -68,5 +68,10 @@
     <string name="front_knees">Front Knees</string>
     <string name="front_lowerlegs">Front Lowerlegs</string>
     <string name="front_feet">Front Feet</string>
+    <string name="legal_title" formatted="true">MEDICAL ADVICE DISCLAIMER</string>
+    <string name="legal_text" formatted="true">
+        The Author provides the services, information, content and/or data (collectively, “Information”) contained therein for informational purposes only. The Author does not provide any medical advice on the Site, and the Information should not be so construed or used. Using, accessing and/or browsing the Site and/or providing personal or medical information to the Author does not create a physician-patient relationship between you and the Author. Nothing contained in the Site is intended to create a physician-patient relationship, to replace the services of a licensed, trained physician or health professional or to be a substitute for medical advice of a physician or trained health professional licensed in your state. You should not rely on anything contained in the Site, and you should consult a physician licensed in your state in all matters relating to your health. You hereby agree that you shall not make any health or medical related decision based in whole or in part on anything contained in the Site.
+    </string>
+
 </resources>
 

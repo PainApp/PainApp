@@ -40,12 +40,12 @@ class MainFragment : Fragment(), AdapterView.OnItemClickListener {
         actionListView = getView().findViewById(R.id.main_action_list)
         progressBar = getView().findViewById(R.id.loading_bar)
 
-        actionListView!!.adapter = ArrayAdapter.createFromResource(activity, R.array.main_action_list, R.layout.main_action_list_item)
-        actionListView!!.onItemClickListener = this
+        actionListView?.adapter = ArrayAdapter.createFromResource(activity, R.array.main_action_list, R.layout.main_action_list_item)
+        actionListView?.onItemClickListener = this
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        mListener!!.onMainActionSelected(actionListView!!.getItemAtPosition(position) as String)
+        mListener?.onMainActionSelected(actionListView!!.getItemAtPosition(position) as String)
     }
 
     override fun onAttach(context: Context?) {
@@ -85,13 +85,9 @@ class MainFragment : Fragment(), AdapterView.OnItemClickListener {
     companion object {
         const val ARG_PROGRESS_VISIBLE = "progress_visible"
         // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        fun newInstance(progressBarVisible: Boolean): MainFragment {
-            val fragment = MainFragment()
-            val args = Bundle()
-            args.putBoolean(ARG_PROGRESS_VISIBLE, progressBarVisible)
-            fragment.arguments = args
-
-            return fragment
-        }
+        fun newInstance(progressBarVisible: Boolean): MainFragment =
+                MainFragment().apply {
+                    arguments = Bundle().apply { putBoolean(ARG_PROGRESS_VISIBLE, progressBarVisible) }
+                }
     }
 }

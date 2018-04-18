@@ -9,18 +9,22 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.view.*
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.entities.OnTaskCompletedListener
+import xyz.painapp.pocketdoc.fragments.AboutFragment
+import xyz.painapp.pocketdoc.fragments.HelpFragment
+import xyz.painapp.pocketdoc.fragments.LegalFragment
 import xyz.painapp.pocketdoc.fragments.MainFragment
 import java.io.File
 import java.io.IOException
 import java.net.URL
 
 
-class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListener, OnTaskCompletedListener {
+class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListener, OnTaskCompletedListener, AboutFragment.OnAboutFragmentInteractionListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +32,24 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
         testConnection()
     }
 
+    override fun onListItemClicked(item: String) {
+        when (item) {
+            "legal" -> fragmentManager.beginTransaction().replace(R.id.main_fragment_container, LegalFragment()).commit()
+            "help" -> fragmentManager.beginTransaction().replace(R.id.main_fragment_container, HelpFragment()).commit()
+        }
+    }
+
     override fun onMainActionSelected(action: String) {
-        val intent: Intent? =
         when (action) {
-            "start" -> Intent(this, BodyActivity::class.java)
-            else -> null
+            "start" -> startActivity(Intent(this, BodyActivity::class.java))
+            "about" -> fragmentManager.beginTransaction().replace(R.id.main_fragment_container, AboutFragment()).commit()
+            else -> Toast.makeText(this, "This action is not supported yet!", Toast.LENGTH_SHORT).show()
+
         }
 
         if (intent != null) {
             startActivity(intent)
         } else {
-            Toast.makeText(this, "This action is not supported yet!", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -55,7 +66,7 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
     override fun onTaskCompleted(vararg values: Any?) {
         if (values[0] is Boolean) {
             val error = values[0] as Boolean
-            val mainFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAG) as MainFragment
+            val mainFragment = fragmentManager.findFragmentByTag(MAIN_FRAGMENT_TAG) as MainFragment
 
             if (error) {
                 mainFragment.setActionListVisibility(false)
@@ -83,12 +94,13 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
 
 
     companion object {
-        const val FRAGMENT_TAG = "MAIN_FRAGMENT"
+        const val MAIN_FRAGMENT_TAG = "MAIN_FRAGMENT"
+        const val ABOUT_FRAGMENT_TAG = "ABOUT_FRAGMENT"
         class DownloadConnectInfo(override val listener: OnTaskCompletedListener, override val fragmentManager: FragmentManager) : DownloadDataTask() {
 
             override fun onPreExecute() {
                 val mainFragment = MainFragment.newInstance(progressBarVisible = true)
-                fragmentManager.beginTransaction().add(R.id.main_fragment_container, mainFragment, FRAGMENT_TAG).commit()
+                fragmentManager.beginTransaction().add(R.id.main_fragment_container, mainFragment, MAIN_FRAGMENT_TAG).commit()
             }
 
             override fun onPostExecute(result: JSONObject?) {

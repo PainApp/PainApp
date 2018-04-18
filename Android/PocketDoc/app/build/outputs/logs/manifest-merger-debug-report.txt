@@ -1,158 +1,158 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-MERGED from [com.android.support:design:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\25f3003d9ba40a05a48dc4e70865887a\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\245384228b0b9dc02c246066b31c8c05\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\dd3e52ef78483a4e8930d7d92ea44562\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b1dc13c53eeda8b56e2db038791b0cd8\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\027de4e9e39ddc6a4bc82e277252c3dc\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.0.aar\7a2cf0e665676fc92befff2834855157\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.deano2390:MaterialShowcaseView:1.2.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\MaterialShowcaseView-1.2.0.aar\a4953ed78726c8d0b62a2991f1834171\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\d2e003894853e3db84d094586ad7b1c6\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\a6bf10c52f620f22256ebc672ec29c1f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\a8f2b8f1b6d93f46d42a29ea5b475871\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\3351dcc0732970d71fcbf20d03dab0e6\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\506a656672e5c678d7cd1ba0907d683f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\2cd4c7c22ab4eb0a59f859b96561cda6\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\1751403d597aa39e2d0081a7b0fbbbbb\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\66d192921d4c953eef80dfa27045fbbc\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2fa9f759b0f5b73c1b97b58c0164367d\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\4e36f665dc858f27e15e03fb03c3e295\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\887ba243a7529cce09d685df9a8be7ab\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3aa2bf2afe5b6445be69e33796deb6de\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+MERGED from [com.android.support:design:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/1d0994f66093dd981f473df39233045c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/c63fd9886b91de0e633b549aa36a9cca/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/c7f8510f96b79d91b7755f08058d78cb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/keyur/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/e2f44683a817d6400348b903ad85d606/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/eeb038520f34e51b2bec962d094d99e0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.0.aar/2c7e27e65a4a301193f63da0600f76c4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.deano2390:MaterialShowcaseView:1.2.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/MaterialShowcaseView-1.2.0.aar/d689f1bd46ab6af05a04c577d4ce1124/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/2246ec25ea1d8c119d593a4c648a4020/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/f18fdd85a0b2d817be7e76b9191e41ec/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/e475436f05504a1c73abe932f0874852/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/dc80e86d66b908b06480005a1d80257e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e125479594c36bb3a5e1fa5c247054a5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/c890c42fef341af1ef69b116aa35d916/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/0442516a86b4cf14870ffc0a7d415bab/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/0a845b3553363153467d40fba3ca9be5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/547798c35df8d7b115d56679102e9f2f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/bd01454f7d6eebb895700f97f99e4dd2/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/3c42516dd62f2246f04f206493145b78/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7399908a5a7585d6939b013bbe5e330d/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
 	package
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:4:5-36
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:4:5-36
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:1-36:12
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:1-36:12
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:6:5-67
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:6:5-67
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:6:22-64
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:7:5-76
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:7:5-76
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:7:22-73
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:7:22-73
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:8:5-79
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:8:22-76
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:8:22-76
 application
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:9:5-34:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b1dc13c53eeda8b56e2db038791b0cd8\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b1dc13c53eeda8b56e2db038791b0cd8\AndroidManifest.xml:9:5-20
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:10:5-34:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/keyur/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/e2f44683a817d6400348b903ad85d606/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/keyur/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/e2f44683a817d6400348b903ad85d606/AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:15:9-35
 	android:label
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:13:9-41
 	tools:ignore
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:16:9-60
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:17:9-60
 	android:roundIcon
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:14:9-54
 	android:icon
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:16:9-40
 activity#xyz.painapp.pocketdoc.activities.MainActivity
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:18:9-24:20
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:18:9-24:20
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:18:19-58
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:18:19-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:22:27-74
 activity#xyz.painapp.pocketdoc.activities.BodyActivity
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:25:9-27:69
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:25:9-27:69
 	android:parentActivityName
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:27:13-66
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:27:13-66
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:26:13-52
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:26:13-52
 activity#xyz.painapp.pocketdoc.activities.RegionActivity
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:28:9-30:69
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:28:9-30:69
 	android:parentActivityName
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:30:13-66
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:30:13-66
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:29:13-54
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:29:13-54
 activity#xyz.painapp.pocketdoc.activities.CausesActivity
-ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:31:9-33:71
+ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:31:9-33:71
 	android:parentActivityName
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:33:13-68
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:33:13-68
 	android:name
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml:32:13-54
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml:32:13-54
 uses-sdk
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\25f3003d9ba40a05a48dc4e70865887a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\25f3003d9ba40a05a48dc4e70865887a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\245384228b0b9dc02c246066b31c8c05\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\245384228b0b9dc02c246066b31c8c05\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\dd3e52ef78483a4e8930d7d92ea44562\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\dd3e52ef78483a4e8930d7d92ea44562\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b1dc13c53eeda8b56e2db038791b0cd8\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\b1dc13c53eeda8b56e2db038791b0cd8\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\027de4e9e39ddc6a4bc82e277252c3dc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\027de4e9e39ddc6a4bc82e277252c3dc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.0.aar\7a2cf0e665676fc92befff2834855157\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.0.aar\7a2cf0e665676fc92befff2834855157\AndroidManifest.xml:20:5-44
-MERGED from [com.github.deano2390:MaterialShowcaseView:1.2.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\MaterialShowcaseView-1.2.0.aar\a4953ed78726c8d0b62a2991f1834171\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.deano2390:MaterialShowcaseView:1.2.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\MaterialShowcaseView-1.2.0.aar\a4953ed78726c8d0b62a2991f1834171\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\d2e003894853e3db84d094586ad7b1c6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\d2e003894853e3db84d094586ad7b1c6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\a6bf10c52f620f22256ebc672ec29c1f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\a6bf10c52f620f22256ebc672ec29c1f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\a8f2b8f1b6d93f46d42a29ea5b475871\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\a8f2b8f1b6d93f46d42a29ea5b475871\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\3351dcc0732970d71fcbf20d03dab0e6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\3351dcc0732970d71fcbf20d03dab0e6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\506a656672e5c678d7cd1ba0907d683f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\506a656672e5c678d7cd1ba0907d683f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\2cd4c7c22ab4eb0a59f859b96561cda6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\2cd4c7c22ab4eb0a59f859b96561cda6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\1751403d597aa39e2d0081a7b0fbbbbb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\1751403d597aa39e2d0081a7b0fbbbbb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\66d192921d4c953eef80dfa27045fbbc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\66d192921d4c953eef80dfa27045fbbc\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2fa9f759b0f5b73c1b97b58c0164367d\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2fa9f759b0f5b73c1b97b58c0164367d\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\4e36f665dc858f27e15e03fb03c3e295\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\4e36f665dc858f27e15e03fb03c3e295\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\887ba243a7529cce09d685df9a8be7ab\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\887ba243a7529cce09d685df9a8be7ab\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3aa2bf2afe5b6445be69e33796deb6de\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Keyur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3aa2bf2afe5b6445be69e33796deb6de\AndroidManifest.xml:20:5-44
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/1d0994f66093dd981f473df39233045c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/1d0994f66093dd981f473df39233045c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/c63fd9886b91de0e633b549aa36a9cca/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/c63fd9886b91de0e633b549aa36a9cca/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/c7f8510f96b79d91b7755f08058d78cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/c7f8510f96b79d91b7755f08058d78cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/keyur/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/e2f44683a817d6400348b903ad85d606/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/keyur/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/e2f44683a817d6400348b903ad85d606/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/eeb038520f34e51b2bec962d094d99e0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/eeb038520f34e51b2bec962d094d99e0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.0.aar/2c7e27e65a4a301193f63da0600f76c4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/cardview-v7-27.1.0.aar/2c7e27e65a4a301193f63da0600f76c4/AndroidManifest.xml:20:5-44
+MERGED from [com.github.deano2390:MaterialShowcaseView:1.2.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/MaterialShowcaseView-1.2.0.aar/d689f1bd46ab6af05a04c577d4ce1124/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.deano2390:MaterialShowcaseView:1.2.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/MaterialShowcaseView-1.2.0.aar/d689f1bd46ab6af05a04c577d4ce1124/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/2246ec25ea1d8c119d593a4c648a4020/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/2246ec25ea1d8c119d593a4c648a4020/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/f18fdd85a0b2d817be7e76b9191e41ec/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/f18fdd85a0b2d817be7e76b9191e41ec/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/e475436f05504a1c73abe932f0874852/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/e475436f05504a1c73abe932f0874852/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/dc80e86d66b908b06480005a1d80257e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/dc80e86d66b908b06480005a1d80257e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e125479594c36bb3a5e1fa5c247054a5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/e125479594c36bb3a5e1fa5c247054a5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/c890c42fef341af1ef69b116aa35d916/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/c890c42fef341af1ef69b116aa35d916/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/0442516a86b4cf14870ffc0a7d415bab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/0442516a86b4cf14870ffc0a7d415bab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/0a845b3553363153467d40fba3ca9be5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/0a845b3553363153467d40fba3ca9be5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/547798c35df8d7b115d56679102e9f2f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/547798c35df8d7b115d56679102e9f2f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/bd01454f7d6eebb895700f97f99e4dd2/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/bd01454f7d6eebb895700f97f99e4dd2/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/3c42516dd62f2246f04f206493145b78/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/3c42516dd62f2246f04f206493145b78/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7399908a5a7585d6939b013bbe5e330d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/keyur/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/7399908a5a7585d6939b013bbe5e330d/AndroidManifest.xml:20:5-44
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		ADDED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Libraries\Documents\Code\School\cs423\PainApp\Android\PocketDoc\app\src\main\AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		ADDED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
+		INJECTED from /home/keyur/Documents/School/cs423/PainApp/Android/PocketDoc/app/src/main/AndroidManifest.xml
