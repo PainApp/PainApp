@@ -1,6 +1,5 @@
 package xyz.painapp.pocketdoc.activities
 
-import android.app.Fragment
 import android.app.FragmentManager
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +7,6 @@ import android.os.PersistableBundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import org.json.JSONObject

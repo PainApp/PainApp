@@ -1,9 +1,8 @@
 package xyz.painapp.pocketdoc.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.widget.Toast
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.fragments.AboutFragment
 import xyz.painapp.pocketdoc.fragments.HelpFragment

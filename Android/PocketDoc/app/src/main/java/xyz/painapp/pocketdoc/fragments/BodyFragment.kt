@@ -69,7 +69,7 @@ class BodyFragment : Fragment(), View.OnClickListener {
         if (context is OnBodyRegionSelectedListener) {
             mListener = context
         } else {
-          throw RuntimeException(context!!.toString() + " must implement OnBodyRegionSelectedListener")
+            throw RuntimeException(context!!.toString() + " must implement OnBodyRegionSelectedListener")
         }
     }
 
@@ -90,23 +90,17 @@ class BodyFragment : Fragment(), View.OnClickListener {
     }
 
     companion object {
-        // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-        private val ARG_BODY_LIST = "body_list"
-        private val ARG_ORIENTATION = "orientation"
+        private const val ARG_BODY_LIST = "body_list"
+        private const val ARG_ORIENTATION = "orientation"
 
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
 
-         * @return A new instance of fragment RegionFragment.
-         */
-        fun newInstance(bodyRegionList: ArrayList<BodyRegion>, orientation: Boolean): BodyFragment {
-            val fragment = BodyFragment()
-            val args = Bundle()
-            args.putParcelableArrayList(ARG_BODY_LIST, bodyRegionList)
-            args.putBoolean(ARG_ORIENTATION, orientation)
-            fragment.arguments = args
-            return fragment
-        }
+        @JvmStatic
+        fun newInstance(bodyRegionList: ArrayList<BodyRegion>, orientation: Boolean) =
+                BodyFragment().apply {
+                    arguments.apply {
+                        putParcelableArrayList(ARG_BODY_LIST, bodyRegionList)
+                        putBoolean(ARG_ORIENTATION, orientation)
+                    }
+                }
     }
-}// Required empty public constructor
+}

@@ -17,15 +17,12 @@ class BodyRegion() : Parcelable {
     var name: String = ""
     var specificRegionList: ArrayList<SpecificBodyRegion> = ArrayList()
 
-
-
     constructor(parcel: Parcel) : this() {
         id = parcel.readInt()
         name = parcel.readString()
         tag = parcel.readString()
         parcel.readTypedList(specificRegionList, SpecificBodyRegion.CREATOR)
     }
-
 
     constructor(jsonObject: JSONObject) : this() {
         try {

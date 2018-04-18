@@ -9,15 +9,11 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.view.*
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.entities.OnTaskCompletedListener
-import xyz.painapp.pocketdoc.fragments.AboutFragment
-import xyz.painapp.pocketdoc.fragments.HelpFragment
-import xyz.painapp.pocketdoc.fragments.LegalFragment
 import xyz.painapp.pocketdoc.fragments.MainFragment
 import java.io.File
 import java.io.IOException
