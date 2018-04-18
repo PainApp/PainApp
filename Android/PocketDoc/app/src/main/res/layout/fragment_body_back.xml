@@ -1,4 +1,4 @@
-<android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
     android:id="@+id/body_constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,6 +16,7 @@
         android:layout_marginEnd="11dp"
         android:layout_marginTop="24dp"
         android:adjustViewBounds="true"
+        android:tag="Back Head"
         android:contentDescription="@string/back_head"
         app:layout_constraintEnd_toStartOf="@+id/back_right_shoulder_imageView"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,51 +26,93 @@
         android:id="@+id/back_back_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:tag="Back Chest"
         android:adjustViewBounds="true"
         android:src="@drawable/back_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_head_imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/back_head_imageView"
+        android:contentDescription="@string/back_chest" />
+
+    <ImageView
+        android:id="@+id/back_lowerback_imageview"
+        android:layout_width="76dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/back_lowerback"
+        android:tag="Back Abdomen"
+        android:layout_marginEnd="0.5dp"
+        app:layout_constraintEnd_toEndOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_back_imageView"
+        android:contentDescription="@string/back_lowerback" />
 
     <ImageView
         android:id="@+id/back_right_shoulder_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:tag="Back Shoulder"
         android:adjustViewBounds="true"
         app:layout_constraintStart_toEndOf="@+id/back_back_imageView"
         app:layout_constraintTop_toTopOf="@+id/back_back_imageView"
-        app:srcCompat="@drawable/back_right_shoulder" />
+        app:srcCompat="@drawable/back_right_shoulder"
+        android:contentDescription="@string/back_right_shoulder" />
 
 
     <ImageView
         android:id="@+id/back_left_shoulder_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:tag="Back Shoulder"
         android:layout_marginTop="7dp"
         app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
         app:layout_constraintTop_toBottomOf="@+id/back_head_imageView"
-        app:srcCompat="@drawable/back_left_shoulder" />
+        app:srcCompat="@drawable/back_left_shoulder"
+        android:contentDescription="@string/back_left_shoulder" />
 
        <ImageView
            android:id="@+id/back_right_upperarm_imageView"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:tag="Back Upperarm"
            android:layout_marginStart="1dp"
            app:layout_constraintStart_toStartOf="@+id/back_right_shoulder_imageView"
            app:layout_constraintTop_toBottomOf="@+id/back_right_shoulder_imageView"
-           app:srcCompat="@drawable/back_right_upperarm" />
+           app:srcCompat="@drawable/back_right_upperarm"
+           android:contentDescription="@string/back_right_upperarm" />
+
+    <ImageView
+        android:id="@+id/back_left_upperarm_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="Back Upperarm"
+        app:layout_constraintEnd_toEndOf="@+id/back_left_shoulder_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_left_shoulder_imageView"
+        app:srcCompat="@drawable/back_left_upperarm"
+        android:contentDescription="@string/back_left_upperarm" />
 
     <ImageView
         android:id="@+id/back_right_elbow_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
+        android:tag="Back Elbow"
         android:adjustViewBounds="true"
         app:layout_constraintStart_toEndOf="@+id/back_back_imageView"
         app:layout_constraintTop_toBottomOf="@+id/back_right_upperarm_imageView"
-        app:srcCompat="@drawable/back_right_elbow" />
+        app:srcCompat="@drawable/back_right_elbow"
+        android:contentDescription="@string/back_right_elbow" />
+
+    <ImageView
+        android:id="@+id/back_left_elbow_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="Back Elbow"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_left_upperarm_imageView"
+        app:srcCompat="@drawable/back_left_elbow"
+        android:contentDescription="@string/back_left_elbow" />
 
 
     <ImageView
@@ -77,107 +120,108 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="7dp"
+        android:tag="Back Forearm"
         app:layout_constraintStart_toStartOf="@+id/back_right_upperarm_imageView"
         app:layout_constraintTop_toBottomOf="@+id/back_right_elbow_imageView"
-        app:srcCompat="@drawable/back_right_forearm" />
-
-    <ImageView
-        android:id="@+id/back_right_hand_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="@+id/back_right_forearm_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_right_forearm_imageView"
-        app:srcCompat="@drawable/back_right_hand" />
-
-    <ImageView
-        android:id="@+id/back_left_upperarm_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/back_left_shoulder_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_left_shoulder_imageView"
-        app:srcCompat="@drawable/back_left_upperarm" />
-
-
-    <ImageView
-        android:id="@+id/back_left_elbow_imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_left_upperarm_imageView"
-        app:srcCompat="@drawable/back_left_elbow" />
-
+        app:srcCompat="@drawable/back_right_forearm"
+        android:contentDescription="@string/back_right_forearm" />
 
     <ImageView
         android:id="@+id/back_left_forearm_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:tag="Back Forearm"
         android:layout_marginEnd="7dp"
         app:layout_constraintEnd_toStartOf="@+id/back_back_imageView"
         app:layout_constraintTop_toBottomOf="@+id/back_left_elbow_imageView"
-        app:srcCompat="@drawable/back_left_forearm" />
+        app:srcCompat="@drawable/back_left_forearm"
+        android:contentDescription="@string/back_left_forearm" />
+
+    <ImageView
+        android:id="@+id/back_right_hand_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="Back Hand"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="@+id/back_right_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/back_right_forearm_imageView"
+        app:srcCompat="@drawable/back_right_hand"
+        android:contentDescription="@string/back_right_hand" />
 
     <ImageView
         android:id="@+id/back_left_hand_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
+        android:tag="Back Hand"
         app:layout_constraintEnd_toEndOf="@+id/back_left_upperarm_imageView"
         app:layout_constraintTop_toBottomOf="@+id/back_left_forearm_imageView"
-        app:srcCompat="@drawable/back_left_hand" />
+        app:srcCompat="@drawable/back_left_hand"
+        android:contentDescription="@string/back_left_hand" />
 
     <ImageView
         android:id="@+id/back_hips_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        app:layout_constraintStart_toStartOf="@+id/back_left_forearm_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_back_imageView"
-        app:srcCompat="@drawable/back_hips" />
+        android:layout_marginEnd="50dp"
+        android:tag="Back Hips"
+        app:layout_constraintEnd_toEndOf="@+id/back_right_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_lowerback_imageview"
+        app:srcCompat="@drawable/back_hips"
+        android:contentDescription="@string/back_hips" />
 
     <ImageView
         android:id="@+id/back_butt_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        app:layout_constraintStart_toStartOf="@+id/back_left_forearm_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_hips_image_view"
-        app:srcCompat="@drawable/back_butt" />
+        android:tag="Back Groin"
+        android:layout_marginStart="47dp"
+        app:layout_constraintStart_toStartOf="@id/back_left_forearm_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_hips_image_view"
+        app:srcCompat="@drawable/back_butt"
+        android:contentDescription="@string/back_butt" />
 
     <ImageView
         android:id="@+id/back_thighs_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="67dp"
-        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_butt_imageView"
-        app:srcCompat="@drawable/back_thighs" />
+        android:layout_marginStart="66dp"
+        android:tag="Back Thighs"
+        app:layout_constraintStart_toStartOf="@id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_butt_imageView"
+        app:srcCompat="@drawable/back_thighs"
+        android:contentDescription="@string/back_thighs" />
 
     <ImageView
         android:id="@+id/back_knees_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="79dp"
-        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_thighs_imageView"
-        app:srcCompat="@drawable/back_knees" />
+        android:layout_marginStart="78dp"
+        android:tag="Back Knees"
+        app:layout_constraintStart_toStartOf="@id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_thighs_imageView"
+        app:srcCompat="@drawable/back_knees"
+        android:contentDescription="@string/back_knees" />
 
     <ImageView
         android:id="@+id/back_calves_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_knees_imageView"
-        app:srcCompat="@drawable/back_calfs" />
+        android:tag="Back Lowerlegs"
+        android:layout_marginStart="75dp"
+        app:layout_constraintStart_toStartOf="@id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_knees_imageView"
+        app:srcCompat="@drawable/back_calves"
+        android:contentDescription="@string/back_calves" />
 
     <ImageView
         android:id="@+id/back_feet_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        app:layout_constraintStart_toStartOf="@+id/back_left_hand_imageView"
-        app:layout_constraintTop_toBottomOf="@+id/back_calves_imageView"
-        app:srcCompat="@drawable/back_feet" />-->
+        android:tag="Back Feet"
+        android:layout_marginStart="77dp"
+        app:layout_constraintStart_toStartOf="@id/back_left_hand_imageView"
+        app:layout_constraintTop_toBottomOf="@id/back_calves_imageView"
+        app:srcCompat="@drawable/back_feet"
+        android:contentDescription="@string/back_feet" />
 </android.support.constraint.ConstraintLayout>

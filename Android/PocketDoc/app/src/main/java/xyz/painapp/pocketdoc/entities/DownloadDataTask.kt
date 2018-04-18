@@ -1,5 +1,6 @@
 package xyz.painapp.pocketdoc.entities
 
+import android.app.FragmentManager
 import android.os.AsyncTask
 import android.util.Log
 import org.json.JSONObject
@@ -13,17 +14,24 @@ import java.net.HttpURLConnection
  * Package: xyz.painapp.pocketdoc.entities as part of PocketDoc
  */
 
+interface OnTaskCompletedListener {
+    fun onTaskCompleted(vararg values: Any?)
+}
+
 abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
+    protected abstract val listener: OnTaskCompletedListener
+    protected abstract val fragmentManager: FragmentManager
+
     abstract override fun onPreExecute()
     abstract override fun onPostExecute(result: JSONObject?)
+
     override fun doInBackground(vararg urlList: HTTPUrlMethod?): JSONObject {
         var results = JSONObject("{}")
         val urlMethod = urlList[0]
         var myConnection: HttpURLConnection? = null
 
         try {
-            Log.i("Url", urlMethod!!.url.toString())
-            val url = urlMethod.url
+            val url = urlMethod!!.url
             myConnection = url.openConnection() as HttpURLConnection
             myConnection.requestMethod = urlMethod.methodString
             myConnection.connectTimeout = 3000
@@ -38,8 +46,6 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
 
                 if (myConnection.responseCode != 200) {
-                    // TODO add some way of letting the user know the data is not available
-                    Log.e("Response Code", myConnection.responseMessage)
                     return errorCodeJSON(myConnection.responseCode)
                 }
             }
@@ -69,9 +75,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
         return try {
             val retStr = StringBuilder(inputStream.readText()).toString()
-            //Log.i("RET:", retStr)
             if (!retStr.isEmpty()) {
-              //Log.i("RET is empty:", retStr.isEmpty().toString())
                 JSONObject(retStr)
             } else {
                 JSONObject()
@@ -92,6 +96,5 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
         val ERROR_404 = errorCodeJSON(404)
         val ERROR_500 = errorCodeJSON(500)
     }
-
 
 }

@@ -33,5 +33,46 @@
     <string name="no_data">There is no data for %1$s</string>
     <string name="open_network_settings">Open network settings</string>
     <string name="back_head">Back Head</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="back_chest">Back Chest</string>
+    <string name="back_lowerback">Back Lowerback</string>
+    <string name="back_right_shoulder">Back Right Shoulder</string>
+    <string name="back_left_shoulder">Back Left Shoulder</string>
+    <string name="back_right_upperarm">Back Right Upperarm</string>
+    <string name="back_left_upperarm">Back Left Upperarm</string>
+    <string name="back_right_elbow">Back Right Elbow</string>
+    <string name="back_left_elbow">Back Left Elbow</string>
+    <string name="back_right_forearm">Back Right Forearm</string>
+    <string name="back_left_forearm">Back Left Forearm</string>
+    <string name="back_right_hand">Back Right Hand</string>
+    <string name="back_left_hand">Back Left Hand</string>
+    <string name="back_hips">Back Hips</string>
+    <string name="back_butt">Back Butt</string>
+    <string name="back_thighs">Back Thighs</string>
+    <string name="back_knees">Back Knees</string>
+    <string name="back_calves">Back Calves</string>
+    <string name="back_feet">Back Feet</string>
+    <string name="front_right_shoulder">Front Right Shoulder</string>
+    <string name="front_left_shoulder">Front Left Shoulder</string>
+    <string name="front_right_upperarm">Front Right Upperarm</string>
+    <string name="front_left_upperarm">Front Left Upperarm</string>
+    <string name="front_right_elbow">Front Right Elbow</string>
+    <string name="front_left_elbow">Front Left Elbow</string>
+    <string name="front_right_forearm">Front Right Forearm</string>
+    <string name="front_left_forearm">Front Left Forearm</string>
+    <string name="front_right_hand">Front Right Hand</string>
+    <string name="front_left_hand">Front Left Hand</string>
+    <string name="front_hips">Front Hips</string>
+    <string name="front_groin">Front Groin</string>
+    <string name="front_thighs">Front Thighs</string>
+    <string name="front_knees">Front Knees</string>
+    <string name="front_lowerlegs">Front Lowerlegs</string>
+    <string name="front_feet">Front Feet</string>
+    <string name="legal_title" formatted="true">MEDICAL ADVICE DISCLAIMER</string>
+    <string name="legal_text" formatted="true">
+        The Author provides the services, information, content and/or data (collectively, “Information”) contained therein for informational purposes only. The Author does not provide any medical advice on the Site, and the Information should not be so construed or used. Using, accessing and/or browsing the Site and/or providing personal or medical information to the Author does not create a physician-patient relationship between you and the Author. Nothing contained in the Site is intended to create a physician-patient relationship, to replace the services of a licensed, trained physician or health professional or to be a substitute for medical advice of a physician or trained health professional licensed in your state. You should not rely on anything contained in the Site, and you should consult a physician licensed in your state in all matters relating to your health. You hereby agree that you shall not make any health or medical related decision based in whole or in part on anything contained in the Site.
+    </string>
+    <string name="about_title">About</string>
+
 </resources>
 

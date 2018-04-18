@@ -53,8 +53,6 @@ class Cause() : Parcelable {
         }
     }
 
-
-
     companion object {
         const val EXTREME_STR: String = "extreme" //red
         const val CHILDREN_STR: String = "children" //green

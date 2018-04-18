@@ -58,7 +58,7 @@ class SpecificBodyRegion() : Parcelable {
 
     fun toJSONObject(): JSONObject {
         val res = JSONObject()
-        res.put(BODY_REGION_STR, this.bodyRegionId)
+      //  res.put(BODY_REGION_STR, this.bodyRegionId)
         res.put(ID_STR, this.id)
         return res
     }
@@ -68,7 +68,6 @@ class SpecificBodyRegion() : Parcelable {
     companion object {
         const val S_REGION_STR = "specific_region"
         const val S_REGIONS_STR = "specific_regions"
-        const val BODY_REGION_STR = "body_region_id"
         const val ID_STR = "id"
         @JvmField val CREATOR = object : Parcelable.Creator<SpecificBodyRegion> {
             override fun createFromParcel(parcel: Parcel): SpecificBodyRegion {

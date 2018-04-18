@@ -7,10 +7,6 @@
         <item name="about">About</item>
 
     </string-array>
-    <string-array name="method_spinner_list">
-        <item>GET</item>
-        <item>POST</item>
-    </string-array>
     <array name="drawer_images">
         <item>@drawable/ic_home</item>
         <item>@drawable/ic_settings</item>
@@ -22,8 +18,12 @@
         <item name="search">search</item>
         <item name="settings">settings</item>
         <item name="about">about</item>
-        <!--<item name="debug">debug</item>-->
     </string-array>
+    <string-array name="about_action_list">
+        <item name="help">Help</item>
+        <item name="legal">Legal</item>
+    </string-array>
+
     <string-array name="sample_symptoms_list">
         <item>Symptom 1</item>
         <item>Symptom 2</item>
