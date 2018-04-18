@@ -14,6 +14,7 @@
 		945E69E520741697001056DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945E69E420741697001056DA /* Assets.xcassets */; };
 		945E69E820741697001056DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945E69E620741697001056DA /* LaunchScreen.storyboard */; };
 		94E0EA1520743F830024574F /* bodyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E0EA1420743F830024574F /* bodyViewController.swift */; };
+		94F059EA2086D59600749676 /* bodyRegionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F059E92086D59600749676 /* bodyRegionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		945E69E720741697001056DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		945E69E920741697001056DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E0EA1420743F830024574F /* bodyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bodyViewController.swift; sourceTree = "<group>"; };
+		94F059E92086D59600749676 /* bodyRegionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bodyRegionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				147442D620859AC90053820F /* backViewController.swift */,
 				945E69E620741697001056DA /* LaunchScreen.storyboard */,
 				945E69E920741697001056DA /* Info.plist */,
+				94F059E92086D59600749676 /* bodyRegionController.swift */,
 			);
 			path = PocketDoc;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				945E69E020741697001056DA /* ViewController.swift in Sources */,
+				94F059EA2086D59600749676 /* bodyRegionController.swift in Sources */,
 				94E0EA1520743F830024574F /* bodyViewController.swift in Sources */,
 				945E69DE20741697001056DA /* AppDelegate.swift in Sources */,
 				147442D720859AC90053820F /* backViewController.swift in Sources */,
