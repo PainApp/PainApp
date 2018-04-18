@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.app.Fragment
+import android.graphics.Region
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -71,7 +72,7 @@ class RegionFragment : Fragment() {
         if (context is OnFragmentInteractionListener) {
             mListener = context
         } else {
-           // throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
+            throw RuntimeException(context!!.toString() + " must implement OnFragmentInteractionListener")
         }
     }
 
@@ -91,7 +92,7 @@ class RegionFragment : Fragment() {
      */
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+        fun onRegionClicked(sRegion: SpecificBodyRegion)
     }
 
     companion object {

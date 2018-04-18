@@ -1,8 +1,10 @@
 <android.support.v7.widget.Toolbar android:id="@+id/main_toolbar"
-    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:minHeight="?android:attr/actionBarSize"
-    android:background="@color/colorPrimary"
-    app:theme="@style/ToolbarTheme"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    android:elevation="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>

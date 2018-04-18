@@ -27,8 +27,8 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
         var myConnection: HttpURLConnection? = null
 
         try {
-            Log.i("Url", urlMethod!!.url.toString())
-            val url = urlMethod.url
+         //   Log.i("Url", urlMethod!!.url.toString())
+            val url = urlMethod!!.url
             myConnection = url.openConnection() as HttpURLConnection
             myConnection.requestMethod = urlMethod.methodString
             myConnection.connectTimeout = 3000
@@ -43,7 +43,7 @@ abstract class DownloadDataTask : AsyncTask<HTTPUrlMethod, Int, JSONObject>() {
 
 
                 if (myConnection.responseCode != 200) {
-                    Log.e("Response Code", myConnection.responseMessage)
+                //    Log.e("Response Code", myConnection.responseMessage)
                     return errorCodeJSON(myConnection.responseCode)
                 }
             }

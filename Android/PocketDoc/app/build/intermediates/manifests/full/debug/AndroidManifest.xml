@@ -37,6 +37,9 @@
         <activity
             android:name="xyz.painapp.pocketdoc.activities.CausesActivity"
             android:parentActivityName="xyz.painapp.pocketdoc.activities.RegionActivity" />
+        <activity
+            android:name="xyz.painapp.pocketdoc.activities.AboutActivity"
+            android:parentActivityName="xyz.painapp.pocketdoc.activities.MainActivity" />
     </application>
 
 </manifest>

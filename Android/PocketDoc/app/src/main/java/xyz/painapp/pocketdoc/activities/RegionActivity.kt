@@ -2,27 +2,27 @@ package xyz.painapp.pocketdoc.activities
 
 import android.app.Fragment
 import android.app.FragmentManager
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
-import xyz.painapp.pocketdoc.entities.BodyRegion
-import xyz.painapp.pocketdoc.entities.DownloadDataTask
-import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
-import xyz.painapp.pocketdoc.entities.OnTaskCompletedListener
+import xyz.painapp.pocketdoc.entities.*
 import xyz.painapp.pocketdoc.fragments.LoadingFragment
 import xyz.painapp.pocketdoc.fragments.RegionFragment
 
-class RegionActivity : AppCompatActivity(), OnTaskCompletedListener {
+class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragment.OnFragmentInteractionListener {
 
 
-    private lateinit var bodyRegion: BodyRegion
+
+    private var bodyRegion: BodyRegion? = null
     private var fManager: FragmentManager? = null
-    private var currentFragment: Fragment? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,16 +35,22 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         bodyRegion = intent.getParcelableExtra(BodyRegion.BODY_REGION_STR)
+
+
+        if (bodyRegion == null) {
+            bodyRegion = savedInstanceState?.getParcelable(BodyRegion.BODY_REGION_STR)
+        }
+
         fManager = fragmentManager
         downloadRegionInfo()
-
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (currentFragment != null && !(currentFragment!!.isVisible)) {
-            fragmentManager!!.beginTransaction().replace(R.id.region_fragment_container, currentFragment).commit()
+
+    override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
+        outState?.run {
+            putParcelable(BodyRegion.BODY_REGION_STR, bodyRegion)
         }
+        super.onSaveInstanceState(outState, outPersistentState)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -56,16 +62,22 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener {
          DownloadRegionInfoTask(this, fragmentManager).execute(HTTPUrlMethod(
                 HTTPUrlMethod.BODY_REGION_URL,
                 HTTPUrlMethod.POST,
-                bodyRegion.toJSONObject()))
+                bodyRegion?.toJSONObject()))
+    }
+
+    override fun onRegionClicked(sRegion: SpecificBodyRegion) {
+        val intent = Intent(this, CausesActivity::class.java)
+        intent.putExtra(SpecificBodyRegion.S_REGION_STR, sRegion)
+        startActivity(intent)
     }
 
     override fun onTaskCompleted(vararg values: Any?) {
         if (values[0] is JSONObject) {
             bodyRegion = BodyRegion(values[0] as JSONObject)
-            if (bodyRegion.specificRegionList.size > 0) {
-                fragmentManager.beginTransaction().replace(R.id.region_fragment_container, RegionFragment.newInstance(bodyRegion)).commit()
+            if (bodyRegion!!.specificRegionList.size > 0) {
+                fragmentManager.beginTransaction().replace(R.id.region_fragment_container, RegionFragment.newInstance(bodyRegion!!)).commit()
             } else {
-                Toast.makeText(this, String.format(getString(R.string.no_data), bodyRegion.name), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, String.format(getString(R.string.no_data), bodyRegion!!.name), Toast.LENGTH_SHORT).show()
                 this.onBackPressed()
             }
         } else {

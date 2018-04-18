@@ -20,9 +20,10 @@
         <item name="about">about</item>
     </string-array>
     <string-array name="about_action_list">
-        <item name="Help">Help</item>
-        <item name="Legal">Legal</item>
+        <item name="help">Help</item>
+        <item name="legal">Legal</item>
     </string-array>
+
     <string-array name="sample_symptoms_list">
         <item>Symptom 1</item>
         <item>Symptom 2</item>

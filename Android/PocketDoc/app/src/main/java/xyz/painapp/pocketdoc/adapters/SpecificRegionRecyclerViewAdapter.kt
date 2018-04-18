@@ -10,6 +10,7 @@ import android.widget.TextView
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.activities.CausesActivity
 import xyz.painapp.pocketdoc.entities.SpecificBodyRegion
+import xyz.painapp.pocketdoc.fragments.RegionFragment
 
 
 /**
@@ -53,11 +54,10 @@ class SpecificRegionRecyclerViewAdapter : RecyclerView.Adapter<SpecificRegionRec
                     HTTPUrlMethod.POST,
                     sRegion?.toJSONObject()
             ))*/
-            Log.i("Specific Region", sRegion!!.toJSONObject().toString())
-            if (v != null) {
-                val intent = Intent(v.context, CausesActivity::class.java)
-                intent.putExtra(SpecificBodyRegion.S_REGION_STR, sRegion)
-                v.context.startActivity(intent)
+           // Log.i("Specific Region", sRegion!!.toJSONObject().toString())
+
+            if (v != null && v.context is RegionFragment.OnFragmentInteractionListener) {
+                (v.context as RegionFragment.OnFragmentInteractionListener).onRegionClicked(sRegion!!)
             }
         }
 

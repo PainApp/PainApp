@@ -24,7 +24,7 @@ import java.io.IOException
 import java.net.URL
 
 
-class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListener, OnTaskCompletedListener, AboutFragment.OnAboutFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListener, OnTaskCompletedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,21 +32,12 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
         testConnection()
     }
 
-    override fun onListItemClicked(item: String) {
-        when (item) {
-            "legal" -> fragmentManager.beginTransaction().replace(R.id.main_fragment_container, LegalFragment()).commit()
-            "help" -> fragmentManager.beginTransaction().replace(R.id.main_fragment_container, HelpFragment()).commit()
-        }
-    }
-
     override fun onMainActionSelected(action: String) {
         when (action) {
             "start" -> startActivity(Intent(this, BodyActivity::class.java))
-            "about" -> fragmentManager.beginTransaction().replace(R.id.main_fragment_container, AboutFragment()).commit()
+            "about" -> startActivity(Intent(this, AboutActivity::class.java))
             else -> Toast.makeText(this, "This action is not supported yet!", Toast.LENGTH_SHORT).show()
-
         }
-
         if (intent != null) {
             startActivity(intent)
         } else {
@@ -95,7 +86,6 @@ class MainActivity : AppCompatActivity(), MainFragment.OnMainActionSelectedListe
 
     companion object {
         const val MAIN_FRAGMENT_TAG = "MAIN_FRAGMENT"
-        const val ABOUT_FRAGMENT_TAG = "ABOUT_FRAGMENT"
         class DownloadConnectInfo(override val listener: OnTaskCompletedListener, override val fragmentManager: FragmentManager) : DownloadDataTask() {
 
             override fun onPreExecute() {
