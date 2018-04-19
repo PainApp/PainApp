@@ -9,17 +9,18 @@
 import Foundation
 import UIKit
 
-class bodyRegionController: UIViewController {
+class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var regionId: Int = -1
     let baseUrl: String = "http://18.218.162.185:8080/PocketDoc/body_regions"
-    //var id: Int = -1
-    //var region: String = ""
     var subRegions = [Any] ()
+    //let regions: [String] = ["please","work","thanks"]
+    var regions: NSArray = []
+    let cellReuseIdentifier = "cell"
     @IBOutlet weak var temp: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var regionView: UITableView!
     
-    func displayRegions() {
+    func displayRegions(completionHandler: @escaping ([String: Any], NSError?) -> Void) {
         
         let jsonID: [String: Int] = ["id":regionId]
         let jsonData = try? JSONSerialization.data(withJSONObject: jsonID)
@@ -38,17 +39,17 @@ class bodyRegionController: UIViewController {
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             if let json = json as? [String: Any] {
                 //print(json)
-                print(json["id"] as! Int)
-                print(json["name"] as! String)
-                print(json["specific_regions"] as! [Any])
+                //print(json["id"] as! Int)
+                //print(json["name"] as! String)
+                //print(json["specific_regions"] as! [Any])
+                completionHandler(json, nil)
                 //print(((json["specific_regions"] as! NSArray)[0]) as! [String: Any])
                 //print((((json["specific_regions"] as! NSArray)[0]) as! [String: Any])["name"] as! String)
-                self.subRegions = (json["specific_regions"] as! [Any])
+                //self.subRegions = (json["specific_regions"] as! [Any])
+                self.regions = json["specific_regions"] as! NSArray
                 DispatchQueue.main.async {
-                    //self.id = (json["id"] as! Int)
-                    // UPDATE TABLE VIEW
                     self.temp.text = ((json["name"] as! String) + " Specific Regions")
-                    //self.tableView.reloadData()
+                    self.regionView.reloadData()
                 }
             }
         }
@@ -56,11 +57,27 @@ class bodyRegionController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        displayRegions()
+        displayRegions() { json, error in
+            print(json)
+            //self.temp.text = ((json["name"] as! String) + " Specific Regions")
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "PocketDoc"
+        self.regionView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        regionView.delegate = self
+        regionView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.regions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = self.regionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        cell.textLabel?.text = ((self.regions[indexPath.row] as! [String:Any])["name"] as! String)
+        return cell
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
