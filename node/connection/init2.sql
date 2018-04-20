@@ -56,7 +56,7 @@ VALUES
        
        /* chest */
        (6, 3, "Anterior"),
-       (7, 4, "Posterior");
+       (7, 4, "Posterior"),
        
        /* abdomen */
        (8, 5, "Top Left"),
@@ -68,7 +68,7 @@ VALUES
        (14, 5, "Top Right"),
        (15, 5, "Middle Right"),
        (16, 5, "Bottom Right"),
-       (17, 6, "Lower")
+       (17, 6, "Lower"),
        
        /* shoulder */
        (18, 7, "Lateral"),
