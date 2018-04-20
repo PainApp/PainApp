@@ -130,7 +130,7 @@ VALUES
        
        
 /* head */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* Facial/Frontal */
        (1, "Buccinator Trigger Point", "default"),
@@ -267,7 +267,7 @@ VALUES
        (5, "Tension Headache", "default");
        
 /* chest */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES 
        /* anterior */
        (6, "Costochondritis", "default"),
@@ -321,7 +321,7 @@ VALUES
        (7, "Ureter referred pain", "default");
        
 /* abdomen */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES 
               /* Top Left */
        (8, "Biliary Tract Disorder", "default"),
@@ -412,7 +412,7 @@ VALUES
        (17, "Ureter referred pain", "default");
        
 /* shoulder */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* lateral */
        (18, "Acromioclavicular Ganglion", "default"),
@@ -506,7 +506,7 @@ VALUES
        (20, "Transverse humeral ligament sprain sprain/rupture", "default");
        
 /* elbow */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* lateral */
        (21, "Anconeus trigger point", "default"),
@@ -553,7 +553,7 @@ VALUES
        (24, "Ulnar nerve dislocation", "default");
        
 /* forearm */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* lateral */
        (25, "Abductor digiti minimi trigger point", "default"),
@@ -638,7 +638,7 @@ VALUES
        (28, "Supinator Trigger Point", "default");
        
 /* wrist */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* lateral */
        (29, "Aseptic necrosis capitate", "default"),
@@ -681,7 +681,7 @@ VALUES
        (32, "Ganglion/Growths", "default");
        
 /* hand */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* fingers */
        (33, "Gamekeepers thumb", "default"),
@@ -706,7 +706,7 @@ VALUES
        (34, "Trigger Finger", "default");
        
 /* hip */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* deep hip */
        (35, "Adhesive Capsulitis", "default"),
@@ -777,7 +777,7 @@ VALUES
        (38, "Subacute strain at the femoral insertion of anterior hip capsule", "default");
        
 /* thigh */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* anterior */
        (39, "AIIS Avulsion Fracture", "extreme"),
@@ -850,7 +850,7 @@ VALUES
        (41, "Subacute strain at the femoral insertion of anterior hip capsule", "default");
        
 /* groin/butt */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* medial */
        (42, "Adductor magnus trigger point", "default"),
@@ -925,7 +925,7 @@ VALUES
        (43, "Sphincter ani muscles", "default");
        
 /* knee/leg */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* anterior */
        (44, "Adductor longus brevis trigger point", "default"),
@@ -1056,7 +1056,7 @@ VALUES
        (50, "Cruciate Ligament Injury", "default");
        
 /* foot */
-INSERT INTO causes (id, name)
+INSERT INTO causes (sbody_region_id, name, classification)
 VALUES
        /* sole */
        (51, "Lateral Plantar Nerve Neuropathy/Entrapment", "default"),
