@@ -45,11 +45,12 @@ VALUES (1, "Front Hips"),
        (23, "Front Lowerlegs"), 
        (24, "Back Lowerlegs"), 
        (25, "Front Knees"), 
-       (26, "Back Hips"), 
-       (27, "Front Upperarm"), 
-       (28, "Back Upperarm"),
-       (29, "Back Knees"), 
-       (30, "Front Hips");
+       (26, "Back Knees"), 
+       (27, "Front Hips");
+       (28, "Back Hips"), 
+       (29, "Front Upperarm"), 
+       (30, "Back Upperarm");
+       
 INSERT INTO specific_regions (id, body_region_id, name)
 VALUES (1, 1, "Deep Hip"), 
        (2, 1, "Anterior"), 
@@ -93,14 +94,12 @@ VALUES (1, 1, "Deep Hip"),
        (35, 12, "Anterior"),
        
        (36, 13, "Fingers"),
-       
        (37, 14, "Fingers"),
        
        (38, 15, "Facial/Frontal"),
        (39, 15, "Temporal"),
        (40, 15, "Parietal"),
        (41, 15, "Neck"),
-       
        (42, 16, "Occipital"),
        (43, 16, "Cervical Spine");
        
@@ -614,3 +613,9 @@ VALUES
        (42, "Sternocleidomastoid Trigger Point", "default"),
        (42, "Suboccipital Trigger Point", "default"),
        (42, "Tension Headache", "default");
+
+/* Chest */
+INSERT INTO causes (sbody_region_id, name, classification)
+VALUES
+
+       (42, "Suboccipital Trigger Point", "default"),
