@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		147442D720859AC90053820F /* backViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147442D620859AC90053820F /* backViewController.swift */; };
+		14F9A5C32089495800C9CA70 /* bodySubregionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9A5C22089495800C9CA70 /* bodySubregionController.swift */; };
 		945E69DE20741697001056DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E69DD20741697001056DA /* AppDelegate.swift */; };
 		945E69E020741697001056DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E69DF20741697001056DA /* ViewController.swift */; };
 		945E69E320741697001056DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945E69E120741697001056DA /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		147442D620859AC90053820F /* backViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backViewController.swift; sourceTree = "<group>"; };
+		14F9A5C22089495800C9CA70 /* bodySubregionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bodySubregionController.swift; sourceTree = "<group>"; };
 		945E69DA20741697001056DA /* PocketDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		945E69DD20741697001056DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		945E69DF20741697001056DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				945E69E120741697001056DA /* Main.storyboard */,
 				945E69E420741697001056DA /* Assets.xcassets */,
 				147442D620859AC90053820F /* backViewController.swift */,
+				14F9A5C22089495800C9CA70 /* bodySubregionController.swift */,
 				945E69E620741697001056DA /* LaunchScreen.storyboard */,
 				945E69E920741697001056DA /* Info.plist */,
 				94F059E92086D59600749676 /* bodyRegionController.swift */,
@@ -149,6 +152,7 @@
 				94F059EA2086D59600749676 /* bodyRegionController.swift in Sources */,
 				94E0EA1520743F830024574F /* bodyViewController.swift in Sources */,
 				945E69DE20741697001056DA /* AppDelegate.swift in Sources */,
+				14F9A5C32089495800C9CA70 /* bodySubregionController.swift in Sources */,
 				147442D720859AC90053820F /* backViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pocketdoc.PocketDoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pocketdoc.PocketDoc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

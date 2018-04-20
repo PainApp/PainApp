@@ -1,27 +1,28 @@
 //
-//  bodyRegionController.swift
+//  bodySubregionController.swift
 //  PocketDoc
 //
-//  Created by Ryan on 4/17/18.
+//  Created by Stevens Mac on 4/19/18.
 //  Copyright © 2018 PocketDoc. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class bodySubregionController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var regionId: Int = -1
-    let baseUrl: String = "http://18.218.162.185:8080/PocketDoc/body_regions"
-    var regions: NSArray = []
+    var subregionId: Int = -1
+    let baseUrl: String = "http://18.218.162.185:8080/PocketDoc/specific_regions"
+    var causes: NSArray = []
     let cellSpacingHeight: CGFloat = 10
     let cellReuseIdentifier = "cell"
+    
     @IBOutlet weak var temp: UILabel!
-    @IBOutlet weak var regionView: UITableView!
+    @IBOutlet weak var subregionView: UITableView!
     
     func displayRegions(completionHandler: @escaping ([String: Any], NSError?) -> Void) {
         
-        let jsonID: [String: Int] = ["id":regionId]
+        let jsonID: [String: Int] = ["id":subregionId]
         let jsonData = try? JSONSerialization.data(withJSONObject: jsonID)
         let url = URL(string: baseUrl)
         var request = URLRequest(url: url!)
@@ -29,7 +30,7 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
         request.httpBody = jsonData
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
@@ -47,10 +48,10 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 
                 completionHandler(json, nil)
-                self.regions = json["specific_regions"] as! NSArray
+                self.causes = json["causes"] as! NSArray
                 DispatchQueue.main.async {
-                    self.temp.text = ((json["name"] as! String) + " Specific Regions")
-                    self.regionView.reloadData()
+                    self.temp.text = ("Causes of Pain in " + (json["name"] as! String))
+                    self.subregionView.reloadData()
                 }
             }
         }
@@ -66,17 +67,17 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "PocketDoc"
-        self.regionView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        self.regionView.separatorStyle = .none
-        regionView.allowsSelection = false
+        self.subregionView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        self.subregionView.separatorStyle = .none
+        subregionView.allowsSelection = false
         //regionView.backgroundColor = UIColor.white
         //regionView.tintColor = UIColor.white
-        regionView.delegate = self
-        regionView.dataSource = self
+        subregionView.delegate = self
+        subregionView.dataSource = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.regions.count
+        return self.causes.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,10 +90,10 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell:UITableViewCell = (self.regionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-//        cell.textLabel?.text = ((self.regions[indexPath.row] as! [String:Any])["name"] as! String)
-//        return cell
-        let cell = regionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
+        //        let cell:UITableViewCell = (self.regionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+        //        cell.textLabel?.text = ((self.regions[indexPath.row] as! [String:Any])["name"] as! String)
+        //        return cell
+        let cell = subregionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         
         let button : UIButton = UIButton(type:UIButtonType.custom) as UIButton
         button.frame = CGRect(origin: CGPoint(x: 0,y :60), size: CGSize(width: 343, height: 44))
@@ -101,34 +102,29 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
         
         button.titleLabel?.textAlignment = NSTextAlignment.center
         button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        button.setTitle(((self.regions[indexPath.section] as! [String:Any])["name"] as! String), for: UIControlState.normal)
-        button.tag = ((self.regions[indexPath.section] as! [String:Any])["id"] as! Int)
+        //button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        button.setTitle(((self.causes[indexPath.section] as! [String:Any])["name"] as! String), for: UIControlState.normal)
+        button.tag = ((self.causes[indexPath.section] as! [String:Any])["id"] as! Int)
         
         button.backgroundColor = .clear
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
-
+        
+        for view in cell.subviews {
+            if (type(of: view) == UIButton.self) {
+                view.removeFromSuperview()
+            }
+        }
+        
         cell.addSubview(button)
+        
         return cell
     }
     
-    @objc func buttonClicked(sender : UIButton) {
-        self.performSegue(withIdentifier: "showSubregionPage", sender: sender.tag)
-        print((sender.titleLabel?.text)! + " (" + String(sender.tag) + ") touched!")
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
-        if (segue.identifier == "showSubregionPage") {
-            let subregionController = segue.destination as! bodySubregionController
-            let id = sender as! Int
-            subregionController.subregionId = id
-        }
-    }
+//    @objc func buttonClicked(sender : UIButton) {
+//        print((sender.titleLabel?.text)! + " (" + String(sender.tag) + ") touched!")
+//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
