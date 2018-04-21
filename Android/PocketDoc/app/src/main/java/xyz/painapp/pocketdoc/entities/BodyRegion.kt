@@ -2,6 +2,7 @@ package xyz.painapp.pocketdoc.entities
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import android.widget.Button
 import org.json.JSONArray
 import org.json.JSONObject
@@ -31,6 +32,7 @@ class BodyRegion() : Parcelable {
             if (name in REGION_TAG_LIST) {
                 this.tag = name
             } else {
+                Log.e("Invalid tag:", name)
                 throw IllegalArgumentException("Invalid tag name")
             }
 
@@ -68,32 +70,31 @@ class BodyRegion() : Parcelable {
             override fun createFromParcel(parcel: Parcel): BodyRegion = BodyRegion(parcel)
             override fun newArray(size: Int): Array<BodyRegion?> = arrayOfNulls(size)
         }
-        val REGION_TAG_LIST: Array<String> =
-                arrayOf("Front Hips",
-                "Back Hips",
+        var REGION_TAG_LIST: Array<String> =
+                arrayOf("Front Hip",
+                "Back Hip",
                 "Front Elbow",
                 "Back Elbow",
-                "Front Feet",
-                "Back Feet",
-                "Front Hand",
-                "Back Hand",
+                "Front Foot/Ankle",
+                "Back Foot/Ankle",
+                "Front Wrist/Hand",
+                "Back Wrist/Hand",
                 "Front Upperarm",
                 "Back Upperarm",
                 "Front Forearm",
                 "Back Forearm",
-                "Front Lowerlegs",
-                "Back Lowerlegs",
-                "Front Knees",
-                "Back Knees",
-                "Front Thighs",
-                "Back Thighs",
+                "Front Knee/Leg",
+                "Back Knee/Leg",
+                "Front Thigh",
+                "Back Thigh",
                 "Front Groin",
-                "Back Groin",
+                "Back Butt",
                 "Front Shoulder",
                 "Back Shoulder",
                 "Front Chest",
                 "Back Chest",
                 "Front Head",
+                "Back Head",
                 "Front Abdomen",
                 "Back Abdomen")
         const val BODY_REGIONS_STR = "body_regions"
@@ -102,7 +103,6 @@ class BodyRegion() : Parcelable {
         const val ID_STR = "id"
         fun fromJSONArray(jsonArray: JSONArray) : ArrayList<BodyRegion> {
             val bodyRegions: ArrayList<BodyRegion> = ArrayList()
-
             (0 until jsonArray.length()).mapTo(bodyRegions) { BodyRegion(jsonArray.getJSONObject(it)) }
             return bodyRegions
         }

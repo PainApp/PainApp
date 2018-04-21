@@ -52,7 +52,7 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragm
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.body_activity_options_menu, menu)
+        menuInflater.inflate(R.menu.options_menu, menu)
         return true
     }
 

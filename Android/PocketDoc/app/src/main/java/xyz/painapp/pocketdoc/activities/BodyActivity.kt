@@ -8,6 +8,7 @@ import android.support.constraint.ConstraintLayout
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -67,7 +68,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.body_activity_options_menu, menu)
+        menuInflater.inflate(R.menu.options_menu, menu)
         return true
     }
 
@@ -75,7 +76,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item!!.itemId) {
-            R.id.search_btn -> Toast.makeText(this, "You clicked search", Toast.LENGTH_SHORT).show()
+            R.id.help_btn -> Toast.makeText(this, "You clicked help", Toast.LENGTH_SHORT).show()
             else -> {
                 return super.onOptionsItemSelected(item)
             }
@@ -99,6 +100,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
         if (values[0] is ArrayList<*>) {
             val mList = values[0] as ArrayList<*>
             bodyRegionList = mList.filterIsInstance<BodyRegion>() as ArrayList<BodyRegion>
+            Log.i("BodyRegionList", bodyRegionList.toString())
             fragmentManager.beginTransaction().replace(R.id.body_fragment_container, BodyFragment.newInstance(bodyRegionList!!, orientation), BODY_FRAGMENT_TAG).commit()
         } else {
             val lFragment = fragmentManager.findFragmentByTag(LOADING_FRAGMENT_TAG) as LoadingFragment
@@ -136,6 +138,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
             override fun onPostExecute(result: JSONObject?) {
                 if (!result!!.has(HTTPUrlMethod.RESPONSE_CODE_STR)) {
                     val bodyRegionList = BodyRegion.fromJSONArray(result.getJSONArray(BodyRegion.BODY_REGIONS_STR))
+                    Log.i("bodyRegionList", bodyRegionList.toString())
                     listener.onTaskCompleted(bodyRegionList)
                 } else {
                     listener.onTaskCompleted(false)

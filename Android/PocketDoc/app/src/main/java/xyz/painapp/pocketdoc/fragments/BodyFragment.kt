@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.app.Fragment
 import android.support.constraint.ConstraintLayout
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -97,7 +98,7 @@ class BodyFragment : Fragment(), View.OnClickListener {
         @JvmStatic
         fun newInstance(bodyRegionList: ArrayList<BodyRegion>, orientation: Boolean) =
                 BodyFragment().apply {
-                    arguments.apply {
+                    arguments = Bundle().apply {
                         putParcelableArrayList(ARG_BODY_LIST, bodyRegionList)
                         putBoolean(ARG_ORIENTATION, orientation)
                     }
