@@ -13,23 +13,22 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.BodyRegion
 import xyz.painapp.pocketdoc.entities.DownloadDataTask
 import xyz.painapp.pocketdoc.entities.HTTPUrlMethod
 import xyz.painapp.pocketdoc.entities.OnTaskCompletedListener
-import xyz.painapp.pocketdoc.fragments.BodyFragment
-import xyz.painapp.pocketdoc.fragments.LoadingFragment
+import xyz.painapp.pocketdoc.fragments.*
 
-class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedListener, BodyFragment.OnBodyRegionSelectedListener {
+class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedListener, BodyFragment.OnBodyRegionSelectedListener, HelpDialogInteractionListener {
 
     private var fManager: FragmentManager? = null
     private var currentFragment: Fragment? = null
     private lateinit var flipButton: Button
     private var orientation = true
     private var bodyRegionList: ArrayList<BodyRegion>? = null
+    private val helpDialog: HelpDialogFragment = HelpDialogFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,25 +62,21 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
         if (currentFragment != null) {
             fManager!!.beginTransaction().replace(R.id.body_fragment_container, currentFragment).commit()
         }
-
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
         return true
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         when (item!!.itemId) {
-            R.id.help_btn -> Toast.makeText(this, "You clicked help", Toast.LENGTH_SHORT).show()
+            R.id.help_btn -> helpDialog.show(fragmentManager, HelpDialogFragment.HELP_DIALOG_TAG)
             else -> {
                 return super.onOptionsItemSelected(item)
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -120,6 +115,10 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
         val intent = Intent(this, RegionActivity::class.java)
         intent.putExtra(BodyRegion.BODY_REGION_STR, bodyRegion)
         startActivity(intent)
+    }
+
+    override fun openHelpFragment() {
+        fragmentManager.beginTransaction().replace(R.id.body_fragment_container, HelpFragment.newInstance()).addToBackStack(HelpDialogFragment.HELP_FRAGMENT_TAG).commit()
     }
 
     companion object {

@@ -8,19 +8,19 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import org.json.JSONObject
 import xyz.painapp.pocketdoc.R
 import xyz.painapp.pocketdoc.entities.*
-import xyz.painapp.pocketdoc.fragments.LoadingFragment
-import xyz.painapp.pocketdoc.fragments.RegionFragment
+import xyz.painapp.pocketdoc.fragments.*
 
-class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragment.OnFragmentInteractionListener {
-
+class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragment.OnFragmentInteractionListener, HelpDialogInteractionListener {
 
 
     private var bodyRegion: BodyRegion? = null
     private var fManager: FragmentManager? = null
+    private val helpDialog = HelpDialogFragment()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +54,17 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragm
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.options_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when (item!!.itemId) {
+            R.id.help_btn -> helpDialog.show(fragmentManager, HelpDialogFragment.HELP_DIALOG_TAG)
+            else -> {
+                return super.onOptionsItemSelected(item)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun downloadRegionInfo() {
@@ -95,6 +106,14 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragm
             }
         }).show()
     }
+
+    override fun openHelpFragment() {
+        fragmentManager.beginTransaction()
+                .replace(R.id.region_fragment_container, HelpFragment.newInstance())
+                .addToBackStack(HelpDialogFragment.HELP_FRAGMENT_TAG)
+                .commit()
+    }
+
 
     companion object {
         private const val LOADING_FRAGMENT_TAG = "loading_fragment"

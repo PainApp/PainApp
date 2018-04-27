@@ -2128,7 +2128,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
@@ -4228,65 +4228,70 @@ public final class R {
     public static final int back_right_shoulder=0x7f0f0032;
     public static final int back_right_upperarm=0x7f0f0033;
     public static final int back_thighs=0x7f0f0034;
-    public static final int body_image_desc=0x7f0f0035;
-    public static final int body_view_str=0x7f0f0036;
-    public static final int bottom_sheet_behavior=0x7f0f0037;
-    public static final int causes_title=0x7f0f0038;
-    public static final int character_counter_pattern=0x7f0f0039;
-    public static final int debug_errStr=0x7f0f003a;
-    public static final int debug_str=0x7f0f003b;
-    public static final int detail_image=0x7f0f003c;
-    public static final int details_example_title=0x7f0f003d;
-    public static final int dismiss=0x7f0f003e;
-    public static final int drawer_close=0x7f0f003f;
-    public static final int drawer_open=0x7f0f0040;
-    public static final int error_connect_internet=0x7f0f0041;
-    public static final int error_dialog_title=0x7f0f0042;
-    public static final int error_server_message=0x7f0f0043;
-    public static final int flip_body=0x7f0f0044;
-    public static final int front_chest=0x7f0f0045;
-    public static final int front_feet=0x7f0f0046;
-    public static final int front_groin=0x7f0f0047;
-    public static final int front_head=0x7f0f0048;
-    public static final int front_hips=0x7f0f0049;
-    public static final int front_knees=0x7f0f004a;
-    public static final int front_left_elbow=0x7f0f004b;
-    public static final int front_left_forearm=0x7f0f004c;
-    public static final int front_left_hand=0x7f0f004d;
-    public static final int front_left_shoulder=0x7f0f004e;
-    public static final int front_left_upperarm=0x7f0f004f;
-    public static final int front_lowerlegs=0x7f0f0050;
-    public static final int front_right_elbow=0x7f0f0051;
-    public static final int front_right_forearm=0x7f0f0052;
-    public static final int front_right_hand=0x7f0f0053;
-    public static final int front_right_shoulder=0x7f0f0054;
-    public static final int front_right_upperarm=0x7f0f0055;
-    public static final int front_thighs=0x7f0f0056;
-    public static final int ip_address_str=0x7f0f0057;
-    public static final int legal_text=0x7f0f0058;
-    public static final int legal_title=0x7f0f0059;
-    public static final int loading=0x7f0f005a;
-    public static final int method_str=0x7f0f005b;
-    public static final int muscle_str=0x7f0f005c;
-    public static final int no_data=0x7f0f005d;
-    public static final int ok=0x7f0f005e;
-    public static final int open_network_settings=0x7f0f005f;
-    public static final int password_toggle_content_description=0x7f0f0060;
-    public static final int path_password_eye=0x7f0f0061;
-    public static final int path_password_eye_mask_strike_through=0x7f0f0062;
-    public static final int path_password_eye_mask_visible=0x7f0f0063;
-    public static final int path_password_strike_through=0x7f0f0064;
-    public static final int port_str=0x7f0f0065;
-    public static final int primary_symptoms_str=0x7f0f0066;
-    public static final int region_image_desc=0x7f0f0067;
-    public static final int retry=0x7f0f0068;
-    public static final int search=0x7f0f0069;
-    public static final int search_menu_title=0x7f0f006a;
-    public static final int secondary_symptoms_str=0x7f0f006b;
-    public static final int settings=0x7f0f006c;
-    public static final int specific_region_title=0x7f0f006d;
-    public static final int status_bar_notification_info_overflow=0x7f0f006e;
-    public static final int symptom_title_str=0x7f0f006f;
+    public static final int body_activity_help=0x7f0f0035;
+    public static final int body_image_desc=0x7f0f0036;
+    public static final int body_view_str=0x7f0f0037;
+    public static final int bottom_sheet_behavior=0x7f0f0038;
+    public static final int causes_activity_help=0x7f0f0039;
+    public static final int causes_title=0x7f0f003a;
+    public static final int character_counter_pattern=0x7f0f003b;
+    public static final int close=0x7f0f003c;
+    public static final int debug_errStr=0x7f0f003d;
+    public static final int debug_str=0x7f0f003e;
+    public static final int detail_image=0x7f0f003f;
+    public static final int details_example_title=0x7f0f0040;
+    public static final int dismiss=0x7f0f0041;
+    public static final int drawer_close=0x7f0f0042;
+    public static final int drawer_open=0x7f0f0043;
+    public static final int error_connect_internet=0x7f0f0044;
+    public static final int error_dialog_title=0x7f0f0045;
+    public static final int error_server_message=0x7f0f0046;
+    public static final int flip_body=0x7f0f0047;
+    public static final int front_chest=0x7f0f0048;
+    public static final int front_feet=0x7f0f0049;
+    public static final int front_groin=0x7f0f004a;
+    public static final int front_head=0x7f0f004b;
+    public static final int front_hips=0x7f0f004c;
+    public static final int front_knees=0x7f0f004d;
+    public static final int front_left_elbow=0x7f0f004e;
+    public static final int front_left_forearm=0x7f0f004f;
+    public static final int front_left_hand=0x7f0f0050;
+    public static final int front_left_shoulder=0x7f0f0051;
+    public static final int front_left_upperarm=0x7f0f0052;
+    public static final int front_lowerlegs=0x7f0f0053;
+    public static final int front_right_elbow=0x7f0f0054;
+    public static final int front_right_forearm=0x7f0f0055;
+    public static final int front_right_hand=0x7f0f0056;
+    public static final int front_right_shoulder=0x7f0f0057;
+    public static final int front_right_upperarm=0x7f0f0058;
+    public static final int front_thighs=0x7f0f0059;
+    public static final int ip_address_str=0x7f0f005a;
+    public static final int legal_text=0x7f0f005b;
+    public static final int legal_title=0x7f0f005c;
+    public static final int loading=0x7f0f005d;
+    public static final int method_str=0x7f0f005e;
+    public static final int more_help=0x7f0f005f;
+    public static final int muscle_str=0x7f0f0060;
+    public static final int no_data=0x7f0f0061;
+    public static final int ok=0x7f0f0062;
+    public static final int open_network_settings=0x7f0f0063;
+    public static final int password_toggle_content_description=0x7f0f0064;
+    public static final int path_password_eye=0x7f0f0065;
+    public static final int path_password_eye_mask_strike_through=0x7f0f0066;
+    public static final int path_password_eye_mask_visible=0x7f0f0067;
+    public static final int path_password_strike_through=0x7f0f0068;
+    public static final int port_str=0x7f0f0069;
+    public static final int primary_symptoms_str=0x7f0f006a;
+    public static final int region_activity_help=0x7f0f006b;
+    public static final int region_image_desc=0x7f0f006c;
+    public static final int retry=0x7f0f006d;
+    public static final int search=0x7f0f006e;
+    public static final int search_menu_title=0x7f0f006f;
+    public static final int secondary_symptoms_str=0x7f0f0070;
+    public static final int settings=0x7f0f0071;
+    public static final int specific_region_title=0x7f0f0072;
+    public static final int status_bar_notification_info_overflow=0x7f0f0073;
+    public static final int symptom_title_str=0x7f0f0074;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f100000;
@@ -9594,7 +9599,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
+     * <tr><td>direct</td><td>1</td><td></td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
