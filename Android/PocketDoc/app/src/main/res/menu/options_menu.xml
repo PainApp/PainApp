@@ -2,6 +2,11 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:title="@string/refresh"
+        android:icon="@drawable/ic_refresh"
+        android:id="@+id/refresh_btn"
+        app:showAsAction="ifRoom"/>
+    <item
         android:title="@string/Help"
         android:icon="@drawable/ic_help"
         android:id="@+id/help_btn"

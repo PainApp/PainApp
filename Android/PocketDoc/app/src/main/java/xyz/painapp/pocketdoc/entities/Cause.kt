@@ -14,7 +14,7 @@ import xyz.painapp.pocketdoc.R
 class Cause() : Parcelable {
     private var id: Int = 0
     var name: String = ""
-    private var classification: String = EXTREME_STR
+    private var classification: String = DEFAULT_VAL
     set(value) {
         if (value in CLASSIFICATION_LIST.keys) {
             field = value
@@ -54,11 +54,11 @@ class Cause() : Parcelable {
     }
 
     companion object {
-        const val EXTREME_STR: String = "extreme" //red
-        const val CHILDREN_STR: String = "children" //green
-        const val FEMALE_STR: String = "female" // pink
-        const val OLD_STR: String = "old" // purple
-        const val DEFAULT_VAL: String = "default"
+        private const val EXTREME_STR: String = "extreme" //red
+        private const val CHILDREN_STR: String = "children" //green
+        private const val FEMALE_STR: String = "female" // pink
+        private const val OLD_STR: String = "old" // purple
+        private const val DEFAULT_VAL: String = "default"
         const val CAUSES_STR: String = "causes"
 
         val CLASSIFICATION_LIST: HashMap<String, Int> = hashMapOf(EXTREME_STR to R.color.red, CHILDREN_STR to R.color.green, FEMALE_STR to R.color.pink, OLD_STR to R.color.purple, DEFAULT_VAL to R.color.white)

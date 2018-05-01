@@ -50,11 +50,12 @@ class CausesActivity : AppCompatActivity(), OnTaskCompletedListener, HelpDialogI
 
         when (item!!.itemId) {
             R.id.help_btn -> helpDialog.show(fragmentManager, HelpDialogFragment.HELP_DIALOG_TAG)
+            R.id.refresh_btn -> downloadCauseInfo()
             else -> {
                 return super.onOptionsItemSelected(item)
             }
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun downloadCauseInfo() {

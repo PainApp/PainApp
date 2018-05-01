@@ -74,10 +74,17 @@
         The Author provides the services, information, content and/or data (collectively, “Information”) contained therein for informational purposes only. The Author does not provide any medical advice on the Site, and the Information should not be so construed or used. Using, accessing and/or browsing the Site and/or providing personal or medical information to the Author does not create a physician-patient relationship between you and the Author. Nothing contained in the Site is intended to create a physician-patient relationship, to replace the services of a licensed, trained physician or health professional or to be a substitute for medical advice of a physician or trained health professional licensed in your state. You should not rely on anything contained in the Site, and you should consult a physician licensed in your state in all matters relating to your health. You hereby agree that you shall not make any health or medical related decision based in whole or in part on anything contained in the Site.
     </string>
     <string name="about_title">About</string>
-    <string name="body_activity_help">Click a region of the body where pain is felt.\nFor a more in depth tutorial, click \"More Help\"</string>
+    <string name="body_activity_help">Click a region of the body where pain is felt.\nFor a more in depth tutorial, tap \"More Help\"</string>
     <string name="region_activity_help">Click a specific region of the body where pain is felt.</string>
-    <string name="causes_activity_help">Test causes help message</string>
+    <string name="causes_activity_help">Causes of pain are listed below. Each color represents the following:</string>
     <string name="more_help">More Help</string>
     <string name="close">Close</string>
+    <string name="default_help_dialog">Tap \"More Help\" to open the aoo tutorial</string>
+    <string name="extreme_cause">Extreme or life threatening.</string>
+    <string name="children_cause">Occurs more frequently in children.</string>
+    <string name="female_cause">Occurs more frequently in females.</string>
+    <string name="elderly_cause">Occurs more frequently in elderly.</string>
+    <string name="refresh">Refresh</string>
+    <string name="help_title">Help</string>
 </resources>
 

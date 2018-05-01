@@ -60,11 +60,12 @@ class RegionActivity : AppCompatActivity(), OnTaskCompletedListener, RegionFragm
 
         when (item!!.itemId) {
             R.id.help_btn -> helpDialog.show(fragmentManager, HelpDialogFragment.HELP_DIALOG_TAG)
+            R.id.refresh_btn -> downloadRegionInfo()
             else -> {
                 return super.onOptionsItemSelected(item)
             }
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun downloadRegionInfo() {

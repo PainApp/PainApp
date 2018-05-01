@@ -2,10 +2,12 @@ package xyz.painapp.pocketdoc.activities
 
 import android.app.Fragment
 import android.app.FragmentManager
+import android.app.TaskStackBuilder
 import android.content.Intent
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.design.widget.Snackbar
+import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
@@ -54,7 +56,7 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
     override fun onPostResume() {
         super.onPostResume()
         fManager = fragmentManager
-        DownloadBodyInfoTask(this, fManager!!).execute(HTTPUrlMethod(HTTPUrlMethod.BODY_REGION_URL, HTTPUrlMethod.GET, null))
+        testConnection()
     }
 
     override fun onResume() {
@@ -73,11 +75,28 @@ class BodyActivity : AppCompatActivity(), View.OnClickListener, OnTaskCompletedL
 
         when (item!!.itemId) {
             R.id.help_btn -> helpDialog.show(fragmentManager, HelpDialogFragment.HELP_DIALOG_TAG)
+            R.id.refresh_btn -> testConnection()
+            /*android.R.id.home -> {
+                val upIntent: Intent? = NavUtils.getParentActivityIntent(this)
+                if (upIntent is Intent) {
+                    if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                        TaskStackBuilder.create(this)
+                                // Add all of this activity's parents to the back stack
+                                .addNextIntentWithParentStack(upIntent)
+                                // Navigate up to the closest parent
+                                .startActivities()
+                    } else {
+                        // This activity is part of this app's task, so simply
+                        // navigate up to the logical parent activity.
+                        NavUtils.navigateUpTo(this, upIntent)
+                    }
+                }
+            }*/
             else -> {
                 return super.onOptionsItemSelected(item)
             }
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     override fun onClick(v: View?) {
