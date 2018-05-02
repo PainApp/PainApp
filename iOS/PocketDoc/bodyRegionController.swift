@@ -105,6 +105,7 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
         button.setTitle(((self.regions[indexPath.section] as! [String:Any])["name"] as! String), for: UIControlState.normal)
         button.tag = ((self.regions[indexPath.section] as! [String:Any])["id"] as! Int)
         
+        button.titleLabel?.numberOfLines = 0
         button.backgroundColor = .clear
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1

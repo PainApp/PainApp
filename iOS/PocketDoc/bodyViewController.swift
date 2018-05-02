@@ -11,7 +11,7 @@ import UIKit
 
 class bodyViewController: UIViewController {
     
-    @IBOutlet weak var temp: UILabel!
+    //@IBOutlet weak var temp: UILabel!
     let baseUrl: String = "http://18.218.162.185:8080/PocketDoc/body_regions"
 
     @IBAction func imageClicked(_ sender: AnyObject) {

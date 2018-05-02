@@ -38,6 +38,7 @@ class bodySubregionController: UIViewController, UITableViewDelegate, UITableVie
             }
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             if let json = json as? [String: Any] {
+                
                 //print(json)
                 //print(json["id"] as! Int)
                 //print(json["name"] as! String)
@@ -61,7 +62,6 @@ class bodySubregionController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         displayRegions() { json, error in
             print(json)
-            //self.temp.text = ((json["name"] as! String) + " Specific Regions")
         }
     }
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ class bodySubregionController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.regions.count
+        // multiple sections all in 1 row
         return 1
     }
     
@@ -90,9 +90,7 @@ class bodySubregionController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let cell:UITableViewCell = (self.regionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        //        cell.textLabel?.text = ((self.regions[indexPath.row] as! [String:Any])["name"] as! String)
-        //        return cell
+
         let cell = subregionView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
         
         let button : UIButton = UIButton(type:UIButtonType.custom) as UIButton
@@ -106,10 +104,28 @@ class bodySubregionController: UIViewController, UITableViewDelegate, UITableVie
         button.setTitle(((self.causes[indexPath.section] as! [String:Any])["name"] as! String), for: UIControlState.normal)
         button.tag = ((self.causes[indexPath.section] as! [String:Any])["id"] as! Int)
         
-        button.backgroundColor = .clear
+        button.titleLabel?.numberOfLines = 0
+        //button.backgroundColor = .clear
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.black.cgColor
+        //let backColor = UIColor(red: 30/255.0, green: 96/255.0, blue: 171/255.0, alpha: 1.0)
+        let cause: String = ((self.causes[indexPath.section] as! [String:Any])["classification"] as! String)
+        if (cause == "extreme") {
+            button.backgroundColor = UIColor(red: 230/255.0, green: 65/255.0, blue: 65/255.0, alpha: 1.0)
+        }
+        else if (cause == "children") {
+            button.backgroundColor = UIColor(red: 119/255.0, green: 182/255.0, blue: 121/255.0, alpha: 1.0)
+        }
+        else if (cause == "female") {
+            button.backgroundColor = UIColor(red: 236/255.0, green: 64/255.0, blue: 122/255.0, alpha: 1.0)
+        }
+        else if (cause == "old") {
+            button.backgroundColor = UIColor(red: 203/255.0, green: 139/255.0, blue: 201/255.0, alpha: 1.0)
+        }
+        else {
+            button.backgroundColor = .clear
+        }
         
         for view in cell.subviews {
             if (type(of: view) == UIButton.self) {
@@ -118,13 +134,8 @@ class bodySubregionController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         cell.addSubview(button)
-        
         return cell
     }
-    
-//    @objc func buttonClicked(sender : UIButton) {
-//        print((sender.titleLabel?.text)! + " (" + String(sender.tag) + ") touched!")
-//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

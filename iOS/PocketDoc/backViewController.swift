@@ -11,6 +11,23 @@ import UIKit
 
 class backViewController: UIViewController {
     
+    let baseUrl: String = "http://18.218.162.185:8080/PocketDoc/body_regions"
+    
+    @IBAction func imageClicked(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "showRegionPage2", sender: sender.view!.tag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        if (segue.identifier == "showRegionPage2") {
+            let regionController = segue.destination as! bodyRegionController
+            let id = sender as! Int
+            regionController.regionId = id
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,20 +39,6 @@ class backViewController: UIViewController {
     @IBAction func flipToFront(_ sender: Any) {
         self.navigationController?.popViewController(animated: false)
     }
-    
-    //override func viewWillAppear(_ animated: Bool) {
-        //let backButton = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
-        //navigationItem.backBarButtonItem = backButton
-        //self.navigationController!.navigationBar.backItem?.title = "Back"
-    //}
-    
-    //override func viewWillDisappear(_ animated: Bool) {
-        //if !(navigationController?.viewControllers)!.contains(self) {
-            // back button was pressed
-            //self.navigationController?.popToRootViewController(animated: false)
-        //}
-        //super.viewWillDisappear(animated)
-    //}
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
