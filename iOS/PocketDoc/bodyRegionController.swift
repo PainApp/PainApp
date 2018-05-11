@@ -62,15 +62,16 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
             print(json)
             //self.temp.text = ((json["name"] as! String) + " Specific Regions")
         }
+        //regionView.backgroundView = nil
+        regionView.backgroundColor = UIColor.white
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "PocketDoc"
+        self.regionView.backgroundColor = .clear
         self.regionView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         self.regionView.separatorStyle = .none
         regionView.allowsSelection = false
-        //regionView.backgroundColor = UIColor.white
-        //regionView.tintColor = UIColor.white
         regionView.delegate = self
         regionView.dataSource = self
     }
@@ -86,6 +87,12 @@ class bodyRegionController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

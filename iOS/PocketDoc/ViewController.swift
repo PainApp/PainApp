@@ -12,8 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var homeTitle: UILabel!
     @IBOutlet weak var start: UIButton!
-    @IBOutlet weak var search: UIButton!
-    @IBOutlet weak var settings: UIButton!
+    //@IBOutlet weak var search: UIButton!
+    @IBOutlet weak var tutorial: UIButton!
     @IBOutlet weak var about: UIButton!
     @IBOutlet weak var navBar: UINavigationItem!
     
@@ -24,8 +24,8 @@ class ViewController: UIViewController {
         view.backgroundColor = backColor
         homeTitle.textColor = UIColor.white
         start.setTitleColor(UIColor.white, for: .normal)
-        search.setTitleColor(UIColor.white, for: .normal)
-        settings.setTitleColor(UIColor.white, for: .normal)
+        //search.setTitleColor(UIColor.white, for: .normal)
+        tutorial.setTitleColor(UIColor.white, for: .normal)
         about.setTitleColor(UIColor.white, for: .normal)
         
     }

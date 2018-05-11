@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145895BA20A6356C00DBF7C3 /* aboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145895B920A6356C00DBF7C3 /* aboutController.swift */; };
+		145895BC20A637D600DBF7C3 /* tutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145895BB20A637D600DBF7C3 /* tutorialController.swift */; };
 		147442D720859AC90053820F /* backViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147442D620859AC90053820F /* backViewController.swift */; };
 		14F9A5C32089495800C9CA70 /* bodySubregionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9A5C22089495800C9CA70 /* bodySubregionController.swift */; };
 		945E69DE20741697001056DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E69DD20741697001056DA /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145895B920A6356C00DBF7C3 /* aboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutController.swift; sourceTree = "<group>"; };
+		145895BB20A637D600DBF7C3 /* tutorialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorialController.swift; sourceTree = "<group>"; };
 		147442D620859AC90053820F /* backViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backViewController.swift; sourceTree = "<group>"; };
 		14F9A5C22089495800C9CA70 /* bodySubregionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bodySubregionController.swift; sourceTree = "<group>"; };
 		945E69DA20741697001056DA /* PocketDoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketDoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +70,9 @@
 				945E69DD20741697001056DA /* AppDelegate.swift */,
 				945E69DF20741697001056DA /* ViewController.swift */,
 				945E69E120741697001056DA /* Main.storyboard */,
+				145895BB20A637D600DBF7C3 /* tutorialController.swift */,
 				945E69E420741697001056DA /* Assets.xcassets */,
+				145895B920A6356C00DBF7C3 /* aboutController.swift */,
 				147442D620859AC90053820F /* backViewController.swift */,
 				14F9A5C22089495800C9CA70 /* bodySubregionController.swift */,
 				945E69E620741697001056DA /* LaunchScreen.storyboard */,
@@ -151,7 +157,9 @@
 				945E69E020741697001056DA /* ViewController.swift in Sources */,
 				94F059EA2086D59600749676 /* bodyRegionController.swift in Sources */,
 				94E0EA1520743F830024574F /* bodyViewController.swift in Sources */,
+				145895BC20A637D600DBF7C3 /* tutorialController.swift in Sources */,
 				945E69DE20741697001056DA /* AppDelegate.swift in Sources */,
+				145895BA20A6356C00DBF7C3 /* aboutController.swift in Sources */,
 				14F9A5C32089495800C9CA70 /* bodySubregionController.swift in Sources */,
 				147442D720859AC90053820F /* backViewController.swift in Sources */,
 			);
