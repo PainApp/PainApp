@@ -5,7 +5,7 @@ In here lies all the code to make the PocketDoc application run.
 The [node](node) folder contains a NodeJS Express application that hosts the 
 REST server used by the mobile app to query the database. Run the command
 `npm start` from within the folder to install its dependencies and start the
-server. The MySQL database is also cleared andn re-initialized during 
+server. The MySQL database is also cleared and re-initialized during 
 startup.
 
 The file [instructions.txt](node/instructions.txt) contains details on how
@@ -18,4 +18,5 @@ The application data is stored on an AWS RDS instance using MySQL. The
 database is cleared and repopulated when the REST server is restarted. 
 Details for accessing the server are in [.my.cnf](database/.my.cnf) and the
 script used to populate the database is in 
-[initialize.sql](database/initialize.sql).
+[initialize.sql](database/initialize.sql). The database is only accessible
+from the EC2 instance hosting the REST server.
