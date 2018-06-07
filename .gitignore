@@ -1,3 +1,6 @@
 /.metadata/
+/database/.my.cnf
+/node/connection/config.json
 /node/node_modules/
+/node/pocketdoc.pem
 .DS_Store
