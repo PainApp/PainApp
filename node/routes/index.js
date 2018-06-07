@@ -4,7 +4,7 @@ const specific_regionsRoutes = require("./specific_regions");
 
 const constructor = (app) => {
   app.get("/PocketDoc", (req, res) => {
-    res.sendStatus(200);
+    res.status(200).json();
   });
 
   app.use("/PocketDoc/body_regions", body_regionsRoutes);
